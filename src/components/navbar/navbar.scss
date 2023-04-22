@@ -1,0 +1,121 @@
+@import "../../styles/vars.scss";
+
+.navbar {
+  display: flex;
+  margin-left: auto;
+
+  &__list {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-color);
+    z-index: 10;
+
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
+
+    @include shadow(8);
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    transition: color 0.3s ease-in-out;
+    font-size: 1.6rem;
+
+    &:hover {
+      color: var(--secondary-color);
+    }
+  }
+
+  &.active {
+    .navbar__list {
+      transform: translateX(0);
+    }
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .navbar {
+    display: flex;
+
+    &__list {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+      width: auto;
+      height: 100%;
+      background-color: var(--background-color);
+      z-index: auto;
+
+      transform: translateX(0);
+      transition: transform 0s ease-in-out;
+
+      box-shadow: none;
+    }
+
+    &__item {
+      position: relative;
+      display: flex;
+      padding: 0 1rem;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.3s ease-in-out;
+      font-size: 1.2rem;
+
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        height: 0.3rem;
+        width: 0%;
+        border-top-right-radius: 5px;
+
+        background-color: var(--secondary-color);
+        transition: width 0.15s ease-in-out;
+      }
+
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 50%;
+        height: 0.3rem;
+        width: 0%;
+        border-top-left-radius: 5px;
+
+        background-color: var(--secondary-color);
+        transition: width 0.15s ease-in-out;
+      }
+
+      &:hover {
+        color: var(--secondary-color);
+
+        &:before,
+        &:after {
+          transition: width 0.3s ease-in-out;
+          width: 50%;
+        }
+      }
+    }
+
+    .hamburger {
+      display: none;
+    }
+  }
+}

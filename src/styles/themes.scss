@@ -1,0 +1,140 @@
+// Variables pour les couleurs et opacités
+$shadow-color: rgba(0, 0, 0, 0.2);
+$shadow-color-2: rgba(0, 0, 0, 0.14);
+$shadow-color-3: rgba(0, 0, 0, 0.12);
+$shadow-opacity-umbra: 0.2;
+$shadow-opacity-penumbra: 0.14;
+$shadow-opacity-ambient: 0.12;
+
+// Boucle pour générer les différentes ombres
+@for $i from 1 through 24 {
+  .shadow-#{$i} {
+    box-shadow: 0 $i * 1px $i * 2px rgba($shadow-color, $shadow-opacity-umbra),
+      0 $i * 3px $i * 4px rgba($shadow-color, $shadow-opacity-penumbra),
+      0 $i * 6px $i * 6px rgba($shadow-color, $shadow-opacity-ambient);
+  }
+}
+
+/* Couleurs */
+:root {
+  --primary-color: #314269;
+  --primary-color-light-1: #5d6d85;
+  --primary-color-light-2: #8797af;
+  --primary-color-dark-1: #1c2a3e;
+  --primary-color-dark-2: #0c1825;
+
+  --secondary-color: #eb620f;
+  --secondary-color-light-1: #f28549;
+  --secondary-color-light-2: #f7a782;
+  --secondary-color-dark-1: #b44c1c;
+  --secondary-color-dark-2: #722b0f;
+
+  --background-color: #fff;
+  --background-color-dark: #1e1e1e;
+  --text-color: var(--primary-color);
+  --text-color-dark: #f1f1f1;
+}
+
+/* Polices */
+html {
+  font-size: 18px;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+  font-family: "Bebas Neue", sans-serif;
+}
+
+/* Styles de boutons */
+button {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 4px;
+  color: var(--background-color);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 12px 16px;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+}
+
+/* Styles de titre */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--primary-color);
+}
+
+/* Styles de corps de texte */
+p {
+  color: var(--text-color);
+}
+
+/* Thème dark */
+.dark {
+  --background-color: var(--background-color-dark);
+  --text-color: var(--text-color-dark);
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: var(--text-color);
+}
+
+.dark p {
+  color: var(--primary-color-light-2);
+}
+
+.dark button {
+  background-color: var(--primary-color-dark-1);
+  color: var(--background-color);
+}
+
+.dark button:hover {
+  background-color: var(--secondary-color-dark-1);
+  color: var(--background-color);
+}

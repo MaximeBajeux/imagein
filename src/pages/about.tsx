@@ -4,15 +4,14 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout/layout";
 import SEO from "../components/seo/seo";
 
-const IndexPage = () => {
+const AboutPage = () => {
   return (
     <Layout>
-      <SEO title="Home" />
-      <h1>Home</h1>
+      <h1>About</h1>
     </Layout>
   );
 };
 
-export const Head = () => <SEO title="Home" />;
+export const Head = () => <SEO title="About" />;
 
-export default IndexPage;
+export default AboutPage;

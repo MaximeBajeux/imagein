@@ -1,0 +1,19 @@
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1080px;
+$breakpoint-xl: 1440px;
+
+// Mixin pour générer les ombres Material Design
+@mixin shadow($elevation) {
+  $umbra-opacity: 0.2 * $elevation / 24;
+  $penumbra-opacity: 0.14 * $elevation / 24;
+  $ambient-opacity: 0.12 * $elevation / 24;
+
+  $umbra-color: rgba(0, 0, 0, $umbra-opacity);
+  $penumbra-color: rgba(0, 0, 0, $penumbra-opacity);
+  $ambient-color: rgba(0, 0, 0, $ambient-opacity);
+
+  box-shadow: 0 $elevation * 1px $elevation * 2px $umbra-color,
+    0 $elevation * 3px $elevation * 4px $penumbra-color,
+    0 $elevation * 6px $elevation * 6px $ambient-color;
+}
