@@ -1,8 +1,24 @@
+@import "../../styles/vars.scss";
+
 .header {
   display: flex;
+  align-items: center;
+  height: 100px;
 
   &__logo-link {
+    display: flex;
     padding: 0 1rem;
     height: 100%;
+    width: 13rem;
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .header {
+    height: 80px;
+
+    &__logo-link {
+      width: 11rem;
+    }
   }
 }

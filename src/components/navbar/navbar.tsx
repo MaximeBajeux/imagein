@@ -12,16 +12,24 @@ const Navbar = () => {
       <Hamburder callback={setIsActive} isActive={isActive} />
       <ul className="navbar__list">
         <li className="navbar__item">
-          <Link to="/">Home</Link>
+          <Link to="/" activeClassName="active">
+            Home
+          </Link>
         </li>
         <li className="navbar__item">
-          <Link to="/blog">Blog</Link>
+          <Link to="/blog" activeClassName="active">
+            Blog
+          </Link>
         </li>
         <li className="navbar__item">
-          <Link to="/about">About</Link>
+          <Link to="/about" activeClassName="active">
+            About
+          </Link>
         </li>
         <li className="navbar__item">
-          <Link to="/contact">Contact</Link>
+          <Link to="/contact" activeClassName="active">
+            Contact
+          </Link>
         </li>
       </ul>
     </nav>

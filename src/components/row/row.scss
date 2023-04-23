@@ -1,3 +1,50 @@
+@import "../../styles/vars.scss";
+
 .row {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0 auto;
+  max-width: $breakpoint-xl;
+
+  &.center {
+    justify-content: center;
+  }
+
+  &.top {
+    align-items: flex-start;
+  }
+
+  &.middle {
+    align-items: center;
+  }
+
+  &.bottom {
+    align-items: flex-end;
+  }
+
+  &.wide {
+    max-width: $breakpoint-xxl;
+  }
+
+  &.narrow {
+    max-width: $breakpoint-lg;
+  }
+
+  &.stretch {
+    align-items: stretch;
+  }
+
+  &.fullwidth {
+    max-width: none;
+  }
+}
+
+@media all and (min-width: $breakpoint-md) {
+  .row.rtl {
+    justify-content: flex-end;
+    direction: rtl;
+  }
 }

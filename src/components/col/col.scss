@@ -1,3 +1,62 @@
+@import "../../styles/vars.scss";
+
+// col classes work like in boostrap
+// col-xs-12 col-sm-6 col-md-4 col-lg-3
+
 .col {
   display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 0.5rem;
+  direction: ltr;
+  justify-content: flex-start;
+
+  @for $i from 1 through 12 {
+    $calculated: percentage(calc($i / 12));
+    &.col--xs-#{$i} {
+      flex: 0 0 $calculated;
+      max-width: $calculated;
+    }
+  }
+
+  @for $i from 1 through 12 {
+    $calculated: percentage(calc($i / 12));
+    &.col--sm-#{$i} {
+      @media (min-width: $breakpoint-sm) {
+        flex: 0 0 $calculated;
+        max-width: $calculated;
+      }
+    }
+  }
+
+  @for $i from 1 through 12 {
+    $calculated: percentage(calc($i / 12));
+    &.col--md-#{$i} {
+      @media (min-width: $breakpoint-md) {
+        flex: 0 0 $calculated;
+        max-width: $calculated;
+      }
+    }
+  }
+
+  @for $i from 1 through 12 {
+    $calculated: percentage(calc($i / 12));
+    &.col--lg-#{$i} {
+      @media (min-width: $breakpoint-lg) {
+        flex: 0 0 $calculated;
+        max-width: $calculated;
+      }
+    }
+  }
+
+  @for $i from 1 through 5 {
+    &.gap-#{$i} {
+      padding: $i * 0.5rem;
+    }
+  }
+
+  &.center {
+    justify-content: center;
+    align-items: center;
+  }
 }
