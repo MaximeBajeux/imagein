@@ -1,0 +1,95 @@
+@import "../../styles/vars.scss";
+
+.glow-button {
+  --button-background: var(--primary-color-dark-2);
+  --button-color: #fff;
+  --button-shadow: var(--shadow-color);
+  --button-shine-left: rgba(242, 133, 73, 0.5);
+  --button-shine-right: rgba(49, 178, 255, 0.65);
+  --button-glow-start: #fea36d;
+  --button-glow-end: #0080ff;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1px;
+
+  border-radius: 0.5rem;
+  @include shadow(2);
+
+  font-size: 2rem;
+
+  cursor: pointer;
+  transition: box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    @include shadow(4);
+  }
+
+  .gradient {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    mask-image: radial-gradient(white, black);
+    transform: scaleY(1.02) scaleX(1.005) rotate(-0.35deg);
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      transform: scale(1.05) translateY(-44px) rotate(0deg) translateZ(0);
+      padding-bottom: 100%;
+      border-radius: 50%;
+      background: linear-gradient(
+        90deg,
+        var(--button-shine-left),
+        var(--button-shine-right)
+      );
+      animation: rotate linear 2s infinite;
+    }
+  }
+
+  span {
+    z-index: 1;
+    position: relative;
+    display: block;
+    padding: 1rem 1.4rem;
+    border-radius: inherit;
+    background-color: var(--button-background);
+    overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    mask-image: radial-gradient(white, black);
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: -16px;
+      top: -16px;
+      transform: translate(var(--pointer-x, 0px), var(--pointer-y, 0px))
+        translateZ(0);
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background-color: var(--button-glow, transparent);
+      opacity: var(--button-glow-opacity, 0);
+      transition: opacity var(--button-glow-duration, 0.5s);
+      filter: blur(20px);
+    }
+  }
+
+  &:hover {
+    --button-glow-opacity: 1;
+    --button-glow-duration: 0.25s;
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: scale(1.05) translateY(-44px) rotate(360deg) translateZ(0);
+  }
+}

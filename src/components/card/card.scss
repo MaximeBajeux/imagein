@@ -1,3 +1,67 @@
+@import "../../styles/vars.scss";
+
 .card {
   display: flex;
+  flex-direction: column;
+  height: max-content;
+  @include shadow(2);
+  background-color: white;
+  border-radius: 0.5rem;
+  transition: box-shadow 0.2s ease-in-out;
+  overflow: hidden;
+
+  &__image {
+    object-fit: cover;
+    overflow: hidden;
+
+    .gatsby-image-wrapper {
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+
+  &__content {
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+
+    * {
+      color: inherit;
+    }
+  }
+
+  &__title {
+    padding: 1rem;
+  }
+
+  &:hover {
+    .card__image .gatsby-image-wrapper {
+      transform: scale(1.1);
+    }
+  }
+
+  .no-hover {
+    @include shadow(2);
+    &:hover {
+      .card__image .gatsby-image-wrapper {
+        transform: scale(1);
+      }
+    }
+  }
+
+  &.fill-container {
+    height: 100%;
+  }
+
+  &.dark {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    .card__title {
+      color: var(--background-color);
+    }
+
+    .card__content {
+      color: var(--background-color);
+    }
+  }
 }

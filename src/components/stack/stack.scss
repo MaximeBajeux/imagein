@@ -1,3 +1,44 @@
+@import "../../styles/vars.scss";
+
 .stack {
   display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+
+  &--vertical {
+    flex-direction: column;
+  }
+
+  &--horizontal {
+    flex-direction: row;
+  }
+
+  @for $i from 1 through 5 {
+    &--gap-#{$i} {
+      gap: $i * 0.5rem;
+    }
+  }
+
+  &--left {
+    justify-content: flex-start;
+  }
+
+  &--center {
+    justify-content: center;
+    align-items: center;
+  }
+
+  &--right {
+    justify-content: flex-end;
+  }
+}
+
+@media all and (min-width: $breakpoint-md) {
+  .stack {
+    &--horizontal {
+      flex-direction: row;
+    }
+  }
 }

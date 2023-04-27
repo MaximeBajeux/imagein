@@ -1,58 +1,155 @@
-.shapes {
+@import "../../styles/vars.scss";
+
+.spotlight {
+  --spotlight-start: #eb620f;
+  --spotlight-end: rgb(0, 191, 255);
   position: relative;
-  height: 100vh;
-  width: 100vw;
-  background: #2128bd;
-  overflow: hidden;
-}
+  width: 100%;
+  background-color: var(--primary-color);
+  mix-blend-mode: difference;
+  letter-spacing: 0;
+  white-space: nowrap;
 
-.shape {
-  will-change: transform;
-  position: absolute;
-  border-radius: 50%;
+  .shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
+    z-index: 0;
+  }
 
-  $shapes: (
-    #005ffe: 650px,
-    #ffe5e3: 440px,
-    #ffcc57: 270px,
-  );
+  .shape {
+    will-change: transform;
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0;
+    background: var(--spotlight-glow);
+    opacity: 1;
+    width: 200px;
+    height: 200px;
+    margin: -100px 0 0 -100px;
+    filter: blur(40px);
+  }
 
-  @each $color, $size in $shapes {
-    &.shape-#{index($shapes, ($color $size))} {
-      background: $color;
-      width: $size;
-      height: $size;
-      margin: (-$size/2) 0 0 (-$size/2);
+  .styled-title,
+  .content,
+  .overlay {
+    display: flex;
+    width: 100%;
+  }
+
+  .styled-title,
+  .content {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .content,
+  .overlay {
+    background: linear-gradient(
+      90deg,
+      black,
+      var(--primary-color-dark-1),
+      var(--primary-color),
+      var(--primary-color-dark-1),
+      black
+    );
+  }
+
+  .styled-title {
+    z-index: 2;
+    background-color: #000;
+    margin: 0;
+    height: 50vw;
+    padding-top: 2rem;
+    font-size: calc(22vw - var(--font-size-spotlight));
+
+    mix-blend-mode: multiply;
+
+    * {
+      color: #fff;
+      font-family: Montserrat;
+      font-weight: 900;
+      font-size: inherit;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5) !important;
     }
+  }
+
+  .content {
+    position: relative;
+    z-index: 4;
+    padding-bottom: 10vh;
+    margin-top: -4px;
+
+    * {
+      color: #fff;
+      white-space: normal;
+    }
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    z-index: 3;
+    mix-blend-mode: lighten;
+  }
+
+  .cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    border-radius: 50%;
+    border: 3px solid var(--spotlight-glow);
+    background-color: transparent;
+    will-change: transform;
+    user-select: none;
+    pointer-events: none;
+    z-index: 100;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      margin: -5px 0 0 -5px;
+      background-color: var(--spotlight-glow);
+      border-radius: 50%;
+    }
+  }
+
+  ::selection {
+    color: #fff;
+    background-color: transparent;
   }
 }
 
-.content {
-  top: 0;
-  left: 0;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background: #fff;
-  mix-blend-mode: screen;
-}
-.cursor {
-  position: fixed;
-  background: #2128bd;
-  width: 20px;
-  height: 20px;
-  margin: -10px 0 0 -10px;
-  border-radius: 50%;
-  will-change: transform;
-  user-select: none;
-  pointer-events: none;
-  z-index: 10000;
-}
-
-::selection {
-  color: #fff;
-  background: #2128bd;
+@media all and (min-width: $breakpoint-md) {
+  .spotlight {
+    .styled-title {
+      height: 30vh;
+      font-size: calc(13vw - var(--font-size-spotlight) / 2);
+    }
+    .shape {
+      width: 450px;
+      height: 450px;
+      margin: -225px 0 0 -225px;
+      filter: blur(90px);
+    }
+  }
 }
