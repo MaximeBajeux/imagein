@@ -1,51 +1,31 @@
 import React, { useLayoutEffect } from "react";
 import "./glowbutton.scss";
 import gsap from "gsap";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import chroma from "chroma-js";
+import { Link } from "gatsby-link";
 
-// document.querySelectorAll(".glow-button").forEach((button) => {
-//   const gradientElem = document.createElement("div");
-//   gradientElem.classList.add("gradient");
-
-//   button.appendChild(gradientElem);
-
-//   button.addEventListener("pointermove", (e) => {
-//     const rect = button.getBoundingClientRect();
-
-//     const x = e.clientX - rect.left;
-//     const y = e.clientY - rect.top;
-
-//     gsap.to(button, {
-//       "--pointer-x": `${x}px`,
-//       "--pointer-y": `${y}px`,
-//       duration: 0.6,
-//     });
-
-//     gsap.to(button, {
-//       "--button-glow": chroma
-//         .mix(
-//           getComputedStyle(button)
-//             .getPropertyValue("--button-glow-start")
-//             .trim(),
-//           getComputedStyle(button).getPropertyValue("--button-glow-end").trim(),
-//           x / rect.width
-//         )
-//         .hex(),
-//       duration: 0.2,
-//     });
-//   });
-// });
-
-const GlowButton = ({ children }: { children: React.ReactNode }) => {
+const GlowButton = ({
+  as = "button",
+  to,
+  children,
+}: {
+  as: "button" | "a" | "Link";
+  to: string;
+  children: React.ReactNode;
+}) => {
   const gradientElem = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const aRef = useRef<HTMLAnchorElement>(null);
+  const linkRef = useRef<HTMLAnchorElement>(null);
 
   const [mouseX, setMouseX] = useState(0);
   const [mouseY, setMouseY] = useState(0);
 
   const handlePointerMove = (evt: PointerEvent) => {
-    const button = buttonRef.current;
+    const button = buttonRef.current || aRef.current || linkRef.current;
+    if (!button) return;
+
     const rect = button.getBoundingClientRect();
 
     const x = evt.clientX - rect.left;
@@ -82,12 +62,33 @@ const GlowButton = ({ children }: { children: React.ReactNode }) => {
     };
   }, [mouseX, mouseY]);
 
-  return (
-    <button className="glow-button" ref={buttonRef}>
-      <span>{children}</span>
-      <div className="gradient" ref={gradientElem}></div>
-    </button>
-  );
+  const renderSwitch = () => {
+    switch (as) {
+      case "a":
+        return (
+          <a className="glow-button" ref={aRef}>
+            <span>{children}</span>
+            <div className="gradient" ref={gradientElem}></div>
+          </a>
+        );
+      case "Link":
+        return (
+          <Link className="glow-button button" ref={linkRef} to={to}>
+            <span>{children}</span>
+            <div className="gradient" ref={gradientElem}></div>
+          </Link>
+        );
+      default:
+        return (
+          <button className="glow-button button" ref={buttonRef}>
+            <span>{children}</span>
+            <div className="gradient" ref={gradientElem}></div>
+          </button>
+        );
+    }
+  };
+
+  return <>{renderSwitch()}</>;
 };
 
 export default GlowButton;

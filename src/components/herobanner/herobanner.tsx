@@ -36,12 +36,12 @@ const Herobanner = () => {
     <Grid as="section" className="herobanner dark">
       <Row className="fullwidth">
         <Spotlight>
-          <Spotlight.Title length={word.length} transitionFilter="blur(10px)">
+          <Spotlight.Title length={word.length}>
             <h1 className="herobanner__title">{word}</h1>
           </Spotlight.Title>
           <Spotlight.Content>
             <h1 className="herobanner__title">
-              Agence spécialisée dans l'hyper performance
+              Agence spécialisée dans l'ultra performance
             </h1>
             <h3 className="herobanner__subtitle">
               Vous souhaitez mettre toutes les chances de votre côté pour
@@ -56,8 +56,12 @@ const Herobanner = () => {
               gap={5}
               style={{ marginTop: "3rem" }}
             >
-              <GlowButton>Je veux un site</GlowButton>
-              <GlowButton>En savoir plus</GlowButton>
+              <GlowButton as="Link" to="contact/">
+                Je veux un site
+              </GlowButton>
+              <GlowButton as="Link" to="about/">
+                En savoir plus
+              </GlowButton>
             </Stack>
           </Spotlight.Content>
         </Spotlight>

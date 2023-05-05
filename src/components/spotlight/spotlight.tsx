@@ -15,48 +15,42 @@ import chroma from "chroma-js";
 const Spotlight = ({ children }: { children: React.ReactNode }) => {
   const [mouseX, setMouseX] = useState(0);
   const [mouseY, setMouseY] = useState(0);
-  const cursorRef = useRef<HTMLDivElement>(null);
+
+  const [glowStart, setGlowStart] = useState("orange");
+  const [glowEnd, setGlowEnd] = useState("lightblue");
+  const [colorScale, setColorScale] = useState<string[]>([]);
+
   const rectRef = useRef<HTMLDivElement>(null);
-  const [color, setColor] = useState("transparent");
-  const [currentColor, setCurrentColor] = useState("transparent");
 
   const handleMouseMove = (evt: MouseEvent) => {
     // get relative mouse position
-    const rect = rectRef.current.getBoundingClientRect();
-    let x = evt.pageX;
-    let y = evt.pageY;
+    let x = evt.clientX;
+    let y = evt.clientY;
     setMouseX(x);
     setMouseY(y);
   };
 
+  useEffect(() => {
+    setGlowStart(
+      getComputedStyle(rectRef.current)
+        .getPropertyValue("--spotlight-start")
+        .trim()
+    );
+    setGlowEnd(
+      getComputedStyle(rectRef.current)
+        .getPropertyValue("--spotlight-end")
+        .trim()
+    );
+    setColorScale(
+      chroma
+        .scale([glowStart, glowStart, "#ffFFcc", glowEnd, glowEnd])
+        .mode("lab")
+        .colors(50)
+    );
+  }, []);
+
   useLayoutEffect(() => {
-    const cursor = cursorRef.current;
-    if (color === "transparent") {
-      setColor(window.getComputedStyle(cursor).backgroundColor);
-      setCurrentColor(window.getComputedStyle(cursor).backgroundColor);
-    }
-
-    const glowStart = getComputedStyle(rectRef.current)
-      .getPropertyValue("--spotlight-start")
-      .trim();
-    const glowEnd = getComputedStyle(rectRef.current)
-      .getPropertyValue("--spotlight-end")
-      .trim();
-
     const rect = rectRef.current.getBoundingClientRect();
-
-    gsap.set(cursor, {
-      x: mouseX,
-      y: mouseY,
-    });
-
-    gsap.to(cursor, {
-      "--spotlight-glow": chroma
-        .mix(glowStart, glowEnd, mouseX / rect.width, "lab")
-        .hex(),
-
-      duration: 0.2,
-    });
 
     const shapes = gsap.utils.toArray(".shape");
     gsap.to(shapes, {
@@ -65,9 +59,7 @@ const Spotlight = ({ children }: { children: React.ReactNode }) => {
     });
 
     gsap.to(shapes, {
-      "--spotlight-glow": chroma
-        .mix(glowStart, glowEnd, mouseX / rect.width, "lab")
-        .hex(),
+      "--spotlight-glow": colorScale[Math.round((mouseX / rect.width) * 49)],
       duration: 0.2,
     });
 
@@ -79,7 +71,6 @@ const Spotlight = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="spotlight" ref={rectRef}>
-      <div ref={cursorRef} className="cursor"></div>
       <div className="shapes">
         <div className="shape"></div>
       </div>

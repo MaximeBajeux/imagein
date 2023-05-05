@@ -1,0 +1,54 @@
+@import "../styles/vars.scss";
+
+.home {
+  .partners {
+    margin-top: 2rem;
+    padding: 0.5rem;
+  }
+  .partner-logo {
+    img {
+      max-height: 12rem;
+      object-fit: contain !important;
+    }
+  }
+
+  .service {
+    margin-top: 3rem;
+    &__text {
+      p {
+        margin: 1rem 0;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .method {
+    margin-top: 2.5rem;
+  }
+  .method,
+  .cerise {
+    padding: 0.5rem;
+    p {
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+@media all and (min-width: $breakpoint-md) {
+  .home {
+    .service__text {
+      padding-right: 3rem;
+    }
+  }
+}

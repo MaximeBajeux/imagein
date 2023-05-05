@@ -1,5 +1,63 @@
 import type { GatsbyNode } from "gatsby";
 import { resolve } from "path";
+import { createRemoteFileNode } from "gatsby-source-filesystem";
+
+// Create schema custom fields
+export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
+  ({ actions }) => {
+    const { createTypes } = actions;
+
+    createTypes(`
+    type Mdx implements Node {
+      frontmatter: Frontmatter
+      imageRemote: File @link(from: "fields.localImageRemote")
+    }
+
+    type Frontmatter {
+      title: String!
+      slug: String!
+      date: Date! @dateformat
+      description: String!
+      image: File @fileByRelativePath
+      imageURL: String
+      imageAlt: String
+    }
+  `);
+  };
+
+export const onCreateNode: GatsbyNode["onCreateNode"] = async ({
+  node,
+  actions: { createNode, createNodeField },
+  createNodeId,
+  getCache,
+}: {
+  node: any;
+  actions: any;
+  createNodeId: any;
+  getCache: any;
+}) => {
+  if (node.internal.type === "Mdx" && node.frontmatter.imageURL) {
+    try {
+      const fileNode = await createRemoteFileNode({
+        url: node.frontmatter.imageURL,
+        parentNodeId: node.id,
+        createNode,
+        createNodeId,
+        getCache,
+      });
+
+      if (fileNode) {
+        createNodeField({
+          node,
+          name: "localImageRemote",
+          value: fileNode.id,
+        });
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+};
 
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,

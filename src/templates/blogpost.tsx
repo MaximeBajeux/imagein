@@ -30,8 +30,25 @@ export const query = graphql`
         title
         date(formatString: "DD MM YYYY")
         description
-        image
+        image {
+          childImageSharp {
+            gatsbyImageData(
+              width: 800
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
         imageAlt
+      }
+      imageRemote {
+        childImageSharp {
+          gatsbyImageData(
+            width: 800
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
+        }
       }
     }
   }

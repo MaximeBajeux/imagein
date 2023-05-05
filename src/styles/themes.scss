@@ -38,41 +38,45 @@ $shadow-opacity-ambient: 0.12;
 /* Polices */
 html {
   font-size: 18px;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 body {
   font-family: "Montserrat", sans-serif;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 h1 {
-  font-size: 2.5rem;
-  line-height: 1.4;
+  font-size: 4rem;
+  line-height: 0.9;
 }
 
 h2 {
-  font-size: 2rem;
-  line-height: 1.3;
+  font-size: 3.5rem;
+  line-height: 0.9;
 }
 
 h3 {
-  font-size: 1.75rem;
-  line-height: 1.2;
+  font-size: 2.5rem;
+  line-height: 0.9;
 }
 
 h4 {
-  font-size: 1.5rem;
+  font-size: 2.25rem;
 
-  line-height: 1.1;
+  line-height: 0.9;
 }
 
 h5 {
-  font-size: 1.25rem;
-  line-height: 1.1;
+  font-size: 2rem;
+  line-height: 0.9;
 }
 
 h6 {
-  font-size: 1rem;
-  line-height: 1;
+  font-size: 1.8rem;
+  line-height: 0.9;
 }
 
 h1,
@@ -81,16 +85,20 @@ h3,
 h4,
 h5,
 h6,
-button {
+button,
+.button {
   font-family: "Bebas Neue", sans-serif;
 }
 
 /* Styles de boutons */
-button {
+button,
+.button {
   border: none;
   cursor: pointer;
   font-size: 2rem;
   font-weight: 900;
+  line-height: normal;
+  appearance: button;
 }
 
 // button:hover {

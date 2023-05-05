@@ -117,33 +117,39 @@ button,
 input,
 optgroup,
 select,
-textarea {
+textarea,
+.button {
   font-family: inherit;
   font-size: 100%;
   margin: 0;
 }
 button,
-input {
+input,
+.button {
   overflow: visible;
 }
 button,
-select {
+select,
+.button {
   text-transform: none;
 }
 button,
 html input[type="button"],
 input[type="reset"],
-input[type="submit"] {
+input[type="submit"],
+.button {
   -webkit-appearance: button;
   appearance: button;
   cursor: pointer;
 }
 button[disabled],
-html input[disabled] {
+html input[disabled],
+.button[disabled] {
   cursor: default;
 }
 button::-moz-focus-inner,
-input::-moz-focus-inner {
+input::-moz-focus-inner,
+.button::-moz-focus-inner {
   border: 0;
   padding: 0;
 }

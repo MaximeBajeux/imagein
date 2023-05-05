@@ -30,8 +30,15 @@ const Content = ({ children }: { children: React.ReactNode }) => {
 
 Card.Content = Content;
 
-const Title = ({ children }: { children: React.ReactNode }) => {
-  return <div className="card__title">{children}</div>;
+const Title = ({
+  as = "h3",
+  children,
+}: {
+  as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  children: React.ReactNode;
+}) => {
+  const Component = as;
+  return <Component className="card__title">{children}</Component>;
 };
 
 Card.Title = Title;

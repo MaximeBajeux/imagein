@@ -14,10 +14,18 @@ const Stack = ({
   className?: string;
   direction?: "vertical" | "horizontal";
   gap?: number;
-  position?: "left" | "center" | "right";
+  position?:
+    | "left"
+    | "center"
+    | "right"
+    | "space-between"
+    | "space-evenly"
+    | "space-around";
   [key: string]: any;
 }) => {
-  const classes = `stack stack--${direction} stack--gap-${gap} stack--${position} ${className}`;
+  const classes = `stack stack--${direction} stack--gap-${gap} stack--${position} ${
+    className ? className : ""
+  }`;
   return (
     <div className={classes} {...props}>
       {children}

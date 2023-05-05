@@ -1,16 +1,20 @@
 import React from "react";
 import { Slice } from "gatsby";
+import Cursor from "../cursor/cursor";
 import "./layout.scss";
 
 const Layout = ({
   children,
+  className = "",
   ...props
 }: {
   children: React.ReactNode;
+  className?: string;
   [key: string]: any;
 }) => {
   return (
-    <main {...props} className="layout">
+    <main {...props} className={`layout ${className ? className : ""}`}>
+      <Cursor />
       <Slice alias="header" />
       <div className="layout__content">{children}</div>
       <Slice alias="footer" />
