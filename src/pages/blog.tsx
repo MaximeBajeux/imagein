@@ -22,10 +22,10 @@ const BlogPage: React.FC<PageProps<Queries.BlogListQuery>> = ({
         <Link to={`/blog/${node.frontmatter?.slug}`} style={{ height: "100%" }}>
           <Card style={{ height: "100%" }}>
             <Card.Image>
-              <GatsbyImage image={imageData} alt={node.frontmatter.imageAlt} />
+              <GatsbyImage image={imageData} alt={node.frontmatter?.imageAlt} />
             </Card.Image>
-            <Card.Title as="h3">{node.frontmatter.title}</Card.Title>
-            <Card.Content>{node.frontmatter.description}</Card.Content>
+            <Card.Title as="h3">{node.frontmatter?.title}</Card.Title>
+            <Card.Content>{node.frontmatter?.description}</Card.Content>
           </Card>
         </Link>
       </Col>
