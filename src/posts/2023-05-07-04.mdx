@@ -1,0 +1,91 @@
+---
+title: "Comment optimiser votre site pour le mobile et augmenter votre taux de conversion ?"
+slug: "comment-optimiser-votre-site-pour-le-mobile-et-augmenter-votre-taux-de-conversion"
+description: "Une description"
+date: "2023-05-07"
+imageURL: "https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_930/https://image-in.net/wp-content/uploads/2023/04/2000x800-18-9c22e-18_2000x800-930x620.jpg"
+imageAlt: "Une infographie représentant les principaux devices pour consulter une page web"
+---
+
+import Row from "../components/row/row";
+import Col from "../components/col/col";
+
+J’entends régulièrement cette histoire lorsque des PME parlent de leur site internet: “Mon site ? Je l’ai fait faire par mon neveu, il s’y connait avec les ordinateurs, il a fait ça sur ouixe, c’était gratuit ! Par contre ça sert à rien ce machin là, personne ne va dessus. C’est dommage parce que je l’ai vu sur mon ordinateur le site, il est beau !” ou encore « Oh mon site, je l’ai fait moi même, ça m’a pris du temps ! »
+
+<Row>
+<Col xs={12} md={4}>
+![Un screeshot d'un site web mal optimisé pour le mobile](https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_387/https://image-in.net/wp-content/uploads/2023/04/Capture-decran-2023-04-11-184803.png)
+</Col>
+<Col xs={12} md={4}>
+![Un screeshot d'un site web mal optimisé pour le mobile](https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_388/https://image-in.net/wp-content/uploads/2023/04/Capture-decran-2023-04-11-185205.png)
+</Col>
+<Col xs={12} md={4}>
+![Un screeshot d'un site web mal optimisé pour le mobile](https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_403/https://image-in.net/wp-content/uploads/2023/04/Capture-decran-2023-04-13-110337.png)
+</Col>
+</Row>
+
+<small>Le site en question ouvert sur mobile…</small>
+
+Savez-vous quel pourcentage de gens consulte votre site sur mobile ? 30% ? Ohlala vous êtes si loin du compte ! 50% ? Encore un petit effort. Actuellement, ce que l’on constate dans nos métriques, c’est qu’en moyenne, 70% de nos visites se font depuis un mobile. Parmi ce gens, la plupart ne verront JAMAIS votre site sur ordinateur.
+
+Si ça n’était pas clair, votre site DOIT être optimal sur mobile ! En 2023, un site qui n’est pas fonctionnel sur mobile est un site mort… et votre entreprise passe à côté d’une très grande majorité de vos prospects.
+
+## Que faire pour optimiser un site pour le mobile ? 📱
+
+Les exemples que je vous ai montré plus haut étaient extrêmes, je vous l’accorde, ils ont d’énormes problèmes de lisibilité et la plupart des sites avec des problèmes que je rencontre n’en sont pas à ce niveau là. Ils ne sont pas pour autant parfaits, loin de là !
+
+Je vous livre donc ici une checklist du minimum à faire pour que votre site soit utilisable sur mobile.
+
+### Un site responsive 📱
+
+On commence par l’évidence. Un site dit “responsive”, c’est un site qui s’adapte à la résolution de votre téléphone. Les colonnes qui passent les unes en dessous des autres, le menu qui se transforme en menu “hamburger”, les boutons facilement cliquables avec les doigts, etc. La plupart des sites sur lesquels vous avez l’habitude d’aller le sont totalement et vous y naviguez des plus naturellement.
+
+![Gif animé représentant les transitions responsives entre devices](https://i.pinimg.com/originals/2a/f0/0b/2af00b77b9831ccf199a7360d8d4d39f.gif)
+
+<small>Gif animé illustrant le fonctionnement du responsive</small>
+
+### Des photos légères comme des plumes 🪶
+
+Nombreux sont les sites que j’ai pu consulter où la moindre photo d’illustration était un PNG de 5Mo. Il est assez peu judicieux d’utiliser des photos de cette taille sur le web, notamment sur des pages qui devraient normalement servir à booster votre référencement. (nous reviendrons sur ce sujet dans un autre article !). Imaginez une page où vous décider d’utiliser 5 photos de 5Mo chacune, 25 Mo, sans compter tout le reste, alors qu’on estime qu’une bonne page sur mobile devrait peser moins de 2Mo ! Comment faire donc pour les alléger au maximum ?
+
+Vous possédez 2 leviers:
+
+- Directement dans votre code html il existe des propriétés qui vous permettent d’indiquer au navigateur différentes versions de vos images, de tailles différentes, afin que celles-ci s’adaptent à la résolution des appareils qui consultent votre site. Ces propriétés s’appellent srcset et sizes et s’utilisent comme suit:
+
+[screeshot de code html avec srcset et sizes](https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_1024/https://image-in.net/wp-content/uploads/2023/04/carbon-6-1024x549.png)
+
+- Utiliser des formats de compression d’image modernes tels que avif ou webp, de la bonne manière, au bon moment ! Vous avez lu quelque part qu’il fallait convertir les photos en avif et vous les avez uploadé sur votre site en l’état ? Chaque type d’image a une fonction propre et si optimiser leur poids au maximum il va falloir ruser et utiliser chacun de leurs points forts.
+
+WEBP est le format le plus léger lorsque l’on parle de compression sans perte. C’est donc le format idéal si vous voulez afficher des photos en résolution maximale.
+
+AVIF est le format qui vous offrira le meilleur gain de poids lorsque vous ferez des conversions avec perte. Il est donc idéal pour des miniatures ultra light.
+
+PNG reste performant pour les images qui comportent majoritairement du texte, même si nous déconseillons l’utilisation de texte en image sur le web de fait que ce n’est ni accessible ni intéressant du point de vue du SEO.
+
+JPG par contre n’a plus beaucoup d’intérêts si ce n’est d’être supporté par les vieux appareils.
+
+SVG est un super format lorsqu’il s’agit d’afficher des icônes, ils ne sont composés que de vecteurs, donc les fichiers sont ultra légers, parfois seulement quelques lignes !
+
+## Cachez moi ce code que je ne saurais voir 🙈
+
+Avez-vous déjà entendu parlé du cache ? Si non, vous êtes au bon endroit ! Avez-vous déjà remarqué que lorsque vous naviguez sur un site, le premier chargement est généralement plus long que les autres ? C’est parce qu’entre vos deux visites, votre navigateur aura “mis en cache” / “sauvegardé” une partie des informations affichées, qu’il s’agisse d’images, de code, de feuilles de style, etc.
+
+Avec une bonne gestion du cache vous pouvez faire en sorte de ne pas recharger toutes les informations de votre site à chaque changement de page, ainsi vous réduisez leur poids moyen et fluidifiez la navigation de vos utilisateurs.
+
+Il existe de nombreux outils qui vous permettent de tester la performance de votre page et l’efficacité de votre cache, à commencer par lighthouse, notre meilleur ami à tous.
+
+![screenshot de page speed insight](https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_813/https://image-in.net/wp-content/uploads/2023/04/Capture-decran-2023-04-12-111454.png)
+
+## Utilisez un moteur de rendu statique 🗿
+
+C’est là que l’on commence à arriver dans le dur du sujet, de toute façon, si vous voulez que le travail soit bien fait, il semble assez évident qu’il vaut mieux le confier à un professionnel digne de ce nom qu’à votre petit neveu qui joue à Fortnite. Néanmoins si vous êtes encore là à lire cet article, j’ai bon espoir que vous soyez ouvert à ce message.
+
+Les sites internet ne fonctionnent pas tous de la même manière. Depuis quelques années, la “mode” est de faire ce que l’on appelle du client side rendering. Ce qu’il a derrière ce concept, c’est que le code est téléchargé sur le navigateur de votre ordinateur et la page du site y est alors fabriquée, soit en se connectant à une API pour y demander des données, soit en utilisant de la donnée locale. Le problème de cette méthode et qu’elle est très gourmande en ressource et peut donc causer des problèmes de latence sur téléphone. C’est le procédé qui est utilisé de base avec Wix, WordPress, et dans une certaine mesure lorsque vous faites un projet react vanilla avec une API derrière.
+
+Un autre manière de faire des sites est en faisant du server side rendering. Cette fois-ci vous l’aurez sans doute compris, la page de votre site est générée sur un serveur distant, puis téléchargée dans votre navigateur. Ainsi, celle-ci est plus légère, mais vu qu’il doit fabriquer votre page, il se peut que votre serveur mette plus de temps à répondre. C’est un peu la méthode à l’ancienne, souvent avec PHP, ou des frameworks comme Django ou Ruby On Rails.
+
+Enfin, la troisième méthode est celle qui nous intéresse particulièrement: le static rendering. C’est une méthode de rendu côté serveur particulière car elle “construit” les pages de votre site UNE SEULE fois et les envoie à vos utilisateurs. Ainsi on allie le temps de réponse du client side rendering avec la légèreté du server side rendering. C’est le cas par exemple de Hugo ou les anciennes versions de GatsbyJS.
+
+Si vous êtes particulièrement malins, vous vous interrogerez et me demanderez ce qu’il en est des informations utilisateurs uniques ? Ce qui est bien avec les moteurs de rendu statiques récents c’est qu’il est possible d’allier les trois méthodes de rendu afin de bénéficier de tous leurs points forts. Ainsi, vous pouvez construire vos pages statiquement et y insérer ponctuellement quelques données côté client. Le graal !
+
+D’ailleurs, c’est ce que l’on fait chez Image IN avec le framework GatsbyJS. Alors si la performance de votre site vous importe, n’hésitez pas à nous contacter !

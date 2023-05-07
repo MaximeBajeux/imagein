@@ -1,0 +1,82 @@
+---
+title: "WebAPP React + GO en Solo !"
+slug: "webapp-react-go-solo"
+date: "2023-05-08"
+description: "Depuis quelques temps nous travaillons avec un client pour lequel nous avons déjà réalisé diverses designs, visuels et reportages vidéo. Travaillant actuellement avec lui sur une plateforme web en react et GO, nous vous faisons un REX sur le sujet"
+imageURL: "https://image-in.net/wp-content/uploads/2023/03/header@2x-1-930x500.png"
+imageAlt: "Le logo représente une fusion entre le logo de React et le logo du langage Go."
+---
+
+Depuis quelques temps nous travaillons avec un client pour lequel nous avons déjà réalisé diverses designs, visuels et reportages vidéo. Or, ce client avait un projet plus grand, un web app complète ! Génial, j’aime coder et je commençais à m’attrister qu’on me propose majoritairement des wordpress pour lesquels je n’ai pas grand chose de technique à faire, j’accepte ! Le budget est en dessous de ce que je demanderais normalement mais c’est un projet que j’avais réellement envie de faire. Disons juste que la définition du J de mon TJM est passé de 7h de travail à 16h 😅
+
+![Un gif du film predator représentat Arnold Schwarzenegger et Carl Weathers se serrant la main.](https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_497,h_280/https://image-in.net/wp-content/uploads/2023/03/HandshakeOfTheGodsGIF.gif)
+
+<small>That’s a go(o)d deal !</small>
+
+## Sur quoi travaillons nous ?
+
+Ahah, tant que le projet n’est pas en production je suis tenu au secret, sachez juste que ça a un lien avec ma passion, la musique ! Je joue du saxophone depuis mon enfance aussi bien seul qu’en groupe et j’ai toujours espéré pouvoir apporter ma pierre à l’édifice, c’était l’occasion rêvée.
+
+![Un gif de Leo P jouant du saxophone en agitant les sourcils](https://media.tenor.com/1eZ3zCPUhvkAAAAd/leo-p-eyebrows.gif)
+
+<small>The most epic sax guy</small>
+
+Normalement, d’ici le mois d’avril, j’aurais des choses à vous montrer, j’espère vous tenir en haleine jusqu’alors !
+
+## La stack technique !
+
+Ce que j’aime en particulier sur ce projet, c’est que mon interlocuteur est lui aussi du métier. Souhaitant le meilleur pour son projet, il m’a laissé carte blanche presque totale pour le développement de son app.
+
+[un gif d'un homme dansant dans un ascenseur en quittant le travail](https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_498,h_278/https://image-in.net/wp-content/uploads/2023/03/SchoolsOutFreeGIF.gif)
+
+<small>Libéréeeeee ! 🎤</small>
+
+Il m’a juste donné 3 contraintes:
+
+- L’hébergement sera sur serveur azure
+- La base de données sera une base [sqlserver](https://fr.wikipedia.org/wiki/Microsoft_SQL_Server)
+- Le système d’authentification sera via [OpenID Connect](https://openid.net/connect/), mais nous y reviendrons.
+
+De mon côté, j’ai fait des choix relativement simples d’un point de vue technique. Côté frontend, j’ai opté pour une app React avec [Vite](https://vitejs.dev/), histoire de ne pas passer le quart de ma vie en build time. Côté back, j’ai opté pour une API en [Go](https://go.dev/) avec les packages go-oidc (OpenID), gorm (bdd) et gin (API).
+
+## Le frontend
+
+Avant de me lancer dans ce projet, le dernier vrai projet que j’avais conduit en React pur remontait à 2020, entre temps j’ai eu ma phase [VueJS](https://vuejs.org/), puis mon focus sur [GatsbyJS](https://www.gatsbyjs.com/) (Le goat 💖). Histoire de visualiser à quoi ça ressemblait à l’époque, la norme incitait toujours à utiliser les class components et on commençait seulement à parler des hooks. Personnellement je n’ai jamais aimé les class components, c’était d’ailleurs la raison pour laquelle j’étais parti sur Vue pendant quelques temps. De la même manière, il était très courant d’utiliser le duo axios / lodash qui a sauvé bien des projets à l’époque.
+
+![Un gif d'un homme soufflant sur une guitare extrêmement poussièreuse](https://media.tenor.com/SL99S-N7xC8AAAAd/blow-dan-oconnor.gif)
+
+<small>Ashes to ashes, dust to dust</small>
+
+Tout ça pour dire, il a fallu se mettre à jour ! Je maitrisais déjà les hooks avec Gatsby, mais j’ai du me mettre à fetch et réapprendre à faire du fonctionnel sans lodash.
+
+Là où j’ai eu une petite déconvenue, c’est lorsque j’ai voulu implémenter le pattern suspense avec fetch. Si vous ne connaissez pas, c’est un pattern [“Render-as-you-fetch”](https://17.reactjs.org/docs/concurrent-mode-suspense.html), qu’on peut opposer au classique “Fetch-on-render” que l’on pratique habituellement avec useEffect. J’ai été séduit par l’élégance de la chose, mais je pense que la technologie n’est pas encore assez mure pour être utilisée en production. C’est donc après quelques essais que j’ai changé mon fusil d’épaule afin de revenir à une implémentation plus traditionnelle.
+
+D’un point de vue UX/UI, nous n’avions ni le temps ni le budget de nous lancer sur de longues itérations niveau maquette et développement d’un design system. Pour cette raison, nous avons décidé de partir sur une intégration [Bootstrap](https://getbootstrap.com/) presque Vanilla, juste avec un peu de theming histoire d’avoir une identité visuelle. J’ai néanmoins maquetté l’app sur [Figma](https://figma.com) avec un template afin de donner une direction au projet.
+
+## Le backend
+
+Pour l’API en Go, j’avais également quelques versions de retard dans ma veille, mais j’ai toujours trouvé que même si les choses évoluaient, elles évoluaient moins vite du côté du back que du front, autrement dit, à part quelques packages obsolètes que j’ai du remplacé, je n’ai pas eu à changer grand chose.
+
+Je vous disais plutôt qu’il y avait 3 contraintes de la part de mon client, notamment une base de données sqlserver et une implémentation d’openID connect !
+
+![Un gif de P'tit Biscuit déféquant des bonbons](https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_450,h_303/https://image-in.net/wp-content/uploads/2023/03/ScaredSoWhatGIF.gif)
+
+<small>Heureusement je portais un pantalon marron</small>
+
+La crainte de ces technologies vient plus du fait que je ne les connaissais pas avant de les implémenter que des technologies en elle même. Côté bdd, en général, j’aime beaucoup postgresql, du coup je sais exactement ce que j’ai à faire pour me créer une base de dev sur docker, faire des imports, des exports, l’intégrer avec Go, etc. Je ne peux d’ailleurs que vous recommander la lecture de [“The art of PostgreSQL” de Dimitri Fontaine](https://theartofpostgresql.com/) 🟦⬜🟥 qui est le king du game !
+
+Là où avec postgres je n’utilise que le package sql de base de Go et où j’écris mes migrations à la main avec SQL migrate, j’ai du changer ma manière de faire avec sqlserver et me résigner à utiliser gorm. Par principe, je ne suis pas un amateur d’ORM, je préfère maitriser finement mon schéma de table et mes jointures. Néanmoins je dois bien avouer que gorm m’a fait gagner beaucoup de temps.
+
+Là où par contre j’en ai perdu énormément, c’est dans l’implémentation d’OpenID Connect. L’authentification en général est un sujet qui m’a toujours fait un peu peur, parce que sensible. Aussi bien, j’essaie de l’éviter en général et je n’avais encore jamais eu à implémenter en particulier OpenID. La stack Go + React n’est certes pas très courante, je m’attendais quand même à trouver plus de documentation sur le sujet. Il m’a fallu beaucoup fouiller et BEAAAAUCOUP expérimenter avant d’arriver à un résultat satisfaisant. Je dois même avouer que dans l’histoire c’est ChatGPT qui m’a le plus aidé, même si lui également pédalait dans la semoule !
+
+## État d’avancement actuel
+
+Là où nous en sommes, toutes les briques technologiques pour le livrable à venir sont en place, il ne me “reste plus qu’à” écrire les routes de l’API et les brancher côté frontend. J’ai développé le front avec une API mockée donc il n’y aura pas grand chose à faire de ce côté, je pars surtout dans quelques jours d’écriture de [CRUD](https://fr.wikipedia.org/wiki/CRUD) (Create, Read, Update, Delete).
+
+![Un gif d'un homme faisant toot toot à côté d'une locomotive](https://media.tenor.com/-HDcLxo_vLYAAAAd/all-aboard-train.gif)
+
+<small>Un projet sur les rails 🥁</small>
+
+Nous sommes sur les chapeaux de roues avec mon client pour vite mettre en place cette solution et j’ai vraiment hâte de pouvoir vous présenter ce travail qui a demandé beaucoup d’huile de coude et de réflexion ! Espérons que la mise en prod sur serveur Azure se passe bien !
+
+To be continued…
