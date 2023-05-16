@@ -70,6 +70,7 @@
     height: 50vw;
     padding-top: 2rem;
     font-size: calc(22vw - var(--font-size-spotlight));
+    margin-bottom: -4px;
 
     mix-blend-mode: multiply;
 
@@ -86,7 +87,6 @@
     position: relative;
     z-index: 4;
     padding-bottom: 6vh;
-    margin-top: -4px;
 
     * {
       color: #fff;

@@ -1,80 +1,44 @@
-import React, { useEffect, useLayoutEffect } from "react";
-import gsap from "gsap";
-import { useState, useRef } from "react";
-import chroma from "chroma-js";
+import React, { useLayoutEffect } from "react";
+import gsap from "../../components/gsap/gsap";
+import { useRef } from "react";
 import "./cursor.scss";
+import useColorState from "../../hooks/use-color-state";
+import useMousePosition from "../../hooks/use-mouse-position";
 
 const Cursor = () => {
-  const [mouseX, setMouseX] = useState(0);
-  const [mouseY, setMouseY] = useState(0);
-  const [glowStart, setGlowStart] = useState("orange");
-  const [glowEnd, setGlowEnd] = useState("lightblue");
-  const [colorScale, setColorScale] = useState<string[]>([]);
+  const { currentColor } = useColorState();
+  const { x, y } = useMousePosition();
   const cursorRef = useRef<HTMLDivElement>(null);
   const cursorDotRef = useRef<HTMLDivElement>(null);
-  const rectRef = useRef<HTMLDivElement>(null);
-
-  const handleMouseMove = (evt: MouseEvent) => {
-    // get relative mouse position
-    let x = evt.pageX;
-    let y = evt.pageY;
-    setMouseX(x);
-    setMouseY(y);
-  };
-
-  useEffect(() => {
-    setGlowStart(
-      getComputedStyle(cursorRef.current)
-        .getPropertyValue("--spotlight-start")
-        .trim()
-    );
-    setGlowEnd(
-      getComputedStyle(cursorRef.current)
-        .getPropertyValue("--spotlight-end")
-        .trim()
-    );
-    setColorScale(
-      chroma
-        .scale([glowStart, glowStart, "#ffFFcc", glowEnd, glowEnd])
-        .mode("lab")
-        .colors(50)
-    );
-  }, []);
 
   useLayoutEffect(() => {
     const cursor = cursorRef.current;
-    const rect = rectRef.current.getBoundingClientRect();
 
     gsap.to(cursor, {
-      top: mouseY,
-      left: mouseX,
+      top: y,
+      left: x,
       duration: 0.2,
     });
 
     gsap.to(cursorDotRef.current, {
-      top: mouseY,
-      left: mouseX,
+      top: y,
+      left: x,
       duration: 0.18,
     });
 
     gsap.to(cursor, {
-      "--spotlight-glow": colorScale[Math.round((mouseX / rect.width) * 49)],
+      "--spotlight-glow": currentColor,
       duration: 0.1,
     });
 
     gsap.to(cursorDotRef.current, {
-      "--spotlight-glow": colorScale[Math.round((mouseX / rect.width) * 49)],
+      "--spotlight-glow": currentColor,
       duration: 0.1,
     });
-
-    document.body.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      document.body.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, [mouseX, mouseY]);
+  }, [x, y]);
 
   return (
-    <div className="cursor" ref={rectRef}>
+    <div className="cursor">
       <span className="pointer" ref={cursorRef} />
       <span className="pointer__dot" ref={cursorDotRef} />
     </div>

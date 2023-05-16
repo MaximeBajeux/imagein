@@ -1,73 +1,27 @@
 import React, { useLayoutEffect } from "react";
 import "./spotlight.scss";
-import gsap from "gsap";
-import { useState, useEffect, useRef } from "react";
-import chroma from "chroma-js";
-
-// .cursor
-// .shapes
-//   .shape.shape-1
-//   .shape.shape-2
-//   .shape.shape-3
-// .content
-//   h1 Hello there!
+import gsap from "../../components/gsap/gsap";
+import { useRef } from "react";
+import useColorState from "../../hooks/use-color-state";
+import useMousePosition from "../../hooks/use-mouse-position";
 
 const Spotlight = ({ children }: { children: React.ReactNode }) => {
-  const [mouseX, setMouseX] = useState(0);
-  const [mouseY, setMouseY] = useState(0);
-
-  const [glowStart, setGlowStart] = useState("orange");
-  const [glowEnd, setGlowEnd] = useState("lightblue");
-  const [colorScale, setColorScale] = useState<string[]>([]);
+  const { currentColor } = useColorState();
+  const { x, y } = useMousePosition();
 
   const rectRef = useRef<HTMLDivElement>(null);
-
-  const handleMouseMove = (evt: MouseEvent) => {
-    // get relative mouse position
-    let x = evt.clientX;
-    let y = evt.clientY;
-    setMouseX(x);
-    setMouseY(y);
-  };
-
-  useEffect(() => {
-    setGlowStart(
-      getComputedStyle(rectRef.current)
-        .getPropertyValue("--spotlight-start")
-        .trim()
-    );
-    setGlowEnd(
-      getComputedStyle(rectRef.current)
-        .getPropertyValue("--spotlight-end")
-        .trim()
-    );
-    setColorScale(
-      chroma
-        .scale([glowStart, glowStart, "#ffFFcc", glowEnd, glowEnd])
-        .mode("lab")
-        .colors(50)
-    );
-  }, []);
-
   useLayoutEffect(() => {
-    const rect = rectRef.current.getBoundingClientRect();
-
     const shapes = gsap.utils.toArray(".shape");
     gsap.to(shapes, {
-      x: mouseX,
-      y: mouseY,
+      x: x,
+      y: y,
     });
 
     gsap.to(shapes, {
-      "--spotlight-glow": colorScale[Math.round((mouseX / rect.width) * 49)],
+      "--spotlight-glow": currentColor,
       duration: 0.2,
     });
-
-    document.body.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      document.body.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, [mouseX, mouseY]);
+  }, [x, y]);
 
   return (
     <div className="spotlight" ref={rectRef}>
@@ -88,14 +42,15 @@ const StyledTitle = ({
   children: React.ReactNode;
 }) => {
   const title = useRef<HTMLDivElement>(null);
+  const size = length > 16 ? 16 : length;
 
   useLayoutEffect(() => {
     // Animate
     gsap.to(title.current, {
-      "--font-size-spotlight": `${length}vw`,
+      "--font-size-spotlight": `${size}vw`,
       duration: 0,
     });
-  }, [length]);
+  }, [size]);
 
   return (
     <div className="styled-title" ref={title}>

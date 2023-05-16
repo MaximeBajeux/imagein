@@ -1,3 +1,23 @@
-.button {
+@import "../../styles/vars.scss";
+
+.basic-button {
   display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 0.5rem;
+  padding: 1rem 1.4rem;
+  @include shadow(2);
+
+  font-size: 2rem;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease-in-out;
+
+  color: white;
+  background-color: var(--primary-color-dark-2);
+
+  &:hover {
+    @include shadow(4);
+  }
 }

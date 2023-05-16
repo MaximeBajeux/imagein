@@ -13,9 +13,9 @@
 
   .pointer {
     position: absolute;
-    width: 30px;
-    height: 30px;
-    margin: -15px 0 0 -15px;
+    width: 36px;
+    height: 36px;
+    margin: -18px 0 0 -18px;
     border-radius: 50%;
     border: 2px solid var(--spotlight-glow);
     background-color: transparent;
@@ -25,9 +25,9 @@
   }
   .pointer__dot {
     position: absolute;
-    width: 6px;
-    height: 6px;
-    margin: -3px 0 0 -3px;
+    width: 8px;
+    height: 8px;
+    margin: -4px 0 0 -4px;
     background-color: var(--spotlight-glow);
     border-radius: 50%;
     will-change: transform;

@@ -1,20 +1,20 @@
 import React, { useLayoutEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./circlechart.scss";
-import gsap from "gsap";
+import gsap from "../../components/gsap/gsap";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Circlechart = ({
   percentage,
   text,
-  color,
+  delay,
 }: {
   percentage: number;
   text: string;
   color: string;
+  delay: number;
 }) => {
-  const [offset, setOffset] = React.useState(0);
   const circleRef = React.useRef<HTMLDivElement>(null);
   const percentRef = React.useRef<HTMLSpanElement>(null);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -39,6 +39,7 @@ const Circlechart = ({
       modifiers: {
         textContent: (textcontent) => textcontent.toFixed(),
       },
+      delay: delay,
     });
 
     tm.fromTo(
@@ -49,15 +50,11 @@ const Circlechart = ({
       {
         "--p": `${percentage}%`,
       },
-      0
+      delay
     );
   }, [percentage]);
 
   const handleMouseEnter = () => {
-    animateCircle();
-  };
-
-  const handleMouseLeave = () => {
     animateCircle();
   };
 
@@ -76,6 +73,7 @@ const Circlechart = ({
       onComplete: () => {
         percentRef.current!.textContent = `${percentage.toFixed()}`;
       },
+      delay: 0,
     });
 
     tm.fromTo(

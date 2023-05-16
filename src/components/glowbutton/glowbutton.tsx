@@ -1,9 +1,10 @@
 import React, { useLayoutEffect } from "react";
 import "./glowbutton.scss";
-import gsap from "gsap";
-import { useState, useRef } from "react";
-import chroma from "chroma-js";
+import gsap from "../../components/gsap/gsap";
+import { useRef } from "react";
 import { Link } from "gatsby-link";
+import useColorState from "../../hooks/use-color-state";
+import useMousePosition from "../../hooks/use-mouse-position";
 
 const GlowButton = ({
   as = "button",
@@ -14,59 +15,53 @@ const GlowButton = ({
   to: string;
   children: React.ReactNode;
 }) => {
+  const { currentColor } = useColorState();
+  const { x, y, clientX, clientY } = useMousePosition();
   const gradientElem = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const aRef = useRef<HTMLAnchorElement>(null);
   const linkRef = useRef<HTMLAnchorElement>(null);
 
-  const [mouseX, setMouseX] = useState(0);
-  const [mouseY, setMouseY] = useState(0);
-
-  const handlePointerMove = (evt: PointerEvent) => {
+  useLayoutEffect(() => {
     const button = buttonRef.current || aRef.current || linkRef.current;
     if (!button) return;
 
     const rect = button.getBoundingClientRect();
 
-    const x = evt.clientX - rect.left;
-    const y = evt.clientY - rect.top;
+    // check if the mouse is inside the button
+    if (
+      clientX < rect.left ||
+      clientX > rect.right ||
+      clientY < rect.top ||
+      clientY > rect.bottom
+    ) {
+      return;
+    }
 
-    setMouseX(x);
-    setMouseY(y);
+    // calc the x and y position inside the button
+    // x and y are the pageX and pageY values from the mouse position
+    // so we need to substract the button's top and left position
 
-    const glowStart = getComputedStyle(button)
-      .getPropertyValue("--button-glow-start")
-      .trim();
-    const glowEnd = getComputedStyle(button)
-      .getPropertyValue("--button-glow-end")
-      .trim();
+    const buttonX = x - rect.left;
+    const buttonY = clientY - rect.top;
 
     gsap.to(button, {
-      "--pointer-x": `${mouseX}px`,
-      "--pointer-y": `${mouseY}px`,
+      "--pointer-x": `${buttonX}px`,
+      "--pointer-y": `${buttonY}px`,
       duration: 0.6,
     });
 
     gsap.to(button, {
-      "--button-glow": chroma
-        .mix(glowStart, glowEnd, mouseX / rect.width, "lab")
-        .hex(),
+      "--button-glow": currentColor,
       duration: 0.2,
     });
-  };
-
-  useLayoutEffect(() => {
-    document.addEventListener("pointermove", handlePointerMove);
-    return () => {
-      document.removeEventListener("pointermove", handlePointerMove);
-    };
-  }, [mouseX, mouseY]);
+  }, [x, y]);
 
   const renderSwitch = () => {
     switch (as) {
       case "a":
         return (
-          <a className="glow-button" ref={aRef}>
+          <a className="glow-button button" ref={aRef}>
             <span>{children}</span>
             <div className="gradient" ref={gradientElem}></div>
           </a>

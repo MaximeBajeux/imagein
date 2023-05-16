@@ -9,8 +9,9 @@ import { StaticImage } from "gatsby-plugin-image";
 import Row from "../components/row/row";
 import Col from "../components/col/col";
 import Circlechart from "../components/circlechart/circlechart";
-import GlowButton from "../components/glowbutton/glowbutton";
 import Stack from "../components/stack/stack";
+import Button from "../components/button/button";
+import GlowButton from "../components/glowbutton/glowbutton";
 
 import * as methodAnimation from "../lottie/website-building-of-shopping-sale.json";
 import * as secretSauceAnimation from "../lottie/video-marketing.json";
@@ -37,7 +38,43 @@ const IndexPage = () => {
   return (
     <Layout className="home">
       <SEO title="Home" />
-      <HeroBanner />
+      <HeroBanner
+        words={[
+          "Performance",
+          "Créativité",
+          "Ergonomie",
+          "SEO",
+          "Design",
+          "Photographie",
+          "UI/UX",
+          "Marketing",
+          "Développement",
+        ]}
+      >
+        <h1 className="herobanner__title">
+          Agence spécialisée dans l'ultra performance
+        </h1>
+        <h3 className="herobanner__subtitle">
+          Vous souhaitez mettre toutes les chances de votre côté pour convertir
+          un maximum de prospects ?
+        </h3>
+        <h3 className="herobanner__subtitle">
+          Nous vous créons un site ultra rapide et optimisé pour le SEO !
+        </h3>
+        <Stack
+          direction="horizontal"
+          position="center"
+          gap={5}
+          style={{ marginTop: "3rem" }}
+        >
+          <GlowButton as="Link" to="contact/">
+            Je veux un site
+          </GlowButton>
+          <GlowButton as="Link" to="about/">
+            En savoir plus
+          </GlowButton>
+        </Stack>
+      </HeroBanner>
       <section className="partners">
         <Row>
           <Col xs={12}>
@@ -95,9 +132,9 @@ const IndexPage = () => {
                   contacter pour un devis gratuit.
                 </p>
                 <Stack direction="horizontal" className="dark">
-                  <GlowButton as="Link" to="contact/">
-                    Demander un devis
-                  </GlowButton>
+                  <Button as="Link" to="offres/">
+                    Découvrir nos offres
+                  </Button>
                 </Stack>
               </Col>
             </Row>
@@ -127,13 +164,19 @@ const IndexPage = () => {
                 </p>
               </Col>
               <Col xs={6} md={3}>
-                <Circlechart percentage={95} text="Performances" color="lime" />
+                <Circlechart
+                  percentage={95}
+                  text="Performances"
+                  color="lime"
+                  delay={0}
+                />
               </Col>
               <Col xs={6} md={3}>
                 <Circlechart
                   percentage={92}
                   text="Accessibilité"
                   color="lime"
+                  delay={0.15}
                 />
               </Col>
               <Col xs={6} md={3}>
@@ -141,14 +184,20 @@ const IndexPage = () => {
                   percentage={100}
                   text="Bonnes pratiques"
                   color="lime"
+                  delay={0.3}
                 />
               </Col>
               <Col xs={6} md={3}>
-                <Circlechart percentage={100} text="SEO" color="lime" />
+                <Circlechart
+                  percentage={100}
+                  text="SEO"
+                  color="lime"
+                  delay={0.45}
+                />
               </Col>
               <Col xs={12}>
                 <Stack direction="horizontal" className="dark">
-                  <GlowButton>Voir en live</GlowButton>
+                  <Button>Voir en live</Button>
                 </Stack>
               </Col>
             </Row>
@@ -187,9 +236,9 @@ const IndexPage = () => {
               sur votre contenu, sans avoir à toucher au code.
             </p>
             <Stack direction="horizontal" className="dark">
-              <GlowButton as="Link" to="contact/">
+              <Button as="Link" to="contact/">
                 Je veux ça !
-              </GlowButton>
+              </Button>
             </Stack>
           </Col>
           <Col xs={12} md={6} className="stretch middle">
@@ -231,9 +280,9 @@ const IndexPage = () => {
               fournir un contenu de qualité et optimisé pour le SEO.
             </p>
             <Stack direction="horizontal" className="dark">
-              <GlowButton as="Link" to="contact/">
+              <Button as="Link" to="contact/">
                 Je suis convaincu !
-              </GlowButton>
+              </Button>
             </Stack>
           </Col>
           <Col xs={12} md={6} className="stretch middle">

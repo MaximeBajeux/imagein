@@ -1,29 +1,23 @@
-import React from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import Grid from "../grid/grid";
 import Row from "../row/row";
-import Col from "../col/col";
 import Spotlight from "../spotlight/spotlight";
-import Card from "../card/card";
-import GlowButton from "../glowbutton/glowbutton";
-import Stack from "../stack/stack";
 
 import "./herobanner.scss";
 
-const Herobanner = () => {
-  const words = [
-    "Performance",
-    "Créativité",
-    "Ergonomie",
-    "SEO",
-    "Design",
-    "Photographie",
-    "UI/UX",
-    "Marketing",
-    "Développement",
-  ];
-  const [word, setWord] = React.useState(words[0]);
+const Herobanner = ({
+  words,
+  children,
+}: {
+  words?: string[];
+  children: ReactNode;
+}) => {
+  const [word, setWord] = useState("");
 
-  React.useEffect(() => {
+  useEffect(() => {
+    if (!words || words.length <= 1) {
+      return;
+    }
     const interval = setInterval(() => {
       const index = words.indexOf(word);
       const nextIndex = index + 1 === words.length ? 0 : index + 1;
@@ -32,38 +26,20 @@ const Herobanner = () => {
     return () => clearInterval(interval);
   }, [word]);
 
+  useEffect(() => {
+    if (words) setWord(words[0]);
+  }, [words]);
+
   return (
     <Grid as="section" className="herobanner dark">
       <Row className="fullwidth">
         <Spotlight>
-          <Spotlight.Title length={word.length}>
-            <h1 className="herobanner__title">{word}</h1>
-          </Spotlight.Title>
-          <Spotlight.Content>
-            <h1 className="herobanner__title">
-              Agence spécialisée dans l'ultra performance
-            </h1>
-            <h3 className="herobanner__subtitle">
-              Vous souhaitez mettre toutes les chances de votre côté pour
-              convertir un maximum de prospects ?
-            </h3>
-            <h3 className="herobanner__subtitle">
-              Nous vous créons un site ultra rapide et optimisé pour le SEO !
-            </h3>
-            <Stack
-              direction="horizontal"
-              position="center"
-              gap={5}
-              style={{ marginTop: "3rem" }}
-            >
-              <GlowButton as="Link" to="contact/">
-                Je veux un site
-              </GlowButton>
-              <GlowButton as="Link" to="about/">
-                En savoir plus
-              </GlowButton>
-            </Stack>
-          </Spotlight.Content>
+          {word && (
+            <Spotlight.Title length={word.length}>
+              <h1 className="herobanner__title">{word}</h1>
+            </Spotlight.Title>
+          )}
+          <Spotlight.Content>{children}</Spotlight.Content>
         </Spotlight>
       </Row>
     </Grid>
