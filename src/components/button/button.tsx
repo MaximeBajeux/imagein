@@ -2,7 +2,7 @@ import React from "react";
 import "./button.scss";
 import { Link } from "gatsby-link";
 
-const GlowButton = ({
+const Button = ({
   as = "button",
   to,
   children,
@@ -40,4 +40,4 @@ const GlowButton = ({
   return <>{renderSwitch()}</>;
 };
 
-export default GlowButton;
+export default Button;

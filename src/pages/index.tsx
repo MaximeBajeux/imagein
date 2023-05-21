@@ -12,29 +12,11 @@ import Circlechart from "../components/circlechart/circlechart";
 import Stack from "../components/stack/stack";
 import Button from "../components/button/button";
 import GlowButton from "../components/glowbutton/glowbutton";
-
-import * as methodAnimation from "../lottie/website-building-of-shopping-sale.json";
-import * as secretSauceAnimation from "../lottie/video-marketing.json";
+import Animation from "../components/animation/animation";
+import * as animation1Data from "../lottie/website-building-of-shopping-sale.json";
+import * as animation2Data from "../lottie/video-marketing.json";
 
 const IndexPage = () => {
-  const methodDefaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: methodAnimation,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-
-  const secretSauceDefaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: secretSauceAnimation,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-
   return (
     <Layout className="home">
       <SEO title="Home" />
@@ -242,7 +224,7 @@ const IndexPage = () => {
             </Stack>
           </Col>
           <Col xs={12} md={6} className="stretch middle">
-            <Lottie options={methodDefaultOptions} />
+            <Animation data={animation1Data} />
           </Col>
         </Row>
       </section>
@@ -286,7 +268,7 @@ const IndexPage = () => {
             </Stack>
           </Col>
           <Col xs={12} md={6} className="stretch middle">
-            <Lottie options={secretSauceDefaultOptions} />
+            <Animation data={animation2Data} />
           </Col>
         </Row>
       </section>
