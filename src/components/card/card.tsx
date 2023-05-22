@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import Stack from "../stack/stack";
 import "./card.scss";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Card = ({
   children,
@@ -18,8 +20,12 @@ const Card = ({
   );
 };
 
-const Image = ({ children }: { children: React.ReactNode }) => {
-  return <div className="card__image">{children}</div>;
+const Image = ({ data, alt }: { data: any; alt: string }) => {
+  return (
+    <div className="card__image">
+      <GatsbyImage image={getImage(data)} alt={alt} />
+    </div>
+  );
 };
 
 Card.Image = Image;

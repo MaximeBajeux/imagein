@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import "@dotlottie/player-component";
 
 const animationData = ({
   path,

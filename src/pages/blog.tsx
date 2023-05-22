@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 
 import Layout from "../components/layout/layout";
@@ -7,7 +6,6 @@ import { HeadFC, PageProps, graphql, Link } from "gatsby";
 import Row from "../components/row/row";
 import Col from "../components/col/col";
 import Card from "../components/card/card";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const BlogPage: React.FC<PageProps<Queries.BlogListQuery>> = ({
   data,
@@ -15,16 +13,14 @@ const BlogPage: React.FC<PageProps<Queries.BlogListQuery>> = ({
   const cards = data.allMdx.nodes.map((node: any) => {
     const { frontmatter, imageRemote } = node;
     const imageData =
-      getImage(imageRemote?.childImageSharp?.gatsbyImageData) ||
-      getImage(frontmatter.image?.childImageSharp?.gatsbyImageData);
+      imageRemote?.childImageSharp?.gatsbyImageData ||
+      frontmatter.image?.childImageSharp?.gatsbyImageData;
 
     return (
       <Col xs={12} md={6} lg={4} xl={3} key={node.id} className="gap-2">
         <Link to={`/blog/${node.frontmatter?.slug}`} style={{ height: "100%" }}>
           <Card style={{ height: "100%" }}>
-            <Card.Image>
-              <GatsbyImage image={imageData} alt={node.frontmatter?.imageAlt} />
-            </Card.Image>
+            <Card.Image data={imageData} alt={node.frontmatter?.imageAlt} />
             <Card.Title as="h3">{node.frontmatter?.title}</Card.Title>
             <Card.Content>{node.frontmatter?.description}</Card.Content>
           </Card>
