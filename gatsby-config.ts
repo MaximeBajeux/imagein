@@ -43,7 +43,18 @@ const config: GatsbyConfig = {
       },
       __key: "posts",
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "lottie",
+        path: "./src/lottie/",
+      },
+      __key: "lottie",
+    },
   ],
+  flags: {
+    PARTIAL_HYDRATION: true,
+  },
 };
 
 export default config;

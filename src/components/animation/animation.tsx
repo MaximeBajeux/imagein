@@ -1,29 +1,23 @@
+"use client";
 import React from "react";
-import { useLayoutEffect, useRef } from "react";
-import lottie from "lottie-web";
+import "@dotlottie/player-component";
 
 const animationData = ({
-  data,
+  path,
   className,
 }: {
-  date: any;
-  className: string;
+  path: string;
+  className?: string;
 }) => {
-  const container = useRef<HTMLDivElement>(null);
-  useLayoutEffect(() => {
-    if (!container.current) {
-      return;
-    }
-    lottie.loadAnimation({
-      container: container.current,
-      renderer: "svg",
-      loop: true,
-      autoplay: true,
-      animationData: data,
-    });
-  }, []);
-
-  return <div className={className} ref={container}></div>;
+  return (
+    <dotlottie-player
+      className={className}
+      autoplay
+      loop
+      mode="normal"
+      src={path}
+    ></dotlottie-player>
+  );
 };
 
 export default animationData;

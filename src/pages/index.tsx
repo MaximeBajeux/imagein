@@ -1,5 +1,4 @@
 import React from "react";
-import Lottie from "react-lottie";
 import "./index.scss";
 
 import Layout from "../components/layout/layout";
@@ -13,10 +12,15 @@ import Stack from "../components/stack/stack";
 import Button from "../components/button/button";
 import GlowButton from "../components/glowbutton/glowbutton";
 import Animation from "../components/animation/animation";
-import * as animation1Data from "../lottie/website-building-of-shopping-sale.json";
-import * as animation2Data from "../lottie/video-marketing.json";
+import { graphql, PageProps } from "gatsby";
 
-const IndexPage = () => {
+const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
+  // change lottie files list to object with name as key
+  const lottieFiles = data.allFile.nodes.reduce((acc, node) => {
+    acc[node.name] = node.publicURL;
+    return acc;
+  }, {} as { [key: string]: string });
+
   return (
     <Layout className="home">
       <SEO title="Home" />
@@ -224,7 +228,7 @@ const IndexPage = () => {
             </Stack>
           </Col>
           <Col xs={12} md={6} className="stretch middle">
-            <Animation data={animation1Data} />
+            <Animation path={lottieFiles["animation1"]} />
           </Col>
         </Row>
       </section>
@@ -268,7 +272,7 @@ const IndexPage = () => {
             </Stack>
           </Col>
           <Col xs={12} md={6} className="stretch middle">
-            <Animation data={animation2Data} />
+            <Animation path={lottieFiles["animation2"]} />
           </Col>
         </Row>
       </section>
@@ -277,5 +281,16 @@ const IndexPage = () => {
 };
 
 export const Head = () => <SEO title="Home" />;
+
+export const query = graphql`
+  query LottieFiles {
+    allFile(filter: { sourceInstanceName: { eq: "lottie" } }) {
+      nodes {
+        name
+        publicURL
+      }
+    }
+  }
+`;
 
 export default IndexPage;
