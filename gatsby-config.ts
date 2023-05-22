@@ -24,7 +24,7 @@ const config: GatsbyConfig = {
       options: {
         lang: "fr-FR",
       },
-    }
+    },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
