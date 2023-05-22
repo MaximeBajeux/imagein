@@ -26,9 +26,20 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `gatsby-plugin-webfonts`,
       options: {
-        fonts: ["Bebas Neue", "Montserrat:300,500,700,900,300i,500i,700i,900i"],
+        fonts: {
+          google: [
+            {
+              family: "Montserrat",
+              variants: ["500", "700", "900", "500i"],
+            },
+            {
+              family: "Bebas Neue",
+              variants: ["400"],
+            },
+          ],
+        },
       },
     },
     {

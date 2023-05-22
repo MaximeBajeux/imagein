@@ -74,6 +74,9 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
               alt="logo de Oney"
               placeholder="blurred"
               layout="fixed"
+              width={190}
+              quality={90}
+              formats={["auto", "webp", "avif"]}
             />
           </Col>
           <Col xs={6} md={3} className="partner-logo">
@@ -82,6 +85,9 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
               alt="Logo de Portainer"
               placeholder="blurred"
               layout="fixed"
+              width={190}
+              quality={90}
+              formats={["auto", "webp", "avif"]}
             />
           </Col>
           <Col xs={6} md={3} className="partner-logo">
@@ -90,6 +96,9 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
               alt="logo de l'Ufem"
               placeholder="blurred"
               layout="fixed"
+              width={190}
+              quality={90}
+              formats={["auto", "webp", "avif"]}
             />
           </Col>
           <Col xs={6} md={3} className="partner-logo">
@@ -98,6 +107,9 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
               alt="logo de Nord Motors"
               placeholder="blurred"
               layout="fixed"
+              width={190}
+              quality={90}
+              formats={["auto", "webp", "avif"]}
             />
           </Col>
         </Row>
