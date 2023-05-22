@@ -124,17 +124,3 @@ export const createPages: GatsbyNode["createPages"] = async ({
     component: footerSlice,
   });
 };
-
-// Add custom webpack config to ignore warnings from webpack-filter-warnings-plugin
-const FilterWarningsPlugin = require("webpack-filter-warnings-plugin");
-
-exports.onCreateWebpackConfig = ({ actions }: { actions: any }) => {
-  actions.setWebpackConfig({
-    plugins: [
-      new FilterWarningsPlugin({
-        exclude:
-          /mini-css-extract-plugin[^]*Conflicting order\. Following module has been added:.*$/,
-      }),
-    ],
-  });
-};
