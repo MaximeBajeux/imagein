@@ -1,4 +1,7 @@
+"use client";
 import { useState, useEffect } from "react";
+
+const isBrowser = typeof window !== "undefined";
 
 const useMousePosition = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -10,9 +13,12 @@ const useMousePosition = () => {
       setClient({ clientX: e.clientX, clientY: e.clientY });
     };
 
-    window.addEventListener("mousemove", updateMousePosition);
+    if (isBrowser) window.addEventListener("mousemove", updateMousePosition);
 
-    return () => window.removeEventListener("mousemove", updateMousePosition);
+    return () =>
+      isBrowser
+        ? window.removeEventListener("mousemove", updateMousePosition)
+        : void 0;
   }, []);
 
   return { ...position, ...client };

@@ -1,3 +1,4 @@
+"use client";
 import React, { useLayoutEffect } from "react";
 import "./glowbutton.scss";
 import gsap from "../../components/gsap/gsap";

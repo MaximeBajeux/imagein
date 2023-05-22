@@ -1,6 +1,9 @@
+"use client";
 import chroma from "chroma-js";
 import { useState, useEffect } from "react";
 import useMousePosition from "./use-mouse-position";
+
+const isBrowser = typeof window !== "undefined";
 
 const useColorState = () => {
   const [currentColor, setCurrentColor] = useState<string>("#fea36d");
@@ -18,9 +21,11 @@ const useColorState = () => {
 
   // update the color based on the mouse position
   useEffect(() => {
-    const distanceFromLeft = x / window.innerWidth;
-    const index = Math.floor(distanceFromLeft * colorScale.length);
-    setCurrentColor(colorScale[index]);
+    if (isBrowser) {
+      const distanceFromLeft = x / window.innerWidth;
+      const index = Math.floor(distanceFromLeft * colorScale.length);
+      setCurrentColor(colorScale[index]);
+    }
   }, [x, colorScale]);
 
   return { colorScale, currentColor, setCurrentColor };

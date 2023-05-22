@@ -1,3 +1,4 @@
+"use client";
 import React, { useLayoutEffect } from "react";
 import "./spotlight.scss";
 import gsap from "../../components/gsap/gsap";

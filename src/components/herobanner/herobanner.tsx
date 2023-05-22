@@ -1,3 +1,4 @@
+"use client";
 import React, { ReactNode, useEffect, useState } from "react";
 import Grid from "../grid/grid";
 import Row from "../row/row";

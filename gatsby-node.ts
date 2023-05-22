@@ -124,3 +124,18 @@ export const createPages: GatsbyNode["createPages"] = async ({
     component: footerSlice,
   });
 };
+
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === "build-html") {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /dotlottie-player/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    });
+  }
+};

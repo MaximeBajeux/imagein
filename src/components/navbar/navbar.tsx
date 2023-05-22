@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Link } from "gatsby";
 import Hamburder from "../hamburger/hamburger";

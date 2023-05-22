@@ -54,6 +54,7 @@ const config: GatsbyConfig = {
   ],
   flags: {
     PARTIAL_HYDRATION: true,
+    DEV_SSR: true,
   },
 };
 

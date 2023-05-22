@@ -1,3 +1,4 @@
+"use client";
 import React, { useLayoutEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./circlechart.scss";
