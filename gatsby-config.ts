@@ -52,10 +52,6 @@ const config: GatsbyConfig = {
       __key: "lottie",
     },
   ],
-  flags: {
-    PARTIAL_HYDRATION: true,
-    DEV_SSR: true,
-  },
 };
 
 export default config;
