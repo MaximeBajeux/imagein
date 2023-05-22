@@ -1,10 +1,8 @@
-"use client";
-import React, { useLayoutEffect } from "react";
-import gsap from "../../components/gsap/gsap";
-import { useRef } from "react";
-import "./cursor.scss";
+import React, { useRef, useEffect } from "react";
+import { useLayoutEffect } from "react";
 import useColorState from "../../hooks/use-color-state";
 import useMousePosition from "../../hooks/use-mouse-position";
+import "./cursor.scss";
 
 const Cursor = () => {
   const { currentColor } = useColorState();
@@ -14,29 +12,36 @@ const Cursor = () => {
 
   useLayoutEffect(() => {
     const cursor = cursorRef.current;
+    const cursorDot = cursorDotRef.current;
 
-    gsap.to(cursor, {
-      top: y,
-      left: x,
-      duration: 0.2,
-    });
+    if (cursor && cursorDot) {
+      cursor.style.setProperty("--spotlight-glow", currentColor);
+      cursorDot.style.setProperty("--spotlight-glow", currentColor);
+    }
+  }, [currentColor]);
 
-    gsap.to(cursorDotRef.current, {
-      top: y,
-      left: x,
-      duration: 0.18,
-    });
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      const cursor = cursorRef.current;
+      const cursorDot = cursorDotRef.current;
 
-    gsap.to(cursor, {
-      "--spotlight-glow": currentColor,
-      duration: 0.1,
-    });
+      if (cursor && cursorDot) {
+        const posX = event.pageX;
+        const posY = event.pageY;
 
-    gsap.to(cursorDotRef.current, {
-      "--spotlight-glow": currentColor,
-      duration: 0.1,
-    });
-  }, [x, y]);
+        cursor.style.top = `${posY}px`;
+        cursor.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+        cursorDot.style.left = `${posX}px`;
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
 
   return (
     <div className="cursor">
