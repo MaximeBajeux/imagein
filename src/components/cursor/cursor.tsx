@@ -17,31 +17,12 @@ const Cursor = () => {
     if (cursor && cursorDot) {
       cursor.style.setProperty("--spotlight-glow", currentColor);
       cursorDot.style.setProperty("--spotlight-glow", currentColor);
+      cursor.style.top = `${y}px`;
+      cursor.style.left = `${x}px`;
+      cursorDot.style.top = `${y}px`;
+      cursorDot.style.left = `${x}px`;
     }
-  }, [currentColor]);
-
-  useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
-      const cursor = cursorRef.current;
-      const cursorDot = cursorDotRef.current;
-
-      if (cursor && cursorDot) {
-        const posX = event.pageX;
-        const posY = event.pageY;
-
-        cursor.style.top = `${posY}px`;
-        cursor.style.left = `${posX}px`;
-        cursorDot.style.top = `${posY}px`;
-        cursorDot.style.left = `${posX}px`;
-      }
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
+  }, [x, y]);
 
   return (
     <div className="cursor">
