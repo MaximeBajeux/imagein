@@ -69,21 +69,35 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
         </Row>
         <Row className="middle">
           <Col xs={6} md={3} className="partner-logo">
-            <StaticImage src="../images/oney_logo.png" alt="logo de Oney" />
+            <StaticImage
+              src="../images/oney_logo.png"
+              alt="logo de Oney"
+              placeholder="blurred"
+              layout="fixed"
+            />
           </Col>
           <Col xs={6} md={3} className="partner-logo">
             <StaticImage
               src="../images/portainer_logo.png"
               alt="Logo de Portainer"
+              placeholder="blurred"
+              layout="fixed"
             />
           </Col>
           <Col xs={6} md={3} className="partner-logo">
-            <StaticImage src="../images/ufem_logo.jpg" alt="logo de l'Ufem" />
+            <StaticImage
+              src="../images/ufem_logo.jpg"
+              alt="logo de l'Ufem"
+              placeholder="blurred"
+              layout="fixed"
+            />
           </Col>
           <Col xs={6} md={3} className="partner-logo">
             <StaticImage
               src="../images/nordmotors_logo.jpg"
               alt="logo de Nord Motors"
+              placeholder="blurred"
+              layout="fixed"
             />
           </Col>
         </Row>

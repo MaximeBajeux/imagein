@@ -20,6 +20,18 @@ const config: GatsbyConfig = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
+      resolve: "gatsby-plugin-html-attributes",
+      options: {
+        lang: "fr-FR",
+      },
+    }
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: ["Bebas Neue", "Montserrat:300,500,700,900,300i,500i,700i,900i"],
+      },
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
