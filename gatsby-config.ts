@@ -20,6 +20,12 @@ const config: GatsbyConfig = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
+      resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
+      options: {
+        devMode: true,
+      },
+    },
+    {
       resolve: "gatsby-plugin-html-attributes",
       options: {
         lang: "fr-FR",
