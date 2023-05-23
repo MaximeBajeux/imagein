@@ -19,6 +19,7 @@ const config: GatsbyConfig = {
     "gatsby-transformer-remark",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-workerize-loader",
     {
       resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
       options: {

@@ -40,10 +40,10 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
         <h1 className="herobanner__title">
           Agence spécialisée dans l'ultra performance
         </h1>
-        <h3 className="herobanner__subtitle">
+        <h2 className="herobanner__subtitle">
           Vous souhaitez mettre toutes les chances de votre côté pour convertir
           un maximum de prospects ?
-        </h3>
+        </h2>
         <h3 className="herobanner__subtitle">
           Nous vous créons un site ultra rapide et optimisé pour le SEO !
         </h3>
