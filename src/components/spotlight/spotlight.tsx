@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import "./spotlight.scss";
 import useColorState from "../../hooks/use-color-state";
 import useMousePosition from "../../hooks/use-mouse-position";
+import { isMobile } from "react-device-detect";
 
 const Spotlight = ({ children }: { children: React.ReactNode }) => {
   const { currentColor } = useColorState();
@@ -11,6 +12,7 @@ const Spotlight = ({ children }: { children: React.ReactNode }) => {
   const shapeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (isMobile) return;
     const rect = rectRef.current;
     const shape = shapeRef.current;
 

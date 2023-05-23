@@ -36,8 +36,10 @@ const Herobanner = ({
       <Row className="fullwidth">
         <Spotlight>
           {word && (
-            <Spotlight.Title length={word.length}>
-              <h1 className="herobanner__title">{word}</h1>
+            <Spotlight.Title length={word.length ? word.length : 8}>
+              <h1 className="herobanner__title">
+                {word !== "" ? word : "Création"}
+              </h1>
             </Spotlight.Title>
           )}
           <Spotlight.Content>{children}</Spotlight.Content>
