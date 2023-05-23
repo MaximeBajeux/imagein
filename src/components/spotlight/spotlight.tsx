@@ -1,8 +1,5 @@
-"use client";
-import React, { useLayoutEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import "./spotlight.scss";
-import gsap from "../../components/gsap/gsap";
-import { useRef } from "react";
 import useColorState from "../../hooks/use-color-state";
 import useMousePosition from "../../hooks/use-mouse-position";
 
@@ -11,23 +8,22 @@ const Spotlight = ({ children }: { children: React.ReactNode }) => {
   const { x, y } = useMousePosition();
 
   const rectRef = useRef<HTMLDivElement>(null);
-  useLayoutEffect(() => {
-    const shapes = gsap.utils.toArray(".shape");
-    gsap.to(shapes, {
-      x: x,
-      y: y,
-    });
+  const shapeRef = useRef<HTMLDivElement>(null);
 
-    gsap.to(shapes, {
-      "--spotlight-glow": currentColor,
-      duration: 0.2,
-    });
-  }, [x, y]);
+  useEffect(() => {
+    const rect = rectRef.current;
+    const shape = shapeRef.current;
+
+    if (rect && shape) {
+      rect.style.setProperty("--spotlight-glow", currentColor);
+      shape.style.transform = `translate(${x}px, ${y}px)`;
+    }
+  }, [x, y, currentColor]);
 
   return (
     <div className="spotlight" ref={rectRef}>
       <div className="shapes">
-        <div className="shape"></div>
+        <div className="shape" ref={shapeRef}></div>
       </div>
       <div className="overlay" />
       {children}
@@ -45,12 +41,12 @@ const StyledTitle = ({
   const title = useRef<HTMLDivElement>(null);
   const size = length > 16 ? 16 : length;
 
-  useLayoutEffect(() => {
-    // Animate
-    gsap.to(title.current, {
-      "--font-size-spotlight": `${size}vw`,
-      duration: 0,
-    });
+  useEffect(() => {
+    const titleElement = title.current;
+
+    if (titleElement) {
+      titleElement.style.setProperty("--font-size-spotlight", `${size}vw`);
+    }
   }, [size]);
 
   return (

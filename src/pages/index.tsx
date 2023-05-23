@@ -176,36 +176,16 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
                 </p>
               </Col>
               <Col xs={6} md={3}>
-                <Circlechart
-                  percentage={95}
-                  text="Performances"
-                  color="lime"
-                  delay={0}
-                />
+                <Circlechart percentage={95} text="Performances" />
               </Col>
               <Col xs={6} md={3}>
-                <Circlechart
-                  percentage={92}
-                  text="Accessibilité"
-                  color="lime"
-                  delay={0.15}
-                />
+                <Circlechart percentage={92} text="Accessibilité" />
               </Col>
               <Col xs={6} md={3}>
-                <Circlechart
-                  percentage={100}
-                  text="Bonnes pratiques"
-                  color="lime"
-                  delay={0.3}
-                />
+                <Circlechart percentage={100} text="Bonnes pratiques" />
               </Col>
               <Col xs={6} md={3}>
-                <Circlechart
-                  percentage={100}
-                  text="SEO"
-                  color="lime"
-                  delay={0.45}
-                />
+                <Circlechart percentage={100} text="SEO" />
               </Col>
               <Col xs={12}>
                 <Stack direction="horizontal" className="dark">
@@ -254,7 +234,7 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
             </Stack>
           </Col>
           <Col xs={12} md={6} className="stretch middle">
-            <Animation path={lottieFiles["animation1"]} />
+            <Animation className="animation" path={lottieFiles["animation1"]} />
           </Col>
         </Row>
       </section>
@@ -298,7 +278,7 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
             </Stack>
           </Col>
           <Col xs={12} md={6} className="stretch middle">
-            <Animation path={lottieFiles["animation2"]} />
+            <Animation className="animation" path={lottieFiles["animation2"]} />
           </Col>
         </Row>
       </section>

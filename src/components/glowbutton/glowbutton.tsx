@@ -1,11 +1,8 @@
-"use client";
-import React, { useLayoutEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import "./glowbutton.scss";
-import gsap from "../../components/gsap/gsap";
-import { useRef } from "react";
-import { Link } from "gatsby-link";
 import useColorState from "../../hooks/use-color-state";
 import useMousePosition from "../../hooks/use-mouse-position";
+import { Link } from "gatsby-link";
 
 const GlowButton = ({
   as = "button",
@@ -23,13 +20,15 @@ const GlowButton = ({
   const aRef = useRef<HTMLAnchorElement>(null);
   const linkRef = useRef<HTMLAnchorElement>(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const button = buttonRef.current || aRef.current || linkRef.current;
-    if (!button) return;
+    const gradient = gradientElem.current;
+
+    if (!button || !gradient) return;
 
     const rect = button.getBoundingClientRect();
 
-    // check if the mouse is inside the button
+    // Check if the mouse is inside the button
     if (
       clientX < rect.left ||
       clientX > rect.right ||
@@ -39,24 +38,16 @@ const GlowButton = ({
       return;
     }
 
-    // calc the x and y position inside the button
+    // Calculate the x and y position inside the button
     // x and y are the pageX and pageY values from the mouse position
-    // so we need to substract the button's top and left position
-
+    // so we need to subtract the button's top and left position
     const buttonX = x - rect.left;
     const buttonY = clientY - rect.top;
 
-    gsap.to(button, {
-      "--pointer-x": `${buttonX}px`,
-      "--pointer-y": `${buttonY}px`,
-      duration: 0.6,
-    });
-
-    gsap.to(button, {
-      "--button-glow": currentColor,
-      duration: 0.2,
-    });
-  }, [x, y]);
+    button.style.setProperty("--pointer-x", `${buttonX}px`);
+    button.style.setProperty("--pointer-y", `${buttonY}px`);
+    button.style.setProperty("--button-glow", currentColor);
+  }, [x, y, currentColor]);
 
   const renderSwitch = () => {
     switch (as) {
