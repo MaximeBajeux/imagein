@@ -35,13 +35,11 @@ const Herobanner = ({
     <Grid as="section" className="herobanner dark">
       <Row className="fullwidth">
         <Spotlight>
-          {word && (
-            <Spotlight.Title length={word.length ? word.length : 8}>
-              <h1 className="herobanner__title">
-                {word !== "" ? word : "Création"}
-              </h1>
-            </Spotlight.Title>
-          )}
+          <Spotlight.Title length={word && word.length ? word.length : 8}>
+            <h1 className="herobanner__title">
+              {word !== "" ? word : "Création"}
+            </h1>
+          </Spotlight.Title>
           <Spotlight.Content>{children}</Spotlight.Content>
         </Spotlight>
       </Row>
