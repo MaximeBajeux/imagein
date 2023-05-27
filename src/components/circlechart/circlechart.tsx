@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useLayoutEffect } from "react";
 import "./circlechart.scss";
 
 const Circlechart = ({
@@ -13,7 +13,7 @@ const Circlechart = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const [circleWidth, setCircleWidth] = React.useState(0);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const circle = circleRef.current;
     const percent = percentRef.current;
     setCircleWidth(containerRef.current?.getBoundingClientRect().width || 0);
@@ -24,7 +24,7 @@ const Circlechart = ({
     const animateCircle = () => {
       let currentValue = 0;
       const duration = 1000; // Animation duration in milliseconds
-      const increment = percentage / (duration / 30); // Value increment per interval (30ms)
+      const increment = percentage / (duration / 15); // Value increment per interval (15ms)
 
       const interval = setInterval(() => {
         if (currentValue >= percentage) {
@@ -37,7 +37,7 @@ const Circlechart = ({
           percent.textContent = currentValue.toFixed();
           circle?.style.setProperty("--p", `${currentValue}%`);
         }
-      }, 30);
+      }, 15);
     };
 
     // check if on loading the animation is already in the viewport

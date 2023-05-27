@@ -1,10 +1,9 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useLayoutEffect } from "react";
 import "./glowbutton.scss";
 import useColorState from "../../hooks/use-color-state";
 import useMousePosition from "../../hooks/use-mouse-position";
 import { Link } from "gatsby-link";
 import { isMobile } from "react-device-detect";
-import Button from "../button/button";
 
 const GlowButton = ({
   as = "button",
@@ -22,7 +21,7 @@ const GlowButton = ({
   const aRef = useRef<HTMLAnchorElement>(null);
   const linkRef = useRef<HTMLAnchorElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isMobile) return;
     const button = buttonRef.current || aRef.current || linkRef.current;
     const gradient = gradientElem.current;
@@ -78,17 +77,7 @@ const GlowButton = ({
     }
   };
 
-  return (
-    <>
-      {isMobile ? (
-        <Button as={as} to={to}>
-          {children}
-        </Button>
-      ) : (
-        <>{renderSwitch()}</>
-      )}
-    </>
-  );
+  return <>{renderSwitch()}</>;
 };
 
 export default GlowButton;

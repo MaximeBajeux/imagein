@@ -10,10 +10,10 @@ const Herobanner = ({
   words,
   children,
 }: {
-  words?: string[];
+  words: string[];
   children: ReactNode;
 }) => {
-  const [word, setWord] = useState("");
+  const [word, setWord] = useState(words[0]);
 
   useEffect(() => {
     if (!words || words.length <= 1) {
@@ -27,15 +27,11 @@ const Herobanner = ({
     return () => clearInterval(interval);
   }, [word]);
 
-  useEffect(() => {
-    if (words) setWord(words[0]);
-  }, [words]);
-
   return (
     <Grid as="section" className="herobanner dark">
       <Row className="fullwidth">
         <Spotlight>
-          <Spotlight.Title length={word && word.length ? word.length : 8}>
+          <Spotlight.Title length={word !== "" ? word.length : 8}>
             <h1 className="herobanner__title">
               {word !== "" ? word : "Création"}
             </h1>

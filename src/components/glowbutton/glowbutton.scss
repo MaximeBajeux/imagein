@@ -14,8 +14,7 @@
   justify-content: center;
   align-items: center;
   padding: 1px;
-  background-color: var(--button-color);
-
+  background-color: rgba(255, 255, 255, 0.4);
   border-radius: 0.5rem;
   @include shadow(2);
 
@@ -30,11 +29,10 @@
 
   .gradient {
     position: absolute;
-    inset: 0;
     border-radius: inherit;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
-    -webkit-mask-image: -webkit-radial-gradient(white, black);
-    mask-image: radial-gradient(white, black);
     transform: scaleY(1.02) scaleX(1.005) rotate(-0.35deg);
 
     &:before {
@@ -43,7 +41,7 @@
       top: 0;
       left: 0;
       right: 0;
-      transform: scale(1.05) translateY(-44px) rotate(0deg) translateZ(0);
+      transform: scale(1.1) translateY(-60px) rotate(0deg) translateZ(0);
       padding-bottom: 100%;
       border-radius: 50%;
       background: linear-gradient(
@@ -63,8 +61,6 @@
     border-radius: inherit;
     background-color: var(--button-background);
     overflow: hidden;
-    -webkit-mask-image: -webkit-radial-gradient(white, black);
-    mask-image: radial-gradient(white, black);
     color: white;
 
     &:before {
@@ -92,6 +88,6 @@
 
 @keyframes rotate {
   to {
-    transform: scale(1.05) translateY(-44px) rotate(360deg) translateZ(0);
+    transform: scale(1.1) translateY(-60px) rotate(360deg) translateZ(0);
   }
 }
