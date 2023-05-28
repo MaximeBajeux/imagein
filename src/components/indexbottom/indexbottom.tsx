@@ -19,7 +19,7 @@ const IndexBottom = ({ lottieFiles }: { [key: string]: string }) => {
         <Row className="middle">
           <Col xs={6} md={3} className="partner-logo">
             <StaticImage
-              src="../images/oney_logo.png"
+              src="../../images/oney_logo.png"
               alt="logo de Oney"
               placeholder="blurred"
               layout="fixed"
@@ -30,7 +30,7 @@ const IndexBottom = ({ lottieFiles }: { [key: string]: string }) => {
           </Col>
           <Col xs={6} md={3} className="partner-logo">
             <StaticImage
-              src="../images/portainer_logo.png"
+              src="../../images/portainer_logo.png"
               alt="Logo de Portainer"
               placeholder="blurred"
               layout="fixed"
@@ -41,7 +41,7 @@ const IndexBottom = ({ lottieFiles }: { [key: string]: string }) => {
           </Col>
           <Col xs={6} md={3} className="partner-logo">
             <StaticImage
-              src="../images/ufem_logo.jpg"
+              src="../../images/ufem_logo.jpg"
               alt="logo de l'Ufem"
               placeholder="blurred"
               layout="fixed"
@@ -52,7 +52,7 @@ const IndexBottom = ({ lottieFiles }: { [key: string]: string }) => {
           </Col>
           <Col xs={6} md={3} className="partner-logo">
             <StaticImage
-              src="../images/nordmotors_logo.jpg"
+              src="../../images/nordmotors_logo.jpg"
               alt="logo de Nord Motors"
               placeholder="blurred"
               layout="fixed"
@@ -105,7 +105,7 @@ const IndexBottom = ({ lottieFiles }: { [key: string]: string }) => {
               <Col xs={12}>
                 <h2>
                   <StaticImage
-                    src="../images/pagespeed_64dp.png"
+                    src="../../images/pagespeed_64dp.png"
                     alt="logo de pagespeed insights"
                     style={{
                       width: "3.5rem",
