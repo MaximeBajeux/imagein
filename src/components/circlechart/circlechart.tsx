@@ -11,12 +11,10 @@ const Circlechart = ({
   const circleRef = useRef<HTMLDivElement>(null);
   const percentRef = useRef<HTMLSpanElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [circleWidth, setCircleWidth] = React.useState(0);
 
   useLayoutEffect(() => {
     const circle = circleRef.current;
     const percent = percentRef.current;
-    setCircleWidth(containerRef.current?.getBoundingClientRect().width || 0);
 
     let animationEnded = false;
     let animationAnimated = false;
@@ -82,15 +80,11 @@ const Circlechart = ({
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [percentage]);
+  }, []);
 
   return (
     <div className="circlechart__container" ref={containerRef}>
-      <div
-        className="circlechart"
-        ref={circleRef}
-        style={{ height: `${circleWidth}px` }}
-      >
+      <div className="circlechart" ref={circleRef}>
         <span ref={percentRef}>{percentage.toFixed()}</span>
       </div>
       <p className="circlechart__text">{text}</p>

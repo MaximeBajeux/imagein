@@ -2,14 +2,12 @@ import React from "react";
 
 import Layout from "../components/layout/layout";
 import SEO from "../components/seo/seo";
-import { HeadFC, PageProps, graphql, Link } from "gatsby";
+import { HeadFC, PagePropsZ } from "gatsby";
 
 import Grid from "../components/grid/grid";
 import Row from "../components/row/row";
 import Col from "../components/col/col";
-import Card from "../components/card/card";
 import Stack from "../components/stack/stack";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import GlowButton from "../components/glowbutton/glowbutton";
 import Herobanner from "../components/herobanner/herobanner";
 
