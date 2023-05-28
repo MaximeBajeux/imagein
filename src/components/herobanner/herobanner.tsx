@@ -10,10 +10,13 @@ const Herobanner = ({
   words,
   children,
 }: {
-  words: string[];
+  words?: string[];
   children: ReactNode;
 }) => {
-  const [word, setWord] = useState(words[0]);
+  const [word, setWord] = useState("");
+  if (words && words.length > 0) {
+    setWord(words[0]);
+  }
 
   useEffect(() => {
     if (!words || words.length <= 1) {
