@@ -1,12 +1,22 @@
 import React, { useRef, useEffect } from "react";
 import "./spotlight.scss";
-import useColorState from "../../hooks/use-color-state";
-import useMousePosition from "../../hooks/use-mouse-position";
 import { isMobile } from "react-device-detect";
 
 const Spotlight = ({ children }: { children: React.ReactNode }) => {
-  const { currentColor } = useColorState();
-  const { x, y } = useMousePosition();
+  let currentColor = "#FFA500";
+  let x = 0;
+  let y = 0;
+
+  if (!isMobile) {
+    const useColorState = require("../../hooks/use-color-state").default;
+    const useMousePosition = require("../../hooks/use-mouse-position").default;
+    const colorState = useColorState();
+    const mousePosition = useMousePosition();
+
+    currentColor = colorState.currentColor;
+    x = mousePosition.x;
+    y = mousePosition.y;
+  }
 
   const rectRef = useRef<HTMLDivElement>(null);
   const shapeRef = useRef<HTMLDivElement>(null);
