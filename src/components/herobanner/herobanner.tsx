@@ -1,6 +1,5 @@
 "use client";
 import React, { ReactNode, useEffect, useState } from "react";
-import Grid from "../grid/grid";
 import Row from "../row/row";
 import Spotlight from "../spotlight/spotlight";
 
@@ -32,7 +31,7 @@ const Herobanner = ({
   }, []);
 
   return (
-    <Grid as="section" className="herobanner dark">
+    <section className="herobanner dark">
       <Row className="fullwidth">
         <Spotlight>
           {words && words.length > 0 && (
@@ -45,7 +44,7 @@ const Herobanner = ({
           <Spotlight.Content>{children}</Spotlight.Content>
         </Spotlight>
       </Row>
-    </Grid>
+    </section>
   );
 };
 

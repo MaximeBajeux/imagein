@@ -15,10 +15,11 @@ const BlogPost = ({
 
   return (
     <Layout>
-      <SEO title={frontmatter.title} />
-      <h1>{frontmatter.title}</h1>
-      <p>{frontmatter.date}</p>
-      <div className="blogpost">{children}</div>
+      <article className="blogpost">
+        <h1>{frontmatter.title}</h1>
+        <time dateTime={frontmatter.date}>{frontmatter.date}</time>
+        {children}
+      </article>
     </Layout>
   );
 };

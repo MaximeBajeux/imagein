@@ -34,7 +34,8 @@
     "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
     "react-twitter-embed": "^4.0.4",
-    "sass": "^1.62.0"
+    "sass": "^1.62.0",
+    "webpack-filter-warnings-plugin": "^1.2.1"
   },
   "devDependencies": {
     "@types/node": "^18.15.11",

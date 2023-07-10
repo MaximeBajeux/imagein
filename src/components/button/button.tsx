@@ -6,30 +6,37 @@ const Button = ({
   as = "button",
   to,
   children,
+  className,
 }: {
   as: "button" | "a" | "Link";
   to: string;
   children: React.ReactNode;
+  [key: string]: any;
 }) => {
   const renderSwitch = () => {
     switch (as) {
       case "a":
         return (
-          <a className="basic-button button">
+          <a className={`button basic-button ${className ? className : ""}`}>
             <span>{children}</span>
             <div className="gradient"></div>
           </a>
         );
       case "Link":
         return (
-          <Link className="basic-button button" to={to}>
+          <Link
+            className={`button basic-button ${className ? className : ""}`}
+            to={to}
+          >
             <span>{children}</span>
             <div className="gradient"></div>
           </Link>
         );
       default:
         return (
-          <button className="basic-button button">
+          <button
+            className={`button basic-button ${className ? className : ""}`}
+          >
             <span>{children}</span>
             <div className="gradient"></div>
           </button>

@@ -6,6 +6,7 @@ import { HeadFC, PageProps, graphql, Link } from "gatsby";
 import Row from "../components/row/row";
 import Col from "../components/col/col";
 import Card from "../components/card/card";
+import Herobanner from "../components/herobanner/herobanner";
 
 const BlogPage: React.FC<PageProps<Queries.BlogListQuery>> = ({
   data,
@@ -31,7 +32,12 @@ const BlogPage: React.FC<PageProps<Queries.BlogListQuery>> = ({
 
   return (
     <Layout>
-      <section className="layout__list">
+      <Herobanner>
+        <h1 className="herobanner__title" style={{ marginTop: "6rem" }}>
+          Nos derniers articles
+        </h1>
+      </Herobanner>
+      <section className="layout__list mt-2">
         <Row className=" stretch">{cards}</Row>
       </section>
     </Layout>

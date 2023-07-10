@@ -1,3 +1,5 @@
+@import "./vars.scss";
+
 // Variables pour les couleurs et opacités
 $shadow-color: rgba(0, 0, 0, 0.2);
 $shadow-color-2: rgba(0, 0, 0, 0.14);
@@ -118,7 +120,8 @@ h6 {
 }
 
 /* Styles de corps de texte */
-p {
+p,
+small {
   color: var(--text-color);
 }
 
@@ -139,4 +142,187 @@ p {
 
 .dark p {
   color: var(--primary-color-light-2);
+}
+
+.blogpost {
+  display: flex;
+  flex-direction: column;
+  max-width: $breakpoint-xl;
+  margin: 0 auto;
+  padding: 5rem 1rem;
+
+  time {
+    font-size: 1rem;
+    color: var(--primary-color-light-2);
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    margin: 2.5rem 0;
+  }
+
+  h3 {
+    margin: 2rem 0;
+  }
+
+  img {
+    max-width: 960px;
+    margin: 2rem auto;
+  }
+
+  small {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}
+
+.big {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.ultra-big {
+  display: inline;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.ubber-big {
+  display: inline;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.orange {
+  display: inline;
+  color: var(--secondary-color);
+}
+
+.kpi {
+  font-size: 1rem;
+
+  &__item {
+    background-color: var(--primary-color-dark-1);
+    border-radius: 1rem;
+    color: var(--background-color);
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .big-orange {
+      display: inline;
+      color: var(--secondary-color);
+      font-size: 1.3rem;
+      padding: 0;
+      margin: 0;
+      line-height: 1.1;
+    }
+  }
+
+  &__text {
+    display: inline-block;
+    font-weight: 600;
+    padding: 1rem;
+    line-height: 1.4;
+  }
+
+  .square {
+    grid-column: span 1;
+    grid-row: span 1;
+    /* Styles supplémentaires pour un carré */
+  }
+
+  .rectangle-1-2 {
+    grid-column: span 1;
+    grid-row: span 2;
+    /* Styles supplémentaires pour un rectangle 1 sur 2 */
+  }
+
+  .rectangle-3-1 {
+    grid-column: span 3;
+    grid-row: span 1;
+    /* Styles supplémentaires pour un rectangle 3 sur 1 */
+  }
+}
+
+$spacing-values: (
+  0: 0,
+  1: 1rem,
+  2: 2rem,
+  3: 3rem,
+  // Ajoutez d'autres valeurs de spacing au besoin
+);
+
+@each $suffix, $value in $spacing-values {
+  .m-#{$suffix} {
+    margin: $value !important;
+  }
+
+  .mt-#{$suffix} {
+    margin-top: $value !important;
+  }
+
+  .mr-#{$suffix} {
+    margin-right: $value !important;
+  }
+
+  .mb-#{$suffix} {
+    margin-bottom: $value !important;
+  }
+
+  .ml-#{$suffix} {
+    margin-left: $value !important;
+  }
+
+  .mtb-#{$suffix} {
+    margin-top: $value !important;
+    margin-bottom: $value !important;
+  }
+
+  .mlr-#{$suffix} {
+    margin-left: $value !important;
+    margin-right: $value !important;
+  }
+
+  .p-#{$suffix} {
+    padding: $value !important;
+  }
+
+  .pt-#{$suffix} {
+    padding-top: $value !important;
+  }
+
+  .pr-#{$suffix} {
+    padding-right: $value !important;
+  }
+
+  .pb-#{$suffix} {
+    padding-bottom: $value !important;
+  }
+
+  .pl-#{$suffix} {
+    padding-left: $value !important;
+  }
+
+  .ptb-#{$suffix} {
+    padding-top: $value !important;
+    padding-bottom: $value !important;
+  }
+
+  .plr-#{$suffix} {
+    padding-left: $value !important;
+    padding-right: $value !important;
+  }
+}
+
+@media (min-width: $breakpoint-sm) {
+  .list {
+    flex-direction: row;
+  }
 }

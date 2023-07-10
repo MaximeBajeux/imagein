@@ -55,7 +55,7 @@ const GlowButton = ({
     switch (as) {
       case "a":
         return (
-          <a className="glow-button button" ref={aRef}>
+          <a className="glow-button button" ref={aRef} href={to}>
             <span>{children}</span>
             <div className="gradient" ref={gradientElem}></div>
           </a>

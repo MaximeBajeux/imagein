@@ -1,4 +1,9 @@
 .layout {
   display: flex;
   flex-direction: column;
+
+  &__title {
+    text-align: center;
+    margin: 3rem auto;
+  }
 }

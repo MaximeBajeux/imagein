@@ -1,6 +1,30 @@
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem; /* Espacement entre les éléments de la grille */
+
+  .square {
+    grid-column: span 1;
+    grid-row: span 1;
+    /* Styles supplémentaires pour un carré */
+  }
+
+  .vertical-rect {
+    grid-column: span 1;
+    grid-row: span 2;
+    /* Styles supplémentaires pour un rectangle 1 sur 2 */
+  }
+
+  .line {
+    grid-column: span 3;
+    grid-row: span 1;
+    /* Styles supplémentaires pour un rectangle 3 sur 1 */
+  }
+
+  .rect {
+    grid-column: span 2;
+    grid-row: span 1;
+    /* Styles supplémentaires pour un rectangle 2 sur 1 */
+  }
 }

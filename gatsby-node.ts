@@ -1,6 +1,7 @@
 import type { GatsbyNode } from "gatsby";
 import { resolve } from "path";
 import { createRemoteFileNode } from "gatsby-source-filesystem";
+import FilterWarningsPlugin from "webpack-filter-warnings-plugin";
 
 // Create schema custom fields
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
@@ -138,4 +139,13 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       },
     });
   }
+
+  actions.setWebpackConfig({
+    plugins: [
+      new FilterWarningsPlugin({
+        exclude:
+          /mini-css-extract-plugin[^]*Conflicting order. Following module has been added:/,
+      }),
+    ],
+  });
 };

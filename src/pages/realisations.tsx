@@ -4,20 +4,20 @@ import SEO from "../components/seo/seo";
 import Layout from "../components/layout/layout";
 import Herobanner from "../components/herobanner/herobanner";
 
-const Contact: React.FC<PageProps> = () => {
+const Realisation: React.FC<PageProps> = () => {
   return (
     <Layout>
       <Herobanner>
         <h1 className="herobanner__title" style={{ marginTop: "6rem" }}>
-          Nous contacter
+          Nos réalisations
         </h1>
       </Herobanner>
     </Layout>
   );
 };
 
-export default Contact;
+export default Realisation;
 
 const Head = () => {
-  return <SEO title="Nous contacter" />;
+  return <SEO title="Nos réalisations" />;
 };

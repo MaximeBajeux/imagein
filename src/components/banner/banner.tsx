@@ -1,8 +1,16 @@
 import React from "react";
 import "./banner.scss";
 
-const Banner = () => {
-  return <div className="banner">C'est une banière</div>;
+const Banner = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  [key: string]: any;
+}) => {
+  return (
+    <div className={`banner ${className ? className : ""}`}>{children}</div>
+  );
 };
 
 export default Banner;
