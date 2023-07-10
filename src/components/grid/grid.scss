@@ -1,8 +1,7 @@
+@import "../../styles/vars.scss";
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 1rem; /* Espacement entre les éléments de la grille */
 
   .square {
     grid-column: span 1;
@@ -17,7 +16,6 @@
   }
 
   .line {
-    grid-column: span 3;
     grid-row: span 1;
     /* Styles supplémentaires pour un rectangle 3 sur 1 */
   }
@@ -26,5 +24,50 @@
     grid-column: span 2;
     grid-row: span 1;
     /* Styles supplémentaires pour un rectangle 2 sur 1 */
+  }
+
+  // loop on xs, sm, md and lg breakpoints to generate the grid for each breakpoint (see src/styles/vars.scss). the syntax is the following:
+  // &--xs-row-1 &--xs-col-1, etc
+
+  $grid-rows: 1, 2, 3, 4, 5;
+  $grid-cols: 1, 2, 3, 4, 5;
+
+  @each $breakpoint, $value in $breakpoints {
+    @media (min-width: $value) {
+      @each $row in $grid-rows {
+        &--#{$breakpoint}-row-#{$row} {
+          grid-template-rows: repeat(#{$row}, 1fr);
+        }
+      }
+
+      @each $col in $grid-cols {
+        &--#{$breakpoint}-col-#{$col} {
+          grid-template-columns: repeat(#{$col}, 1fr);
+
+          @if $col < 3 {
+            .line {
+              grid-column: 1 / -1;
+            }
+          } @else {
+            .line {
+              grid-column: span 3;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // loop on different gap values (see src/styles/vars.scss). the syntax is the following:
+
+  // &--gap-1, etc
+  // values are in rem units between 1 and 5
+
+  $grid-gaps: 1, 2, 3, 4, 5;
+
+  @each $gap in $grid-gaps {
+    &--gap-#{$gap} {
+      grid-gap: #{$gap}rem;
+    }
   }
 }

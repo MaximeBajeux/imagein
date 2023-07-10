@@ -67,7 +67,16 @@ const OffresPage: React.FC<PageProps> = ({ data }: PageProps) => {
           </Col>
           <Col xs={12} md={6}>
             <h3 className=" mt-1 mb-2">Notre solution comprend</h3>
-            <Grid cols={4} rows={2} gap={1} className="kpi">
+            <Grid
+              xsCols={2}
+              lgCols={3}
+              xlCols={4}
+              xsRows={4}
+              lgRows={3}
+              xlRows={4}
+              gap={1}
+              className="kpi"
+            >
               <Grid.Square className="kpi__item">
                 <div className="kpi__text">
                   L'achat de votre{" "}
@@ -161,7 +170,14 @@ const OffresPage: React.FC<PageProps> = ({ data }: PageProps) => {
               En fonction de vos besoins, nous vous proposons un éventail de
               solutions adaptées à votre entreprise.
             </p>
-            <Grid cols={4} rows={2} gap={1} className="kpi">
+            <Grid
+              xsCols={2}
+              lgCols={4}
+              xsRows={5}
+              lgRows={3}
+              gap={1}
+              className="kpi"
+            >
               <Grid.Rect className="kpi__item">
                 <div className="kpi__text">
                   Conception de votre{" "}

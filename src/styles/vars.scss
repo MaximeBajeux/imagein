@@ -4,6 +4,15 @@ $breakpoint-lg: 1080px;
 $breakpoint-xl: 1440px;
 $breakpoint-xxl: 1920px;
 
+$breakpoints: (
+  xs: 0,
+  sm: $breakpoint-sm,
+  md: $breakpoint-md,
+  lg: $breakpoint-lg,
+  xl: $breakpoint-xl,
+  xxl: $breakpoint-xxl,
+);
+
 // Mixin pour générer les ombres Material Design
 @mixin shadow($elevation) {
   $umbra-color: rgba(0, 0, 0, 0.2);

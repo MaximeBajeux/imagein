@@ -7,28 +7,49 @@ import "./grid.scss";
 const Grid = ({
   children,
   className,
-  rows,
-  cols,
+  xsRows,
+  smRows,
+  mdRows,
+  lgRows,
+  xlRows,
+  xsCols,
+  smCols,
+  mdCols,
+  lgCols,
+  xlCols,
   gap = 1,
   as: Element = "div",
   ...props
 }: {
   children: React.ReactNode;
   className?: string;
-  rows: number;
-  cols: number;
+  xsRows: number;
+  smRows?: number;
+  mdRows?: number;
+  lgRows?: number;
+  xsCols: number;
+  smCols?: number;
+  mdCols?: number;
+  lgCols?: number;
   gap?: number;
   as?: ElementType;
   [key: string]: any;
 }) => {
-  const style = {
-    gridTemplateColumns: `repeat(${cols}, 1fr)`,
-    gridTemplateRows: `repeat(${rows}, 1fr)`,
-    gap: `${gap}rem`,
-  };
+  const gridClass = `grid grid--xs-row-${xsRows} grid--xs-col-${xsCols} ${
+    smRows ? `grid--sm-row-${smRows}` : ""
+  } ${smCols ? `grid--sm-col-${smCols}` : ""} ${
+    mdRows ? `grid--md-row-${mdRows}` : ""
+  } ${mdCols ? `grid--md-col-${mdCols}` : ""} ${
+    lgRows ? `grid--lg-row-${lgRows}` : ""
+  } ${lgCols ? `grid--lg-col-${lgCols}` : ""} ${
+    xlRows ? `grid--xl-row-${xlRows}` : ""
+  } ${xlCols ? `grid--xl-col-${xlCols}` : ""} grid--gap-${gap}`;
 
   return (
-    <Element {...props} className={`grid ${className}`} style={style}>
+    <Element
+      {...props}
+      className={`${gridClass} ${className ? className : ""}`}
+    >
       {children}
     </Element>
   );
