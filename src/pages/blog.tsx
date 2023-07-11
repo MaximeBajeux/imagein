@@ -7,6 +7,7 @@ import Row from "../components/row/row";
 import Col from "../components/col/col";
 import Card from "../components/card/card";
 import Herobanner from "../components/herobanner/herobanner";
+import BreadCrumb from "../components/breadcrumb/breadcrumb";
 
 const BlogPage: React.FC<PageProps<Queries.BlogListQuery>> = ({
   data,
@@ -37,7 +38,17 @@ const BlogPage: React.FC<PageProps<Queries.BlogListQuery>> = ({
           Nos derniers articles
         </h1>
       </Herobanner>
-      <section className="layout__list mt-2">
+      <Row>
+        <Col xs={12}>
+          <BreadCrumb>
+            <BreadCrumb.Item>
+              <Link to="/">Accueil</Link>
+            </BreadCrumb.Item>
+            <BreadCrumb.Item>Blog</BreadCrumb.Item>
+          </BreadCrumb>
+        </Col>
+      </Row>
+      <section className="layout__list">
         <Row className=" stretch">{cards}</Row>
       </section>
     </Layout>

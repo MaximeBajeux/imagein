@@ -12,6 +12,8 @@ import Grid from "../components/grid/grid";
 import Banner from "../components/banner/banner";
 import Button from "../components/button/button";
 import Stack from "../components/stack/stack";
+import BreadCrumb from "../components/breadcrumb/breadcrumb";
+import { Link } from "gatsby";
 
 const OffresPage: React.FC<PageProps> = ({ data }: PageProps) => {
   return (
@@ -30,6 +32,16 @@ const OffresPage: React.FC<PageProps> = ({ data }: PageProps) => {
           </GlowButton>
         </Stack>
       </Herobanner>
+      <Row>
+        <Col xs={12}>
+          <BreadCrumb>
+            <BreadCrumb.Item>
+              <Link to="/">Accueil</Link>
+            </BreadCrumb.Item>
+            <BreadCrumb.Item>Nos offres</BreadCrumb.Item>
+          </BreadCrumb>
+        </Col>
+      </Row>
       <section id="pme">
         <Row className="mb-3">
           <Col xs={12}>
