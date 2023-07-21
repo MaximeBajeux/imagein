@@ -68,6 +68,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
   const { createPage, createSlice } = actions;
 
   const blogPostTemplate = resolve(`src/templates/blogpost.tsx`);
+  const realisationTemplate = resolve(`src/templates/realisation.tsx`);
+  const labTemplate = resolve(`src/templates/lab.tsx`);
   const result = await graphql<{
     allMdx: {
       nodes: {
@@ -81,7 +83,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       }[];
     };
   }>(`
-    query BlogPostsTemplate {
+    query AllPosts {
       allMdx {
         nodes {
           id
@@ -101,13 +103,54 @@ export const createPages: GatsbyNode["createPages"] = async ({
     return;
   }
 
-  result.data?.allMdx.nodes.forEach((node) => {
+  const posts = result.data?.allMdx.nodes.filter((node) =>
+    node.internal.contentFilePath.includes("src/posts")
+  );
+
+  if (!posts) {
+    reporter.panic(`Error while running GraphQL query.`);
+    return;
+  }
+
+  posts.forEach((post) => {
     createPage({
-      path: "/blog/" + node.frontmatter.slug,
-      component: `${blogPostTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
-      context: {
-        id: node.id,
-      },
+      path: `/blog/${post.frontmatter.slug}`,
+      component: `${blogPostTemplate}?__contentFilePath=${post.internal.contentFilePath}`,
+      context: { slug: post.frontmatter.slug },
+    });
+  });
+
+  const realisations = result.data?.allMdx.nodes.filter((node) =>
+    node.internal.contentFilePath.includes("src/realisations")
+  );
+
+  if (!realisations) {
+    reporter.panic(`Error while running GraphQL query.`);
+    return;
+  }
+
+  realisations.forEach((realisation) => {
+    createPage({
+      path: `/realisations/${realisation.frontmatter.slug}`,
+      component: `${realisationTemplate}?__contentFilePath=${realisation.internal.contentFilePath}`,
+      context: { slug: realisation.frontmatter.slug },
+    });
+  });
+
+  const labs = result.data?.allMdx.nodes.filter((node) =>
+    node.internal.contentFilePath.includes("src/labs")
+  );
+
+  if (!labs) {
+    reporter.panic(`Error while running GraphQL query.`);
+    return;
+  }
+
+  labs.forEach((lab) => {
+    createPage({
+      path: `/le-lab/${lab.frontmatter.slug}`,
+      component: `${labTemplate}?__contentFilePath=${lab.internal.contentFilePath}`,
+      context: { slug: lab.frontmatter.slug },
     });
   });
 

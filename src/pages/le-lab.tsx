@@ -9,9 +9,9 @@ import Card from "../components/card/card";
 import Herobanner from "../components/herobanner/herobanner";
 import BreadCrumb from "../components/breadcrumb/breadcrumb";
 
-const RealisationsPage: React.FC<PageProps<Queries.RealisationListQuery>> = ({
+const RealisationsPage: React.FC<PageProps<Queries.LabListQuery>> = ({
   data,
-}: PageProps<Queries.RealisationListQuery>) => {
+}: PageProps<Queries.LabListQuery>) => {
   const cards = data.allMdx.nodes.map((node: any) => {
     const { frontmatter, imageRemote } = node;
     const imageData =
@@ -21,7 +21,7 @@ const RealisationsPage: React.FC<PageProps<Queries.RealisationListQuery>> = ({
     return (
       <Col xs={12} md={6} lg={4} xl={3} key={node.id} className="gap-2">
         <Link
-          to={`/realisations/${node.frontmatter?.slug}`}
+          to={`/le-lab/${node.frontmatter?.slug}`}
           style={{ height: "100%" }}
         >
           <Card style={{ height: "100%" }}>
@@ -38,7 +38,7 @@ const RealisationsPage: React.FC<PageProps<Queries.RealisationListQuery>> = ({
     <Layout>
       <Herobanner>
         <h1 className="herobanner__title" style={{ marginTop: "6rem" }}>
-          Nos réalisations
+          Notre lab
         </h1>
       </Herobanner>
       <Row>
@@ -47,7 +47,7 @@ const RealisationsPage: React.FC<PageProps<Queries.RealisationListQuery>> = ({
             <BreadCrumb.Item>
               <Link to="/">Accueil</Link>
             </BreadCrumb.Item>
-            <BreadCrumb.Item>Nos réalisations</BreadCrumb.Item>
+            <BreadCrumb.Item>Le lab</BreadCrumb.Item>
           </BreadCrumb>
         </Col>
       </Row>
@@ -59,9 +59,9 @@ const RealisationsPage: React.FC<PageProps<Queries.RealisationListQuery>> = ({
 };
 
 export const query = graphql`
-  query RealisationList {
+  query LabList {
     allMdx(
-      filter: { internal: { contentFilePath: { regex: "/realisations/" } } }
+      filter: { internal: { contentFilePath: { regex: "/labs/" } } }
       sort: { frontmatter: { date: DESC } }
     ) {
       nodes {
@@ -98,4 +98,4 @@ export const query = graphql`
 
 export default RealisationsPage;
 
-export const Head: HeadFC = () => <SEO title="Nos réalisations" />;
+export const Head: HeadFC = () => <SEO title="Le lab" />;

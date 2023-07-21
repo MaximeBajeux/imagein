@@ -75,6 +75,22 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
+        name: "realisations",
+        path: "./src/realisations/",
+      },
+      __key: "realisations",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "labs",
+        path: "./src/labs/",
+      },
+      __key: "labs",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
         name: "lottie",
         path: "./src/lottie/",
       },

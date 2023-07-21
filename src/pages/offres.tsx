@@ -85,7 +85,7 @@ const OffresPage: React.FC<PageProps> = ({ data }: PageProps) => {
               xlCols={4}
               xsRows={4}
               lgRows={3}
-              xlRows={4}
+              xlRows={2}
               gap={1}
               className="kpi"
             >
