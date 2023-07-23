@@ -37,9 +37,23 @@ const RealisationsPage: React.FC<PageProps<Queries.LabListQuery>> = ({
   return (
     <Layout>
       <Herobanner>
-        <h1 className="herobanner__title" style={{ marginTop: "6rem" }}>
+        <h1 className="herobanner__title" style={{ marginTop: "3rem" }}>
           Notre lab
         </h1>
+        <Row>
+          <Col xs={12}>
+            <p className="mb-1">
+              Ici nous vous présentons nos projets personnels, nos
+              expérimentations et nos idées. Un peu de tout, un peu de rien,
+              mais surtout beaucoup de fun !
+            </p>
+            <p>
+              Les technologies utilisées ici ne sont pas forcément matures pour
+              une utilisation en production, ou adaptées à une solution axée sur
+              la performance. Mais elles sont toutes intéressantes à découvrir !
+            </p>
+          </Col>
+        </Row>
       </Herobanner>
       <Row>
         <Col xs={12}>

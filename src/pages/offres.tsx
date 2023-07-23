@@ -78,7 +78,9 @@ const OffresPage: React.FC<PageProps> = ({ data }: PageProps) => {
             </Row>
           </Col>
           <Col xs={12} md={6}>
-            <h3 className=" mt-1 mb-2">Notre solution comprend</h3>
+            <h3 className=" mt-1 mb-2">
+              Notre solution comprend <sup className="orange">*</sup>
+            </h3>
             <Grid
               xsCols={2}
               lgCols={3}
@@ -122,17 +124,24 @@ const OffresPage: React.FC<PageProps> = ({ data }: PageProps) => {
                 </div>
               </Grid.Line>
             </Grid>
+            <small className="mt-2 small">
+              <sup className="orange">*</sup> C'est notre solution la plus
+              basique, mais vous pouvez la faire évoluer en fonction de vos
+              besoins !
+            </small>
           </Col>
         </Row>
         <Banner className="blue shadow-1">
           <Row className="mtb-2">
             <Col xs={12} md={6} className="ultra-big">
-              Tout ça pour seulement{" "}
-              <span className="orange ubber-big">250€</span> par mois pendant un
-              an !
+              Tout ça à partir de <span className="orange ubber-big">250€</span>{" "}
+              par mois pendant un an !
               <Stack gap={1} direction="horizontal" className="mt-2">
-                <Button as="Link" to="/contact" className="reverse">
-                  Je commande !
+                <Button as="Link" to="/options" className="reverse">
+                  en savoir plus
+                </Button>
+                <Button as="Link" to="/contact" className="white">
+                  un devis maintenant !
                 </Button>
               </Stack>
             </Col>

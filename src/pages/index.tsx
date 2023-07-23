@@ -54,7 +54,7 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
           <GlowButton as="Link" to="contact/">
             Je veux un site
           </GlowButton>
-          <GlowButton as="Link" to="about/">
+          <GlowButton as="Link" to="offres/">
             En savoir plus
           </GlowButton>
         </Stack>
