@@ -1,3 +1,11 @@
 .footer {
   display: flex;
+  background: linear-gradient(
+    90deg,
+    black,
+    var(--primary-color-dark-1),
+    var(--primary-color),
+    var(--primary-color-dark-1),
+    black
+  );
 }

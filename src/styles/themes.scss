@@ -144,6 +144,10 @@ small {
   color: var(--primary-color-light-2);
 }
 
+.dark a {
+  color: var(--secondary-color);
+}
+
 .blogpost {
   display: flex;
   flex-direction: column;
