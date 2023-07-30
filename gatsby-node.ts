@@ -116,7 +116,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     createPage({
       path: `/blog/${post.frontmatter.slug}`,
       component: `${blogPostTemplate}?__contentFilePath=${post.internal.contentFilePath}`,
-      context: { slug: post.id },
+      context: { id: post.id },
     });
   });
 
@@ -133,7 +133,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     createPage({
       path: `/realisations/${realisation.frontmatter.slug}`,
       component: `${realisationTemplate}?__contentFilePath=${realisation.internal.contentFilePath}`,
-      context: { slug: realisation.id },
+      context: { id: realisation.id },
     });
   });
 
@@ -150,7 +150,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     createPage({
       path: `/le-lab/${lab.frontmatter.slug}`,
       component: `${labTemplate}?__contentFilePath=${lab.internal.contentFilePath}`,
-      context: { slug: lab.id },
+      context: { id: lab.id },
     });
   });
 
