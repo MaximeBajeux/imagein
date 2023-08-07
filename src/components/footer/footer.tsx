@@ -20,7 +20,7 @@ const Footer = () => {
             <li className="footer__list-item">
               <a href="tel:+336 52 52 52 52">
                 <i className="fas fa-phone"></i>
-                +336 52 52 52 52
+                06 50 71 07 19
               </a>
             </li>
           </ul>
