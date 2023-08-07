@@ -32,11 +32,6 @@ const Footer = () => {
               <Link to="/mentions-legales">Mentions légales</Link>
             </li>
             <li className="footer__list-item">
-              <Link to="/politique-de-confidentialite">
-                Politique de confidentialité
-              </Link>
-            </li>
-            <li className="footer__list-item">
               <Link to="/politique-de-cookies">Politique de cookies</Link>
             </li>
           </ul>
@@ -45,19 +40,19 @@ const Footer = () => {
           <h4>Nos réseaux sociaux</h4>
           <ul className="footer__list">
             <li className="footer__list-item">
-              <a href="https://www.facebook.com/imageinweb">
+              <a href="https://www.facebook.com/Imagein.net">
                 <i className="fab fa-facebook"></i>
                 Facebook
               </a>
             </li>
             <li className="footer__list-item">
-              <a href="https://www.instagram.com/imageinweb">
+              <a href="https://www.instagram.com/imagein.pro/">
                 <i className="fab fa-instagram"></i>
                 Instagram
               </a>
             </li>
             <li className="footer__list-item">
-              <a href="https://www.linkedin.com/company/image-in">
+              <a href="https://www.linkedin.com/company/image-in-douai">
                 <i className="fab fa-linkedin"></i>
                 Linkedin
               </a>

@@ -1,0 +1,57 @@
+@import "../../styles/vars.scss";
+
+.tab {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 4rem;
+  align-items: center;
+  border-radius: 2rem;
+  background-color: var(--primary-color);
+  width: fit-content;
+  margin: 0 auto;
+  overflow: hidden;
+  @include shadow(1);
+  transition: box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    @include shadow(2);
+  }
+
+  &__item {
+    display: flex;
+    padding: 0.8rem 1rem;
+    font-size: 1.6rem;
+    font-family: "Bebas Neue", sans-serif;
+    z-index: 1;
+    color: var(--background-color);
+  }
+
+  &__cursor {
+    position: absolute;
+    left: 0;
+    height: 4rem;
+    width: 4rem;
+    background-color: var(--secondary-color);
+    border-radius: 2rem;
+    // width has a 0.2s transition and a 0.1s delay
+    transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
+    @include shadow(2);
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .tab {
+    height: 6rem;
+    border-radius: 3rem;
+    &__item {
+      padding: 1.5rem 2rem;
+      font-size: 3rem;
+    }
+    &__cursor {
+      height: 6rem;
+      width: 6rem;
+      border-radius: 3rem;
+    }
+  }
+}

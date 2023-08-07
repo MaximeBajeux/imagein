@@ -1,0 +1,81 @@
+@import "../../styles/vars.scss";
+
+.carousel {
+  &__arrow {
+    z-index: 1;
+    width: 2rem !important;
+    height: 2rem !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    fill: var(--secondary-color);
+    background-color: var(--background-color);
+    @include shadow(1);
+    border-radius: 50%;
+    transition: all 0.15s;
+    opacity: 0.8;
+    transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+
+    &:before {
+      display: none;
+    }
+
+    &:hover {
+      background-color: var(--background-color);
+      opacity: 1;
+    }
+
+    .slick-list {
+      justify-content: center;
+    }
+  }
+
+  &__arrow--next {
+    right: 1rem !important;
+  }
+
+  &__arrow--prev {
+    left: 1rem !important;
+  }
+
+  &__item-container {
+    position: relative;
+    display: flex !important;
+    justify-content: center;
+  }
+
+  .chevron {
+    display: flex;
+    width: 1.8rem;
+    height: 1.8rem;
+    fill: var(--secondary-color);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    background-color: rgba(white, 0.95);
+    border-radius: 50%;
+    padding: 0.2rem;
+  }
+}
+
+.blog-post .carousel {
+  position: relative;
+  max-height: 90vh;
+  * {
+    max-height: 90vh !important;
+  }
+
+  .slick-track {
+    display: flex;
+    align-items: center;
+  }
+
+  .gatsby-resp-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

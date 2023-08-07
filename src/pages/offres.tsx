@@ -19,7 +19,7 @@ const OffresPage: React.FC<PageProps> = ({ data }: PageProps) => {
   return (
     <Layout>
       <Herobanner>
-        <h1 className="herobanner__title" style={{ margin: "2rem 0" }}>
+        <h1 className="herobanner__title mt-3 mb-2">
           Quelle type d'entreprise <br />
           êtes-vous ?
         </h1>
