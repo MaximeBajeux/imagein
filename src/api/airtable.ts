@@ -15,7 +15,6 @@ const handler = (req: GatsbyFunctionRequest, res: GatsbyFunctionResponse) => {
       return;
     }
     const { name, email, phone, message } = req.body;
-    // the created date format is french (DD/MM/YYYY) with time (HH:MM:SS)
     const created = new Date().toLocaleString("fr-FR", {
       timeZone: "Europe/Paris",
     });
@@ -37,6 +36,7 @@ const handler = (req: GatsbyFunctionRequest, res: GatsbyFunctionResponse) => {
           res.status(200).json({ message: "Success" });
           return;
         }
+        res.status(500).json({ error: "Something went wrong." });
       }
     );
   } catch (error) {
