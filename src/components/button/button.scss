@@ -31,6 +31,12 @@
     color: var(--secondary-color);
     background-color: var(--background-color);
   }
+
+  &:disabled {
+    background-color: var(--primary-color-light-2);
+    color: var(--background-color);
+    cursor: not-allowed;
+  }
 }
 
 .dark a.basic-button {

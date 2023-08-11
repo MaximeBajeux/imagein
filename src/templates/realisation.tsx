@@ -26,7 +26,7 @@ const Realisation = ({
               <Link to="/">Accueil</Link>
             </BreadCrumb.Item>
             <BreadCrumb.Item>
-              <Link to="/blog">Blog</Link>
+              <Link to="/realisations">Nos réalisations</Link>
             </BreadCrumb.Item>
             <BreadCrumb.Item>{frontmatter.title}</BreadCrumb.Item>
           </BreadCrumb>

@@ -7,9 +7,10 @@ const Button = ({
   to,
   children,
   className,
+  ...props
 }: {
-  as: "button" | "a" | "Link";
-  to: string;
+  as: "button" | "a" | "Link" | "submit";
+  to?: string;
   children: React.ReactNode;
   [key: string]: any;
 }) => {
@@ -17,7 +18,10 @@ const Button = ({
     switch (as) {
       case "a":
         return (
-          <a className={`button basic-button ${className ? className : ""}`}>
+          <a
+            className={`button basic-button ${className ? className : ""}`}
+            {...props}
+          >
             <span>{children}</span>
             <div className="gradient"></div>
           </a>
@@ -26,16 +30,20 @@ const Button = ({
         return (
           <Link
             className={`button basic-button ${className ? className : ""}`}
-            to={to}
+            to={to as string}
+            {...props}
           >
             <span>{children}</span>
             <div className="gradient"></div>
           </Link>
         );
       default:
+        // add conditionnally type="submit" if as === "submit"
         return (
           <button
             className={`button basic-button ${className ? className : ""}`}
+            {...(as === "submit" ? { type: "submit" } : {})}
+            {...props}
           >
             <span>{children}</span>
             <div className="gradient"></div>

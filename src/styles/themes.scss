@@ -121,7 +121,8 @@ h6 {
 
 /* Styles de corps de texte */
 p,
-small {
+small,
+label {
   color: var(--text-color);
 }
 
@@ -328,5 +329,113 @@ $spacing-values: (
 @media (min-width: $breakpoint-sm) {
   .list {
     flex-direction: row;
+  }
+}
+
+input,
+textarea {
+  display: flex;
+  position: relative;
+  width: 100%;
+  cursor: text;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  padding: 0 1rem;
+  background-color: #fff;
+  border: 1px solid rgba(grey, 0.1);
+  border-radius: 0.2rem;
+  color: rgb(35, 38, 59);
+  @include shadow(1);
+  overflow: hidden;
+  transition: all 150ms ease-in-out;
+  outline: none;
+
+  &:focus {
+    border-color: var(--secondary-color);
+    @include shadow(2);
+  }
+
+  &:hover {
+    @include shadow(2);
+  }
+
+  &::placeholder {
+    color: var(--primary-color-light-2);
+  }
+
+  &:disabled {
+    background-color: var(--primary-color-light-2);
+    color: var(--background-color);
+    cursor: not-allowed;
+  }
+
+  &:disabled::placeholder {
+    color: var(--background-color);
+  }
+
+  &:disabled:focus {
+    border-color: var(--primary-color-light-2);
+    @include shadow(1);
+  }
+
+  &:disabled:focus::placeholder {
+    color: var(--background-color);
+  }
+}
+
+input {
+  align-items: center;
+  height: 3rem;
+}
+
+textarea {
+  align-items: flex-start;
+  height: auto;
+  padding: 1rem;
+  min-height: 5rem;
+  resize: vertical;
+}
+
+.form-error {
+  color: var(--secondary-color);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.form-group {
+  display: flex;
+  margin-bottom: 1rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.form-event {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  white-space: wrap;
+  border-style: solid;
+  border-width: 1px;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  flex: 1 1 auto;
+
+  &.sending {
+    border-color: var(--primary-color-light-2);
+    background-color: rgba(grey, 0.1);
+    color: grey;
+  }
+
+  &.success {
+    border-color: green;
+    background-color: rgba(green, 0.1);
+    color: green;
+  }
+
+  &.error {
+    border-color: red;
+    background-color: rgba(red, 0.1);
+    color: red;
   }
 }
