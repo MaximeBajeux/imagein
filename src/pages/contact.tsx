@@ -37,7 +37,14 @@ const Contact: React.FC<PageProps> = () => {
           message,
         }),
       })
-        .then((res) => res.json())
+        .then((res) => {
+          if (res.status !== 200) {
+            throw new Error(
+              "Une erreur est survenue, veuillez réessayer plus tard."
+            );
+          }
+          return res.json();
+        })
         .then((_) => {
           setIsSending(false);
           setSuccess("Votre message a bien été envoyé !");
@@ -168,7 +175,7 @@ const Contact: React.FC<PageProps> = () => {
                   )}
                 </div>
                 <div className="form-group mtb-2">
-                  <Button as="submit" disabled={error || success}>
+                  <Button as="submit" disabled={error || success || isSending}>
                     C'est parti !
                   </Button>
                   {isSending && (

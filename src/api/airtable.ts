@@ -8,16 +8,13 @@ Airtable.configure({
 var base = Airtable.base(process.env.AIRTABLE_BASE_ID as string);
 
 const handler = (req: GatsbyFunctionRequest, res: GatsbyFunctionResponse) => {
-  console.log("req", req);
   try {
     if (req.method !== "POST") {
       res.status(405).json({ error: "Method not allowed" });
       return;
     }
     const { name, email, phone, message } = req.body;
-    const created = new Date().toLocaleString("fr-FR", {
-      timeZone: "Europe/Paris",
-    });
+    const created = new Date().toISOString();
     base("CRM").create(
       {
         Name: name,
