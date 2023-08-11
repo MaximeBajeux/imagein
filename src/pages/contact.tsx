@@ -86,12 +86,12 @@ const Contact: React.FC<PageProps> = () => {
           avec amour ! 😍)
         </p>
       </Herobanner>
-      <Row className="middle mtb-2">
+      <Row className="mtb-2">
         <Col
           xs={12}
           md={7}
           className="mtb-2 plr-2"
-          style={{ fontSize: "1.3rem" }}
+          style={{ fontSize: "1.2rem" }}
         >
           <h2 className="mb-2">Écrivez-nous !</h2>
           <p className="mb-2">

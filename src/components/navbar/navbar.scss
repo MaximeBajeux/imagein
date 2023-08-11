@@ -46,6 +46,12 @@
   }
 
   &.active {
+    .hamburger {
+      position: fixed;
+      top: 0rem;
+      right: 0rem;
+      z-index: 20;
+    }
     .navbar__list {
       transform: translateX(0);
     }

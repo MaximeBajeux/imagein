@@ -172,6 +172,7 @@ label {
 
   img {
     max-width: 960px;
+    width: 100%;
     margin: 2rem auto;
   }
 
@@ -182,23 +183,37 @@ label {
 }
 
 .big {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   line-height: 1.1;
 }
 
 .ultra-big {
   display: inline;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 700;
   line-height: 1.1;
 }
 
 .ubber-big {
   display: inline;
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 700;
   line-height: 1.1;
+}
+
+@media (min-width: $breakpoint-md) {
+  .big {
+    font-size: 2rem;
+  }
+
+  .ultra-big {
+    font-size: 2.5rem;
+  }
+
+  .ubber-big {
+    font-size: 4rem;
+  }
 }
 
 .orange {

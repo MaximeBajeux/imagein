@@ -17,7 +17,6 @@ const Tab = ({
     const tabItems = document.querySelectorAll(
       ".tab__item"
     ) as NodeListOf<HTMLElement>;
-    const tab = document.querySelector(".tab") as HTMLElement;
 
     cursor.style.width = `${tabItems[activeTab].offsetWidth}px`;
     cursor.style.left = `${tabItems[activeTab].offsetLeft}px`;

@@ -37,9 +37,13 @@ const RealisationsPage: React.FC<PageProps<Queries.RealisationListQuery>> = ({
   return (
     <Layout>
       <Herobanner>
-        <h1 className="herobanner__title" style={{ marginTop: "6rem" }}>
+        <h1 className="herobanner__title" style={{ marginTop: "4rem" }}>
           Nos réalisations
         </h1>
+        <p>
+          Nous avons de la chance de travailler avec des clients qui nous font
+          confiance, et c'est ici que l'on vous en parle !
+        </p>
       </Herobanner>
       <Row>
         <Col xs={12}>

@@ -45,6 +45,8 @@ const OptionsPage: React.FC<PageProps> = ({ data }: PageProps) => {
     arrows: false,
     autoplay: false,
     draggable: false,
+    touchMove: false,
+    swipe: false,
     easing: "ease-in-out",
   };
 
@@ -238,7 +240,7 @@ const OptionsPage: React.FC<PageProps> = ({ data }: PageProps) => {
                 </Button>
               </Stack>
             </Col>
-            <Col xs={12} md={6} className="p-0">
+            <Col xs={12} md={6} className="p-1">
               <Carousel settings={settings} className="mtb-2">
                 <div className="carousel__item-container">
                   <StaticImage
