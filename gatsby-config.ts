@@ -25,6 +25,12 @@ const config: GatsbyConfig = {
     "gatsby-plugin-mdx",
     "gatsby-transformer-remark",
     "gatsby-plugin-sharp",
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        icon: "src/images/icon.png",
+      },
+    },
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
