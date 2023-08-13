@@ -82,7 +82,7 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-facebook-pixel`,
+      resolve: `gatsby-plugin-facebook-pixel-lazy`,
       options: {
         pixelId: "330563630876256",
       },
