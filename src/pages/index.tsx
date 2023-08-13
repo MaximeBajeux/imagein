@@ -66,7 +66,12 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
   );
 };
 
-export const Head = () => <SEO title="Home" />;
+export const Head = () => (
+  <SEO
+    title="Image In"
+    description="Agence spécialisée dans l'ultra performance. Nous vous créons un site ultra rapide et optimisé pour le SEO !"
+  />
+);
 
 export const query = graphql`
   query LottieFiles {

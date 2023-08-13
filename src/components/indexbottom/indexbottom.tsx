@@ -138,7 +138,13 @@ const IndexBottom = ({ lottieFiles }: { [key: string]: string }) => {
               </Col>
               <Col xs={12}>
                 <Stack direction="horizontal" className="dark">
-                  <Button>Voir en live</Button>
+                  <Button
+                    as="a"
+                    href="https://developers.google.com/speed/pagespeed/insights/?hl=fr&url=https%3A%2F%2Fimage-in.net%2F"
+                    target="_blank"
+                  >
+                    Voir en live
+                  </Button>
                 </Stack>
               </Col>
             </Row>

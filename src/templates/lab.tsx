@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql, PageProps, Queries } from "gatsby";
+import { getImage } from "gatsby-plugin-image";
 import Layout from "../components/layout/layout";
 import SEO from "../components/seo/seo";
 import Row from "../components/row/row";
@@ -74,4 +75,21 @@ export const query = graphql`
 
 export default Lab;
 
-export const Head = () => <SEO title="Blog" article />;
+export const Head = (props) => {
+  const {
+    data: { mdx },
+  } = props;
+  const { title, description, slug } = mdx.frontmatter;
+  const imageData =
+    getImage(mdx.frontmatter.image?.childImageSharp?.gatsbyImageData) ||
+    getImage(mdx.imageRemote?.childImageSharp?.gatsbyImageData);
+  return (
+    <SEO
+      title={title}
+      description={description}
+      pathname={`/le-lab/${slug}`}
+      image={imageData?.images?.fallback?.src}
+      article={true}
+    />
+  );
+};
