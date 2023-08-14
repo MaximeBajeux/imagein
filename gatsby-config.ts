@@ -39,6 +39,26 @@ const config: GatsbyConfig = {
       },
     },
     {
+      resolve: `gatsby-plugin-gatsby-cloud`,
+      options: {
+        headers: {
+          "/**/*.woff": [
+            "Cache-Control: public",
+            "Cache-Control: max-age=365000000",
+            "Cache-Control: immutable",
+          ],
+          "/**/*.woff2": [
+            "Cache-Control: public",
+            "Cache-Control: max-age=365000000",
+            "Cache-Control: immutable",
+          ],
+        },
+        allPageHeaders: [
+          "Strict-Transport-Security: max-age=31536000; includeSubDomains; preload",
+        ],
+      },
+    },
+    {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         excludes: ["/404"],
