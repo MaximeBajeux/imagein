@@ -69,28 +69,28 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      // replace 'gatsby-plugin-google-analytics' with the new one
+      resolve: "gatsby-plugin-google-gtag",
       options: {
-        // The property ID; the tracking code won't be generated without it
-        trackingId: "202507985",
-        // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: false,
-        // Setting this parameter is optional
-        anonymize: true,
-        // Setting this parameter is also optional
-        respectDNT: true,
-        // Avoids sending pageview hits from custom paths
-        // Delays sending pageview hits on route update (in milliseconds)
-        pageTransitionDelay: 0,
-        // Defers execution of google analytics script after page load
-        defer: true,
-        enableWebVitalsTracking: true,
+        trackingIds: [
+          process.env.GA_MEASUREMENT_ID, // GA Measurement
+        ],
+        gtagConfig: {
+          optimize_id: "OPT_CONTAINER_ID",
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
+        pluginConfig: {
+          head: true,
+          respectDNT: true,
+        },
       },
     },
     {
       resolve: `gatsby-plugin-facebook-pixel-lazy`,
       options: {
         pixelId: "330563630876256",
+        timeout: 3500,
       },
     },
     {

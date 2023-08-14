@@ -215,7 +215,7 @@ const IndexBottom = ({ lottieFiles }: { [key: string]: string }) => {
             <p>
               📸 Chez Image IN, nous ne vous abandonnons pas avec un site clé en
               main vide de contenu. Notre équipe travaille avec des
-              professionnelles de la photographie et de la vidéo afin de vous
+              professionnels de la photographie et de la vidéo afin de vous
               fournir un contenu de qualité pour votre site internet.
             </p>
             <p>
