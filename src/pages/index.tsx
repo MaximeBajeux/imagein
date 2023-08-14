@@ -7,6 +7,7 @@ import HeroBanner from "../components/herobanner/herobanner";
 import Stack from "../components/stack/stack";
 import GlowButton from "../components/glowbutton/glowbutton";
 import { graphql, PageProps } from "gatsby";
+import { isBrowser } from "react-device-detect";
 
 const LazyIndexBottom = lazy(
   () => import("../components/indexbottom/indexbottom")
@@ -59,9 +60,11 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
           </GlowButton>
         </Stack>
       </HeroBanner>
-      <Suspense fallback={<div>Loading...</div>}>
-        <LazyIndexBottom lottieFiles={lottieFiles} />
-      </Suspense>
+      {isBrowser && (
+        <Suspense fallback={<div>Loading...</div>}>
+          <LazyIndexBottom lottieFiles={lottieFiles} />
+        </Suspense>
+      )}
     </Layout>
   );
 };
