@@ -34,6 +34,7 @@ const RootElement = ({ children }) => {
           fbq('init', '${process.env.GATSBY_FACEBOOK_PIXEL_ID}');
           fbq('track', 'PageView');`,
         }}
+        forward={[`fbq`]}
       ></Script>
       <div>{children}</div>
     </Fragment>
