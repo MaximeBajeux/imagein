@@ -7,13 +7,20 @@ import HeroBanner from "../components/herobanner/herobanner";
 import Stack from "../components/stack/stack";
 import GlowButton from "../components/glowbutton/glowbutton";
 import { graphql, PageProps } from "gatsby";
-import { isBrowser } from "react-device-detect";
 
 const LazyIndexBottom = lazy(
   () => import("../components/indexbottom/indexbottom")
 );
 
 const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
+  const [isBrowser, setIsBrowser] = useState(false);
+
+  useEffect(() => {
+    if (window !== undefined) {
+      setIsBrowser(true);
+    }
+  }, []);
+  
   // change lottie files list to object with name as key
   const lottieFiles = data.allFile.nodes.reduce((acc, node) => {
     acc[node.name] = node.publicURL;
