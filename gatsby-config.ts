@@ -156,6 +156,9 @@ const config: GatsbyConfig = {
       __key: "lottie",
     },
   ],
+  partytownProxiedURLs: [
+    `https://www.googletagmanager.com/gtag/js?id=${process.env.GATSBY_GA_MEASUREMENT_ID}`,
+  ],
 };
 
 export default config;

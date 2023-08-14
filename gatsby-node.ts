@@ -1,7 +1,14 @@
 import type { GatsbyNode } from "gatsby";
 import { resolve } from "path";
+import path from "path";
 import { createRemoteFileNode } from "gatsby-source-filesystem";
 import FilterWarningsPlugin from "webpack-filter-warnings-plugin";
+
+const { copyLibFiles } = require("@builder.io/partytown/utils");
+
+exports.onPreBuild = async () => {
+  await copyLibFiles(path.join(__dirname, "static", "~partytown"));
+};
 
 // Create schema custom fields
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
