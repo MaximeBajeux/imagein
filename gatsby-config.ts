@@ -84,6 +84,13 @@ const config: GatsbyConfig = {
       },
     },
     {
+      resolve: "gatsby-plugin-facebook-pixel-lazy",
+      options: {
+        pixelId: process.env.GATSBY_FACEBOOK_PIXEL_ID,
+        timeout: 3666,
+      },
+    },
+    {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
         googleAnalytics: {
