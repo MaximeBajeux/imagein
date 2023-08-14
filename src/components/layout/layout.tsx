@@ -31,6 +31,8 @@ const Layout = ({
         enableDeclineButton
         declineButtonText="Refuser"
         buttonText="Accepter"
+        ariaAcceptLabel="Accepter"
+        ariaDeclineLabel="Refuser"
         disableStyles={true}
         cookieName="gatsby-gdpr-google-analytics"
         containerClasses="cookie-consent"
