@@ -4,12 +4,14 @@ import "@dotlottie/player-component";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-function initGTM() {
-  if (window.isGTMLoaded) {
+let isGTMLoaded = false;
+
+const initGTM = () => {
+  if (isGTMLoaded) {
     return false;
   }
 
-  window.isGTMLoaded = true;
+  isGTMLoaded = true;
 
   const script = document.createElement("script");
 
@@ -18,9 +20,9 @@ function initGTM() {
   script.src = `https://www.googletagmanager.com/gtag/js?id=${process.env.GATSBY_GA_TRACKING_ID}`;
 
   script.onload = () => {
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
+    const dataLayer = window.dataLayer || [];
+    function gtag(...args) {
+      dataLayer.push(args);
     }
     gtag("js", new Date());
 
@@ -28,12 +30,12 @@ function initGTM() {
   };
 
   document.head.appendChild(script);
-}
+};
 
-function loadGTM(event) {
+const loadGTM = (event) => {
   initGTM();
   event.currentTarget.removeEventListener(event.type, loadGTM);
-}
+};
 
 exports.onClientEntry = () => {
   document.onreadystatechange = () => {
