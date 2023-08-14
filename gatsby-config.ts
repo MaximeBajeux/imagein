@@ -69,24 +69,6 @@ const config: GatsbyConfig = {
       },
     },
     {
-      // replace 'gatsby-plugin-google-analytics' with the new one
-      resolve: "gatsby-plugin-google-gtag",
-      options: {
-        trackingIds: [
-          process.env.GA_MEASUREMENT_ID, // GA Measurement
-        ],
-        gtagConfig: {
-          optimize_id: "OPT_CONTAINER_ID",
-          anonymize_ip: true,
-          cookie_expires: 0,
-        },
-        pluginConfig: {
-          head: true,
-          respectDNT: true,
-        },
-      },
-    },
-    {
       resolve: `gatsby-plugin-facebook-pixel-lazy`,
       options: {
         pixelId: "330563630876256",
