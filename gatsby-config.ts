@@ -151,7 +151,6 @@ const config: GatsbyConfig = {
   ],
   partytownProxiedURLs: [
     `https://www.googletagmanager.com/gtag/js?id=${process.env.GATSBY_GA_MEASUREMENT_ID}`,
-    `https://connect.facebook.net/en_US/fbevents.js`,
   ],
 };
 

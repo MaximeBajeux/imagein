@@ -13,11 +13,10 @@ export const onRenderBody = ({ setHeadComponents }) => {
       dangerouslySetInnerHTML={{
         __html: `partytown = {
           resolveUrl={function(url) {
-            if (url.hostname === "connect.facebook.net") {
-              var proxyUrl = new URL('https://image-in.net/');
-              proxyUrl.searchParams.append('url', url.href);
-              return proxyUrl;
-            }
+            const proxyMap = {
+              'connect.facebook.net': ${process.env.GATSBY_FACEBOOK_REVERSE_PROXY_URL},
+            };
+            url.hostname = proxyMap[url.hostname] || url.hostname;
             return url;
           },
         }`,
