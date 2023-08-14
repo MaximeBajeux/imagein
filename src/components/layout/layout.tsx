@@ -36,7 +36,7 @@ const Layout = ({
 
   return (
     <main {...props} className={`layout ${className ? className : ""}`}>
-      {!isMobile && (
+      {!isMobile && isBrowser && (
         <Suspense fallback={null}>
           <LazyCursor />
         </Suspense>
