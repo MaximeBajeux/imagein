@@ -1,10 +1,11 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import { Slice } from "gatsby";
 import { isMobile } from "react-device-detect";
 import { CookieConsent } from "react-cookie-consent";
 import "./layout.scss";
 
 const LazyCursor = lazy(() => import("../cursor/cursor"));
+const LazyCookieContent = lazy(() => import("../cookiecontent/cookiecontent"));
 
 const Layout = ({
   children,
@@ -15,6 +16,24 @@ const Layout = ({
   className?: string;
   [key: string]: any;
 }) => {
+  const [showCookieContent, setShowCookieContent] = React.useState(false);
+
+  useEffect(() => {
+    // we want to show cookie content only if user has scroll an entire page and not on page load
+
+    const handleScroll = () => {
+      const windowHeight = window.innerHeight;
+      if (window.scrollY > windowHeight) {
+        setShowCookieContent(true);
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <main {...props} className={`layout ${className ? className : ""}`}>
       {!isMobile && (
@@ -26,19 +45,11 @@ const Layout = ({
       <div className="layout__content">{children}</div>
       <Slice alias="footer" />
 
-      <CookieConsent
-        location="bottom"
-        enableDeclineButton
-        declineButtonText="Refuser"
-        buttonText="Accepter"
-        ariaAcceptLabel="Accepter"
-        ariaDeclineLabel="Refuser"
-        disableStyles={true}
-        cookieName="gatsby-gdpr-google-analytics"
-        containerClasses="cookie-consent"
-      >
-        Ce site utilise des cookies pour améliorer votre expérience utilisateur.
-      </CookieConsent>
+      {showCookieContent && (
+        <Suspense fallback={null}>
+          <LazyCookieContent />
+        </Suspense>
+      )}
     </main>
   );
 };
