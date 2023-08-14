@@ -1,6 +1,7 @@
 import React, { lazy, Suspense, useEffect } from "react";
 import { Slice } from "gatsby";
 import { isMobile } from "react-device-detect";
+import { isBrowser } from "react-device-detect";
 import "./layout.scss";
 
 const LazyCursor = lazy(() => import("../cursor/cursor"));
@@ -16,7 +17,6 @@ const Layout = ({
   [key: string]: any;
 }) => {
   const [showCookieContent, setShowCookieContent] = React.useState(false);
-  const [isBrowser, setIsBrowser] = React.useState(false);
 
   useEffect(() => {
     // we want to show cookie content only if user has scroll an entire page and not on page load
@@ -30,9 +30,6 @@ const Layout = ({
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    // define if we are on browser or not
-    setIsBrowser(window !== undefined);
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -48,7 +45,7 @@ const Layout = ({
       <div className="layout__content">{children}</div>
       <Slice alias="footer" />
 
-      {showCookieContent && (
+      {showCookieContent && isBrowser && (
         <Suspense fallback={null}>
           <LazyCookieContent />
         </Suspense>
