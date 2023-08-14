@@ -414,7 +414,6 @@ type File = Node & {
   readonly size: Scalars['Int'];
   readonly sourceInstanceName: Scalars['String'];
   readonly uid: Scalars['Int'];
-  readonly url: Maybe<Scalars['String']>;
 };
 
 
@@ -561,7 +560,6 @@ type FileFieldSelector = {
   readonly size: InputMaybe<FieldSelectorEnum>;
   readonly sourceInstanceName: InputMaybe<FieldSelectorEnum>;
   readonly uid: InputMaybe<FieldSelectorEnum>;
-  readonly url: InputMaybe<FieldSelectorEnum>;
 };
 
 type FileFilterInput = {
@@ -607,7 +605,6 @@ type FileFilterInput = {
   readonly size: InputMaybe<IntQueryOperatorInput>;
   readonly sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
   readonly uid: InputMaybe<IntQueryOperatorInput>;
-  readonly url: InputMaybe<StringQueryOperatorInput>;
 };
 
 type FileGroupConnection = {
@@ -694,7 +691,6 @@ type FileSortInput = {
   readonly size: InputMaybe<SortOrderEnum>;
   readonly sourceInstanceName: InputMaybe<SortOrderEnum>;
   readonly uid: InputMaybe<SortOrderEnum>;
-  readonly url: InputMaybe<SortOrderEnum>;
 };
 
 type FloatQueryOperatorInput = {
@@ -1538,7 +1534,6 @@ type Mdx = Node & {
   readonly body: Maybe<Scalars['String']>;
   readonly children: ReadonlyArray<Node>;
   readonly excerpt: Maybe<Scalars['String']>;
-  readonly fields: Maybe<MdxFields>;
   readonly frontmatter: Maybe<Frontmatter>;
   readonly id: Scalars['ID'];
   readonly imageRemote: Maybe<File>;
@@ -1606,7 +1601,6 @@ type MdxFieldSelector = {
   readonly body: InputMaybe<FieldSelectorEnum>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly excerpt: InputMaybe<FieldSelectorEnum>;
-  readonly fields: InputMaybe<MdxFieldsFieldSelector>;
   readonly frontmatter: InputMaybe<FrontmatterFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly imageRemote: InputMaybe<FileFieldSelector>;
@@ -1615,27 +1609,10 @@ type MdxFieldSelector = {
   readonly tableOfContents: InputMaybe<FieldSelectorEnum>;
 };
 
-type MdxFields = {
-  readonly localImageRemote: Maybe<Scalars['String']>;
-};
-
-type MdxFieldsFieldSelector = {
-  readonly localImageRemote: InputMaybe<FieldSelectorEnum>;
-};
-
-type MdxFieldsFilterInput = {
-  readonly localImageRemote: InputMaybe<StringQueryOperatorInput>;
-};
-
-type MdxFieldsSortInput = {
-  readonly localImageRemote: InputMaybe<SortOrderEnum>;
-};
-
 type MdxFilterInput = {
   readonly body: InputMaybe<StringQueryOperatorInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly excerpt: InputMaybe<StringQueryOperatorInput>;
-  readonly fields: InputMaybe<MdxFieldsFilterInput>;
   readonly frontmatter: InputMaybe<FrontmatterFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly imageRemote: InputMaybe<FileFilterInput>;
@@ -1693,7 +1670,6 @@ type MdxSortInput = {
   readonly body: InputMaybe<SortOrderEnum>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly excerpt: InputMaybe<SortOrderEnum>;
-  readonly fields: InputMaybe<MdxFieldsSortInput>;
   readonly frontmatter: InputMaybe<FrontmatterSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly imageRemote: InputMaybe<FileSortInput>;
@@ -1956,7 +1932,6 @@ type Query_fileArgs = {
   size: InputMaybe<IntQueryOperatorInput>;
   sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
   uid: InputMaybe<IntQueryOperatorInput>;
-  url: InputMaybe<StringQueryOperatorInput>;
 };
 
 
@@ -1993,7 +1968,6 @@ type Query_mdxArgs = {
   body: InputMaybe<StringQueryOperatorInput>;
   children: InputMaybe<NodeFilterListInput>;
   excerpt: InputMaybe<StringQueryOperatorInput>;
-  fields: InputMaybe<MdxFieldsFilterInput>;
   frontmatter: InputMaybe<FrontmatterFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   imageRemote: InputMaybe<FileFilterInput>;
@@ -2012,6 +1986,7 @@ type Query_siteArgs = {
   internal: InputMaybe<InternalFilterInput>;
   jsxRuntime: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
+  partytownProxiedURLs: InputMaybe<StringQueryOperatorInput>;
   pathPrefix: InputMaybe<StringQueryOperatorInput>;
   polyfill: InputMaybe<BooleanQueryOperatorInput>;
   port: InputMaybe<IntQueryOperatorInput>;
@@ -2084,6 +2059,7 @@ type Site = Node & {
   readonly internal: Internal;
   readonly jsxRuntime: Maybe<Scalars['String']>;
   readonly parent: Maybe<Node>;
+  readonly partytownProxiedURLs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly polyfill: Maybe<Scalars['Boolean']>;
   readonly port: Maybe<Scalars['Int']>;
@@ -2279,6 +2255,7 @@ type SiteFieldSelector = {
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly jsxRuntime: InputMaybe<FieldSelectorEnum>;
   readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly partytownProxiedURLs: InputMaybe<FieldSelectorEnum>;
   readonly pathPrefix: InputMaybe<FieldSelectorEnum>;
   readonly polyfill: InputMaybe<FieldSelectorEnum>;
   readonly port: InputMaybe<FieldSelectorEnum>;
@@ -2295,6 +2272,7 @@ type SiteFilterInput = {
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly jsxRuntime: InputMaybe<StringQueryOperatorInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
+  readonly partytownProxiedURLs: InputMaybe<StringQueryOperatorInput>;
   readonly pathPrefix: InputMaybe<StringQueryOperatorInput>;
   readonly polyfill: InputMaybe<BooleanQueryOperatorInput>;
   readonly port: InputMaybe<IntQueryOperatorInput>;
@@ -2842,6 +2820,7 @@ type SiteSortInput = {
   readonly internal: InputMaybe<InternalSortInput>;
   readonly jsxRuntime: InputMaybe<SortOrderEnum>;
   readonly parent: InputMaybe<NodeSortInput>;
+  readonly partytownProxiedURLs: InputMaybe<SortOrderEnum>;
   readonly pathPrefix: InputMaybe<SortOrderEnum>;
   readonly polyfill: InputMaybe<SortOrderEnum>;
   readonly port: InputMaybe<SortOrderEnum>;

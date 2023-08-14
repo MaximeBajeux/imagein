@@ -30,7 +30,7 @@ const RootElement = ({ children }) => {
           n.queue=[];t=b.createElement(e);t.async=!0;
           t.src=v;s=b.getElementsByTagName(e)[0];
           s.parentNode.insertBefore(t,s)}(window, document,'script',
-          'https://connect.facebook.net/en_US/fbevents.js');
+          'https://d253iu2zpr3ffe.cloudfront.net/en_US/fbevents.js');
           fbq('init', '${process.env.GATSBY_FACEBOOK_PIXEL_ID}');
           fbq('track', 'PageView');`,
         }}
