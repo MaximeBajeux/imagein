@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import { Slice } from "gatsby";
 import { isMobile } from "react-device-detect";
+import { CookieConsent } from "react-cookie-consent";
 import "./layout.scss";
 
 const LazyCursor = lazy(() => import("../cursor/cursor"));
@@ -24,6 +25,18 @@ const Layout = ({
       <Slice alias="header" />
       <div className="layout__content">{children}</div>
       <Slice alias="footer" />
+
+      <CookieConsent
+        location="bottom"
+        enableDeclineButton
+        declineButtonText="Refuser"
+        buttonText="Accepter"
+        disableStyles={true}
+        cookieName="gatsby-gdpr-google-analytics"
+        containerClasses="cookie-consent"
+      >
+        Ce site utilise des cookies pour améliorer votre expérience utilisateur.
+      </CookieConsent>
     </main>
   );
 };

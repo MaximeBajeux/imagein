@@ -11,7 +11,7 @@
 
   .vertical-rect {
     grid-column: span 1;
-    grid-row: span 2;
+    grid-row: span 1;
     /* Styles supplémentaires pour un rectangle 1 sur 2 */
   }
 
@@ -68,6 +68,16 @@
   @each $gap in $grid-gaps {
     &--gap-#{$gap} {
       grid-gap: #{$gap}rem;
+    }
+  }
+}
+
+@media all and (min-width: $breakpoint-md) {
+  .grid {
+    .vertical-rect {
+      grid-column: span 1;
+      grid-row: span 2;
+      /* Styles supplémentaires pour un rectangle 1 sur 2 */
     }
   }
 }

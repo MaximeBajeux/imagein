@@ -12,14 +12,10 @@ const Footer = () => {
           <div className="h4 mtb-1">Nos coordonnées</div>
           <ul className="footer__list">
             <li className="footer__list-item">
-              <a className="mtb-1" href="mailto:contact@image-in.net">
-                contact@image-in.net
-              </a>
+              <a href="mailto:contact@image-in.net">contact@image-in.net</a>
             </li>
             <li className="footer__list-item">
-              <a className="mtb-1" href="tel:+336 52 52 52 52">
-                06 50 71 07 19
-              </a>
+              <a href="tel:+336 52 52 52 52">06 50 71 07 19</a>
             </li>
           </ul>
         </Col>
@@ -38,23 +34,13 @@ const Footer = () => {
           <div className="h4 mtb-1">Nos réseaux sociaux</div>
           <ul className="footer__list">
             <li className="footer__list-item">
-              <a className="mtb-1" href="https://www.facebook.com/Imagein.net">
-                Facebook
-              </a>
+              <a href="https://www.facebook.com/Imagein.net">Facebook</a>
             </li>
             <li className="footer__list-item">
-              <a
-                className="mtb-1"
-                href="https://www.instagram.com/imagein.pro/"
-              >
-                Instagram
-              </a>
+              <a href="https://www.instagram.com/imagein.pro/">Instagram</a>
             </li>
             <li className="footer__list-item">
-              <a
-                className="mtb-1"
-                href="https://www.linkedin.com/company/image-in-douai"
-              >
+              <a href="https://www.linkedin.com/company/image-in-douai">
                 Linkedin
               </a>
             </li>

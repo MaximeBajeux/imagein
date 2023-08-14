@@ -8,4 +8,16 @@
     var(--primary-color-dark-1),
     black
   );
+
+  padding-bottom: 6rem !important;
+
+  &__list-item a {
+    display: inline-block;
+    padding: 0.3rem 0;
+    font-size: 1.2rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

@@ -16,14 +16,14 @@ const IndexBottom = ({ lottieFiles }: { [key: string]: string }) => {
             <h2>Ils nous font confiance</h2>
           </Col>
         </Row>
-        <Row className="middle">
+        <Row className="middle p-1">
           <Col xs={6} md={3} className="partner-logo">
             <StaticImage
               src="../../images/oney_logo.png"
               alt="logo de Oney"
               placeholder="blurred"
               layout="fixed"
-              width={190}
+              width={160}
               quality={90}
               formats={["auto", "webp", "avif"]}
             />
@@ -34,7 +34,7 @@ const IndexBottom = ({ lottieFiles }: { [key: string]: string }) => {
               alt="Logo de Portainer"
               placeholder="blurred"
               layout="fixed"
-              width={190}
+              width={160}
               quality={90}
               formats={["auto", "webp", "avif"]}
             />
@@ -45,7 +45,7 @@ const IndexBottom = ({ lottieFiles }: { [key: string]: string }) => {
               alt="logo de l'Ufem"
               placeholder="blurred"
               layout="fixed"
-              width={190}
+              width={160}
               quality={90}
               formats={["auto", "webp", "avif"]}
             />
@@ -56,7 +56,7 @@ const IndexBottom = ({ lottieFiles }: { [key: string]: string }) => {
               alt="logo de Nord Motors"
               placeholder="blurred"
               layout="fixed"
-              width={190}
+              width={160}
               quality={90}
               formats={["auto", "webp", "avif"]}
             />

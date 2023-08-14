@@ -10,7 +10,7 @@
   padding: 1rem 1.4rem;
   @include shadow(2);
 
-  font-size: 2rem;
+  font-size: 1.8rem;
   letter-spacing: 1px;
   cursor: pointer;
   transition: box-shadow 0.2s ease-in-out;
@@ -41,4 +41,10 @@
 
 .dark a.basic-button {
   color: var(--text-color);
+}
+
+@media (min-width: $breakpoint-md) {
+  .basic-button {
+    font-size: 2rem;
+  }
 }

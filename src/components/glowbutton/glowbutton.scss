@@ -18,7 +18,7 @@
   border-radius: 0.5rem;
   @include shadow(2);
 
-  font-size: 2rem;
+  font-size: 1.8rem;
 
   cursor: pointer;
   transition: box-shadow 0.2s ease-in-out;
@@ -89,5 +89,11 @@
 @keyframes rotate {
   to {
     transform: scale(1.1) translateY(-60px) rotate(360deg) translateZ(0);
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .glow-button {
+    font-size: 2rem;
   }
 }

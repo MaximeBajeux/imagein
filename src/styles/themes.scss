@@ -53,39 +53,84 @@ body {
 
 h1,
 .h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   line-height: 0.9;
 }
 
 h2,
 .h2 {
-  font-size: 3.5rem;
+  font-size: 2.6rem;
   line-height: 0.9;
 }
 
 h3,
 .h3 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   line-height: 0.9;
 }
 
 h4,
 .h4 {
-  font-size: 2.25rem;
+  font-size: 2rem;
 
   line-height: 0.9;
 }
 
 h5,
 .h5 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   line-height: 0.9;
 }
 
 h6,
 .h6 {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   line-height: 0.9;
+}
+
+p,
+label,
+li {
+  font-size: 1.1rem;
+}
+
+@media (min-width: $breakpoint-md) {
+  h1,
+  .h1 {
+    font-size: 4rem;
+    line-height: 0.9;
+  }
+
+  h2,
+  .h2 {
+    font-size: 3.5rem;
+    line-height: 0.9;
+  }
+
+  h3,
+  .h3 {
+    font-size: 2.5rem;
+    line-height: 0.9;
+  }
+
+  h4,
+  .h4 {
+    font-size: 2.25rem;
+
+    line-height: 0.9;
+  }
+
+  h5,
+  .h5 {
+    font-size: 2rem;
+    line-height: 0.9;
+  }
+
+  h6,
+  .h6 {
+    font-size: 1.8rem;
+    line-height: 0.9;
+  }
 }
 
 h1,
@@ -476,5 +521,67 @@ textarea {
     border-color: red;
     background-color: rgba(red, 0.1);
     color: red;
+  }
+}
+
+.cookie-consent {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 1rem;
+  background: linear-gradient(
+    90deg,
+    black,
+    var(--primary-color-dark-1),
+    var(--primary-color),
+    var(--primary-color-dark-1),
+    black
+  );
+  color: var(--background-color);
+
+  div {
+    display: flex;
+    padding: 1rem;
+    flex: 1 1 auto;
+    font-size: 1.2rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  button {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 0.5rem;
+    padding: 1rem 1.4rem;
+    @include shadow(2);
+
+    font-size: 2rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease-in-out;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    margin: 0 0 0 1rem;
+
+    &:hover {
+      @include shadow(4);
+    }
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .cookie-consent {
+    div {
+      justify-content: flex-start;
+    }
+
+    div:last-child {
+      justify-content: flex-end;
+    }
   }
 }

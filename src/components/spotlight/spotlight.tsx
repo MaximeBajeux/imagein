@@ -51,7 +51,7 @@ const StyledTitle = ({
   children: React.ReactNode;
 }) => {
   const title = useRef<HTMLDivElement>(null);
-  const size = length > 16 ? 16 : length;
+  const size = length > 11 ? 11 : length;
 
   useEffect(() => {
     const titleElement = title.current;
