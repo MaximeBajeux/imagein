@@ -12,7 +12,7 @@ export const useSiteMetadata = () => {
             title
           }
         }
-        featuredImage: file(relativePath: { eq: "douche-onyx-1.jpg" }) {
+        featuredImage: file(relativePath: { eq: "image-in.png" }) {
           childImageSharp {
             gatsbyImageData(
               width: 1200

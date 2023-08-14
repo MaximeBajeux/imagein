@@ -69,13 +69,6 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-facebook-pixel-lazy`,
-      options: {
-        pixelId: "330563630876256",
-        timeout: 3500,
-      },
-    },
-    {
       resolve: "gatsby-plugin-robots-txt",
       options: {
         host: "https://image-in.net",
@@ -94,7 +87,7 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
         googleAnalytics: {
-          trackingId: "202507985", // leave empty if you want to disable the tracker
+          trackingId: process.env.GATDBY_GA_MEASUREMENT_ID, // leave empty if you want to disable the tracker
           cookieName: "gatsby-gdpr-google-analytics", // default
           anonymize: true, // default
           allowAdFeatures: false, // default
