@@ -530,7 +530,7 @@ textarea {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 0 1rem;
+  padding: 0;
   background: linear-gradient(
     90deg,
     black,
@@ -540,6 +540,7 @@ textarea {
     black
   );
   color: var(--background-color);
+  flex-direction: column;
 
   div {
     display: flex;
@@ -548,6 +549,7 @@ textarea {
     font-size: 1.2rem;
     align-items: center;
     justify-content: center;
+    text-align: center;
   }
 
   button {
@@ -557,7 +559,7 @@ textarea {
     align-items: center;
 
     border-radius: 0.5rem;
-    padding: 1rem 1.4rem;
+    padding: 0.6rem 1rem;
     @include shadow(2);
 
     font-size: 2rem;
@@ -571,13 +573,20 @@ textarea {
     &:hover {
       @include shadow(4);
     }
+
+    &:first-child {
+      margin: 0 0 0 0;
+    }
   }
 }
 
 @media (min-width: $breakpoint-md) {
   .cookie-consent {
+    padding: 0 1rem;
+    flex-direction: row;
     div {
       justify-content: flex-start;
+      text-align: left;
     }
 
     div:last-child {
