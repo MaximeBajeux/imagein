@@ -85,7 +85,7 @@ const OffresPage: React.FC<PageProps> = ({ data }: PageProps) => {
               xsCols={2}
               lgCols={3}
               xlCols={4}
-              xsRows={4}
+              xsRows={3}
               lgRows={3}
               xlRows={2}
               gap={1}

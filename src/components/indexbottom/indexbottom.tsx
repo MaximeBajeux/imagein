@@ -108,8 +108,8 @@ const IndexBottom = ({ lottieFiles }: { [key: string]: string }) => {
                     src="../../images/pagespeed_64dp.png"
                     alt="logo de pagespeed insights"
                     style={{
-                      width: "3.5rem",
-                      height: "3.5rem",
+                      width: "3rem",
+                      height: "3rem",
                       objectFit: "contain",
                       marginRight: "0.4rem",
                     }}
@@ -135,17 +135,6 @@ const IndexBottom = ({ lottieFiles }: { [key: string]: string }) => {
               </Col>
               <Col xs={6} md={3}>
                 <Circlechart percentage={100} text="SEO" />
-              </Col>
-              <Col xs={12}>
-                <Stack direction="horizontal" className="dark">
-                  <Button
-                    as="a"
-                    href="https://developers.google.com/speed/pagespeed/insights/?hl=fr&url=https%3A%2F%2Fimage-in.net%2F"
-                    target="_blank"
-                  >
-                    Voir en live
-                  </Button>
-                </Stack>
               </Col>
             </Row>
           </Col>
