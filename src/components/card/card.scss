@@ -30,6 +30,9 @@
 
   &__title {
     padding: 1rem;
+    * {
+      font-size: 2rem !important;
+    }
   }
 
   &:hover {
