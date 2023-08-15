@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import "./index.scss";
+import { useState, useEffect } from "react";
 
 import Layout from "../components/layout/layout";
 import SEO from "../components/seo/seo";
