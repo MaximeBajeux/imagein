@@ -7,6 +7,7 @@ import Row from "../components/row/row";
 import Col from "../components/col/col";
 import BreadCrumb from "../components/breadcrumb/breadcrumb";
 import { Link } from "gatsby";
+import Herobanner from "../components/herobanner/herobanner";
 
 const Lab = ({
   data,
@@ -20,24 +21,32 @@ const Lab = ({
 
   return (
     <Layout>
-      <Row>
+      <Herobanner>
+        <h1 className="herobanner__title" style={{ marginTop: "6rem" }}>
+          {frontmatter.title}
+        </h1>
+        <time style={{ width: "100%" }} dateTime={frontmatter.date}>
+          publié le {frontmatter.date}
+        </time>
+      </Herobanner>
+      <Row className="fullwidth shadow-1">
         <Col xs={12}>
-          <BreadCrumb>
-            <BreadCrumb.Item>
-              <Link to="/">Accueil</Link>
-            </BreadCrumb.Item>
-            <BreadCrumb.Item>
-              <Link to="/blog">Blog</Link>
-            </BreadCrumb.Item>
-            <BreadCrumb.Item>{frontmatter.title}</BreadCrumb.Item>
-          </BreadCrumb>
+          <Row>
+            <Col xs={12}>
+              <BreadCrumb>
+                <BreadCrumb.Item>
+                  <Link to="/">Accueil</Link>
+                </BreadCrumb.Item>
+                <BreadCrumb.Item>
+                  <Link to="/le-lab">Le lab</Link>
+                </BreadCrumb.Item>
+                <BreadCrumb.Item>{frontmatter.title}</BreadCrumb.Item>
+              </BreadCrumb>
+            </Col>
+          </Row>
         </Col>
       </Row>
-      <article className="blogpost">
-        <h1>{frontmatter.title}</h1>
-        <time dateTime={frontmatter.date}>{frontmatter.date}</time>
-        {children}
-      </article>
+      <article className="blogpost">{children}</article>
     </Layout>
   );
 };
