@@ -1,5 +1,4 @@
 import React, { useRef, useLayoutEffect } from "react";
-import "./circlechart.scss";
 
 const Circlechart = ({
   percentage,

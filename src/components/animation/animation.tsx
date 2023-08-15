@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from "react";
-import "./animation.scss";
 
 const Animation = ({
   path,
