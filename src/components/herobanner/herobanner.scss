@@ -3,6 +3,7 @@
 .herobanner {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   width: 100%;
 
@@ -49,6 +50,7 @@
   .herobanner {
     &__title {
       font-size: 3.5rem;
+      max-width: $breakpoint-xl;
     }
 
     &__subtitle {

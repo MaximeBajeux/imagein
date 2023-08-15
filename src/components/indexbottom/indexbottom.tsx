@@ -117,7 +117,7 @@ const IndexBottom = ({ lottieFiles }: { [key: string]: string }) => {
                   Notre Objectif
                 </h2>
               </Col>
-              <Col xs={12}>
+              <Col xs={12} className="mb-2">
                 <p>
                   Nos sites sont optimisés pour obtenir un score de minimal de
                   90/100 sur Google PageSpeed Insights, afin d'offrir la
