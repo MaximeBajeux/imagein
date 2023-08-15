@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from "react";
 import { useLayoutEffect } from "react";
 import useColorState from "../../hooks/use-color-state";
 import useMousePosition from "../../hooks/use-mouse-position";
-import "./cursor.scss";
 
 const Cursor = () => {
   const { currentColor } = useColorState();

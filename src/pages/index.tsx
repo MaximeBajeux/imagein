@@ -80,7 +80,7 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
         <Row className="middle p-1">
           <Col xs={6} md={3} className="partner-logo">
             <StaticImage
-              src="../../images/oney_logo.png"
+              src="../images/oney_logo.png"
               alt="logo de Oney"
               placeholder="blurred"
               layout="fixed"
@@ -91,7 +91,7 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
           </Col>
           <Col xs={6} md={3} className="partner-logo">
             <StaticImage
-              src="../../images/portainer_logo.png"
+              src="../images/portainer_logo.png"
               alt="Logo de Portainer"
               placeholder="blurred"
               layout="fixed"
@@ -102,7 +102,7 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
           </Col>
           <Col xs={6} md={3} className="partner-logo">
             <StaticImage
-              src="../../images/ufem_logo.jpg"
+              src="../images/ufem_logo.jpg"
               alt="logo de l'Ufem"
               placeholder="blurred"
               layout="fixed"
@@ -113,7 +113,7 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
           </Col>
           <Col xs={6} md={3} className="partner-logo">
             <StaticImage
-              src="../../images/nordmotors_logo.jpg"
+              src="../images/nordmotors_logo.jpg"
               alt="logo de Nord Motors"
               placeholder="blurred"
               layout="fixed"
@@ -166,7 +166,7 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
               <Col xs={12}>
                 <h2>
                   <StaticImage
-                    src="../../images/pagespeed_64dp.png"
+                    src="../images/pagespeed_64dp.png"
                     alt="logo de pagespeed insights"
                     style={{
                       width: "3rem",

@@ -1,4 +1,5 @@
 @import "./vars.scss";
+@import "../components/cursor/cursor.scss";
 
 // Variables pour les couleurs et opacités
 $shadow-color: rgba(0, 0, 0, 0.2);
@@ -256,6 +257,25 @@ label {
     font-size: 1.3rem;
     line-height: 1.7;
   }
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+
+  ul,
+  ol {
+    list-style: disc;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+ul.withPuce {
+  list-style: disc;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .big {

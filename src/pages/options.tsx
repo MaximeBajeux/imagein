@@ -104,8 +104,8 @@ const OptionsPage: React.FC<PageProps> = ({ data }: PageProps) => {
             <Col xs={12}>
               <p className="mb-1">
                 Nous développons pour vous un site internet sur mesure, ultra
-                performant et optimisé pour le SEO. Vous avez le choix de
-                l'espace d'administration
+                performant et optimisé pour le SEO, pour lequel vous avez le
+                choix de l'espace d'administration
                 <sup className="orange">*</sup> (Wordpress, Mdx, Strapi,
                 Contentful, etc.).
               </p>
@@ -304,7 +304,7 @@ const OptionsPage: React.FC<PageProps> = ({ data }: PageProps) => {
                 Avec notre formule de base, nous vous offrons aussi si vous le
                 désirez
               </p>
-              <ul>
+              <ul className="withPuce">
                 <li>
                   <p>
                     L'achat de votre nom de domaine
@@ -348,7 +348,7 @@ const OptionsPage: React.FC<PageProps> = ({ data }: PageProps) => {
                 vous proposerons un contrat de maintenance et de support
                 technique pour une durée d'un an renouvelable pour seulement
                 50€/mois. Ce contrat comprend :
-                <ul>
+                <ul className="withPuce">
                   <li>Le renouvellement de votre nom de domaine.</li>
                   <li>
                     La gestion de votre certificat SSL (https) pour sécuriser
