@@ -373,11 +373,10 @@ const OptionsPage: React.FC<PageProps> = ({ data }: PageProps) => {
               <h2 className="mb-2">Design</h2>
               <p className="mb-2">
                 L'apparence de votre site internet est ce qui restera le plus
-                dans la tête de vos clients, il est donc important de soigner le
-                soigner afin qu'il soit le plus agréable et identifiable
-                possible. Pour cela nous avons intégré à notre formule tout ce
-                qu'il faut pour que votre site internet soit le plus beau
-                possible.
+                dans la tête de vos clients, il est donc important de le soigner
+                afin qu'il soit le plus agréable et identifiable possible. Pour
+                cela nous avons intégré à notre formule tout ce qu'il faut pour
+                que votre site internet soit le plus beau possible.
               </p>
               <Row className="middle">
                 <Col xs={12} md={6} className="p-0">

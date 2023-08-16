@@ -37,7 +37,6 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
       <HeroBanner
         words={[
           "Performance",
-          "Créativité",
           "Ergonomie",
           "SEO",
           "Design",
@@ -45,6 +44,7 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
           "UI/UX",
           "Marketing",
           "Développement",
+          "Créativité",
         ]}
       >
         <h1 className="herobanner__title">
@@ -134,9 +134,10 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
               <Col xs={12} className="service__text">
                 <p>
                   🐢 La plupart des sites internet sont lents et mal optimisés
-                  pour le SEO et l'expérience utilisateur, notamment sur mobile.
-                  Cette lenteur, en plus d'être un gouffre énergétique, vous
-                  fait directement perdre des clients insatisfaits.
+                  pour le SEO. Cela impacte l'expérience de vos utilisateurs,
+                  notamment sur mobile. Cette lenteur, en plus d'être un gouffre
+                  énergétique coûteux, vous fait directement perdre des clients
+                  insatisfaits.
                 </p>
                 <p>
                   🐇 C'est pourquoi nous vous accompagnons dans la création d'un
@@ -145,13 +146,16 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
                 </p>
                 <p>
                   💸 Ce genre de site est généralement réservé aux grandes
-                  entreprises qui ont les moyens de se payer une agence de
-                  communication.
+                  entreprises qui ont les moyens de gérer une équipe de
+                  développeurs en interne ou de passer par une agence qui leur
+                  dédiera tout leur temps !
                 </p>
                 <p>
-                  🐣 Mais nous avons décidé de les rendre accessible à tous,
-                  même aux petites entreprises. Alors n'hésitez pas à nous
-                  contacter pour un devis gratuit.
+                  🐣 Mais nous avons décidé de les rendre accessibles à tous !
+                  En usant de la boîte à outils que nous avons développée, nous
+                  sommes capables de vous proposer des sites à des prix
+                  abordables et de mettre toute notre force de travail dans la
+                  création de son identité visuelle !
                 </p>
                 <Stack direction="horizontal" className="dark">
                   <Button as="Link" to="offres/">
@@ -296,8 +300,8 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
               graphistes afin de vous fournir un design unique et à votre image.
             </p>
             <p>
-              ✍️ Enfin, nous travaillons avec des rédacteurs web afin de vous
-              fournir un contenu de qualité et optimisé pour le SEO.
+              ✍️ Enfin, nous travaillons aussi avec des rédacteurs web afin de
+              vous fournir un contenu de qualité et optimisé pour le SEO.
             </p>
             <Stack direction="horizontal" className="dark">
               <Button as="Link" to="contact/">
