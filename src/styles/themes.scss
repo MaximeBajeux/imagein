@@ -288,6 +288,22 @@ li {
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
+
+  .image-container span {
+    display: flex;
+    width: 100%;
+  }
+
+  .gatsby-resp-image-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .gatsby-resp-image-image {
+      height: auto !important;
+    }
+  }
 }
 
 ul.withPuce {
