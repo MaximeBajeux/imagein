@@ -1,7 +1,7 @@
-import React, { lazy, Suspense, useEffect } from "react";
+import React, { lazy, useEffect } from "react";
 import { Slice } from "gatsby";
 import { isMobile } from "react-device-detect";
-import { isBrowser } from "react-device-detect";
+import SuspenseHelper from "../suspensehelper/suspensehelper";
 import "./layout.scss";
 
 const LazyCursor = lazy(() => import("../cursor/cursor"));
@@ -36,19 +36,19 @@ const Layout = ({
 
   return (
     <main {...props} className={`layout ${className ? className : ""}`}>
-      {!isMobile && isBrowser && (
-        <Suspense fallback={null}>
+      {!isMobile && (
+        <SuspenseHelper fallback={null}>
           <LazyCursor />
-        </Suspense>
+        </SuspenseHelper>
       )}
       <Slice alias="header" />
       <div className="layout__content">{children}</div>
       <Slice alias="footer" />
 
-      {showCookieContent && isBrowser && (
-        <Suspense fallback={null}>
+      {showCookieContent && (
+        <SuspenseHelper fallback={null}>
           <LazyCookieContent />
-        </Suspense>
+        </SuspenseHelper>
       )}
       <noscript>
         <img

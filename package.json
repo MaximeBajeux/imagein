@@ -33,6 +33,8 @@
     "gatsby-plugin-sharp": "^5.10.0",
     "gatsby-plugin-sitemap": "^6.11.0",
     "gatsby-plugin-webfonts": "^2.3.2",
+    "gatsby-remark-copy-linked-files": "^6.11.0",
+    "gatsby-remark-images": "^7.11.0",
     "gatsby-source-filesystem": "^5.10.0",
     "gatsby-transformer-remark": "^6.10.0",
     "gatsby-transformer-sharp": "^5.10.0",

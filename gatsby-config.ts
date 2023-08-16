@@ -22,7 +22,27 @@ const config: GatsbyConfig = {
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
-    "gatsby-plugin-mdx",
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 890,
+              withWebp: true,
+            },
+          },
+          {
+            resolve: "gatsby-remark-copy-linked-files",
+            options: {
+              destinationDir: "./src/images/",
+              extensions: [".png", ".jpg", ".jpeg", ".webp"],
+            },
+          },
+        ],
+      },
+    },
     "gatsby-transformer-remark",
     "gatsby-plugin-sharp",
     {

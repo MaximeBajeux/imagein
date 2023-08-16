@@ -12,19 +12,12 @@ import Row from "../components/row/row";
 import Col from "../components/col/col";
 import Button from "../components/button/button";
 import { StaticImage } from "gatsby-plugin-image";
+import SuspenseHelper from "../components/suspensehelper/suspensehelper";
 
 const Animation = lazy(() => import("../components/animation/animation"));
 const Circlechart = lazy(() => import("../components/circlechart/circlechart"));
 
 const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
-  const [isBrowser, setIsBrowser] = useState(false);
-
-  useEffect(() => {
-    if (window !== undefined) {
-      setIsBrowser(true);
-    }
-  }, []);
-
   // change lottie files list to object with name as key
   const lottieFiles = data.allFile.nodes.reduce((acc, node) => {
     acc[node.name] = node.publicURL;
@@ -189,34 +182,30 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
                   meilleure expérience utilisateur possible.
                 </p>
               </Col>
-              {isBrowser && (
-                <Suspense fallback={null}>
-                  <Col xs={6}>
-                    <Circlechart percentage={95} text="Performances" />
-                  </Col>
-                </Suspense>
-              )}
-              {isBrowser && (
-                <Suspense fallback={null}>
-                  <Col xs={6}>
-                    <Circlechart percentage={100} text="Accessibilité" />
-                  </Col>
-                </Suspense>
-              )}
-              {isBrowser && (
-                <Suspense fallback={null}>
-                  <Col xs={6}>
-                    <Circlechart percentage={100} text="Bonnes pratiques" />
-                  </Col>
-                </Suspense>
-              )}
-              {isBrowser && (
-                <Suspense fallback={null}>
-                  <Col xs={6}>
-                    <Circlechart percentage={100} text="SEO" />
-                  </Col>
-                </Suspense>
-              )}
+
+              <SuspenseHelper fallback={null}>
+                <Col xs={6}>
+                  <Circlechart percentage={95} text="Performances" />
+                </Col>
+              </SuspenseHelper>
+
+              <SuspenseHelper fallback={null}>
+                <Col xs={6}>
+                  <Circlechart percentage={100} text="Accessibilité" />
+                </Col>
+              </SuspenseHelper>
+
+              <SuspenseHelper fallback={null}>
+                <Col xs={6}>
+                  <Circlechart percentage={100} text="Bonnes pratiques" />
+                </Col>
+              </SuspenseHelper>
+
+              <SuspenseHelper fallback={null}>
+                <Col xs={6}>
+                  <Circlechart percentage={100} text="SEO" />
+                </Col>
+              </SuspenseHelper>
             </Row>
           </Col>
         </Row>
@@ -258,16 +247,14 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
               </Button>
             </Stack>
           </Col>
-          {isBrowser && (
-            <Suspense fallback={null}>
-              <Col xs={12} md={6} className="stretch middle">
-                <Animation
-                  className="animation"
-                  path={lottieFiles["animation1"]}
-                />
-              </Col>
-            </Suspense>
-          )}
+          <SuspenseHelper fallback={null}>
+            <Col xs={12} md={6} className="stretch middle">
+              <Animation
+                className="animation"
+                path={lottieFiles["animation1"]}
+              />
+            </Col>
+          </SuspenseHelper>
         </Row>
       </section>
       <section className="cerise">
@@ -309,16 +296,14 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
               </Button>
             </Stack>
           </Col>
-          {isBrowser && (
-            <Suspense fallback={null}>
-              <Col xs={12} md={6} className="stretch middle">
-                <Animation
-                  className="animation"
-                  path={lottieFiles["animation2"]}
-                />
-              </Col>
-            </Suspense>
-          )}
+          <SuspenseHelper fallback={null}>
+            <Col xs={12} md={6} className="stretch middle">
+              <Animation
+                className="animation"
+                path={lottieFiles["animation2"]}
+              />
+            </Col>
+          </SuspenseHelper>
         </Row>
       </section>
     </Layout>
