@@ -20,7 +20,7 @@ const MentionsLegales = () => {
               l’identité des différents intervenants dans le cadre de sa
               réalisation et de son suivi :
             </p>
-            <p>
+            <div>
               <strong>Propriétaire</strong> : Maxime Bajeux – EIRL Maxime Bajeux
               Siret: 81192844900016 – 64 rue du Marais 59553 Lauwin-Planque
               <br />
@@ -44,19 +44,19 @@ const MentionsLegales = () => {
               <br />
               Le modèle de mentions légales est offert par{" "}
               <a href="https://www.subdelirium.com/">Subdelirium.com</a>
-            </p>
+            </div>
             <h3 className="wp-block-heading">
               2. Conditions générales d’utilisation du site et des services
               proposés.
             </h3>
-            <p>
+            <div>
               L’utilisation du site <a href="//image-in.net/">image-in.net</a>{" "}
               implique l’acceptation pleine et entière des conditions générales
               d’utilisation ci-après décrites. Ces conditions d’utilisation sont
               susceptibles d’être modifiées ou complétées à tout moment, les
               utilisateurs du site <a href="//image-in.net/">image-in.net</a>{" "}
               sont donc invités à les consulter de manière régulière.
-            </p>
+            </div>
             <p>
               Ce site est normalement accessible à tout moment aux utilisateurs.
               Une interruption pour raison de maintenance technique peut être
@@ -309,4 +309,4 @@ const MentionsLegales = () => {
 
 export default MentionsLegales;
 
-export const Head = () => <SEO title="Mentions légales" />;
+export const Head = () => <SEO title="Mentions légales" noIndex noFollow />;

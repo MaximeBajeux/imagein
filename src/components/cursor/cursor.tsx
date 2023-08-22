@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from "react";
-import { useLayoutEffect } from "react";
 import useColorState from "../../hooks/use-color-state";
 import useMousePosition from "../../hooks/use-mouse-position";
 
@@ -9,7 +8,7 @@ const Cursor = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
   const cursorDotRef = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const cursor = cursorRef.current;
     const cursorDot = cursorDotRef.current;
 

@@ -104,17 +104,26 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: "gatsby-plugin-facebook-pixel-lazy",
+      resolve: "gatsby-plugin-facebook-pixel",
       options: {
         pixelId: process.env.GATSBY_FACEBOOK_PIXEL_ID,
-        timeout: 3666,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-google-gtag",
+      options: {
+        trackingIds: [`${process.env.GATSBY_GA_MEASUREMENT_ID}`],
+        pluginConfig: {
+          head: true,
+          respectDNT: true,
+        },
       },
     },
     {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
         googleAnalytics: {
-          trackingId: process.env.GATDBY_GA_MEASUREMENT_ID, // leave empty if you want to disable the tracker
+          trackingId: process.env.GATSBY_GA_MEASUREMENT_ID, // leave empty if you want to disable the tracker
           cookieName: "gatsby-gdpr-google-analytics", // default
           anonymize: true, // default
           allowAdFeatures: false, // default
@@ -175,9 +184,6 @@ const config: GatsbyConfig = {
       },
       __key: "lottie",
     },
-  ],
-  partytownProxiedURLs: [
-    `https://www.googletagmanager.com/gtag/js?id=${process.env.GATSBY_GA_MEASUREMENT_ID}`,
   ],
 };
 

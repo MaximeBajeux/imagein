@@ -1,6 +1,5 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy } from "react";
 import "./index.scss";
-import { useState, useEffect } from "react";
 
 import Layout from "../components/layout/layout";
 import SEO from "../components/seo/seo";
@@ -17,16 +16,19 @@ import SuspenseHelper from "../components/suspensehelper/suspensehelper";
 const Animation = lazy(() => import("../components/animation/animation"));
 const Circlechart = lazy(() => import("../components/circlechart/circlechart"));
 
-const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
+type IndexProps = PageProps<Queries.LottieFilesQuery>;
+
+const IndexPage = (props: IndexProps) => {
+  const { data } = props;
   // change lottie files list to object with name as key
   const lottieFiles = data.allFile.nodes.reduce((acc, node) => {
+    if (!node.publicURL) return acc;
     acc[node.name] = node.publicURL;
     return acc;
   }, {} as { [key: string]: string });
 
   return (
     <Layout className="home">
-      <SEO title="Home" />
       <HeroBanner
         words={[
           "Performance",
@@ -183,29 +185,29 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
                 </p>
               </Col>
 
-              <SuspenseHelper fallback={null}>
-                <Col xs={6}>
+              <Col xs={6}>
+                <SuspenseHelper fallback={null}>
                   <Circlechart percentage={95} text="Performances" />
-                </Col>
-              </SuspenseHelper>
+                </SuspenseHelper>
+              </Col>
 
-              <SuspenseHelper fallback={null}>
-                <Col xs={6}>
+              <Col xs={6}>
+                <SuspenseHelper fallback={null}>
                   <Circlechart percentage={100} text="Accessibilité" />
-                </Col>
-              </SuspenseHelper>
+                </SuspenseHelper>
+              </Col>
 
-              <SuspenseHelper fallback={null}>
-                <Col xs={6}>
+              <Col xs={6}>
+                <SuspenseHelper fallback={null}>
                   <Circlechart percentage={100} text="Bonnes pratiques" />
-                </Col>
-              </SuspenseHelper>
+                </SuspenseHelper>
+              </Col>
 
-              <SuspenseHelper fallback={null}>
-                <Col xs={6}>
+              <Col xs={6}>
+                <SuspenseHelper fallback={null}>
                   <Circlechart percentage={100} text="SEO" />
-                </Col>
-              </SuspenseHelper>
+                </SuspenseHelper>
+              </Col>
             </Row>
           </Col>
         </Row>
@@ -247,14 +249,14 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
               </Button>
             </Stack>
           </Col>
-          <SuspenseHelper fallback={null}>
-            <Col xs={12} md={6} className="stretch middle">
+          <Col xs={12} md={6} className="stretch middle">
+            <SuspenseHelper fallback={null}>
               <Animation
                 className="animation"
                 path={lottieFiles["animation1"]}
               />
-            </Col>
-          </SuspenseHelper>
+            </SuspenseHelper>
+          </Col>
         </Row>
       </section>
       <section className="cerise">
@@ -296,14 +298,14 @@ const IndexPage = ({ data }: { data: PageProps<Queries.LottieFilesQuery> }) => {
               </Button>
             </Stack>
           </Col>
-          <SuspenseHelper fallback={null}>
-            <Col xs={12} md={6} className="stretch middle">
+          <Col xs={12} md={6} className="stretch middle">
+            <SuspenseHelper fallback={null}>
               <Animation
                 className="animation"
                 path={lottieFiles["animation2"]}
               />
-            </Col>
-          </SuspenseHelper>
+            </SuspenseHelper>
+          </Col>
         </Row>
       </section>
     </Layout>

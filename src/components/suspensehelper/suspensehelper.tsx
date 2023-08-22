@@ -12,10 +12,14 @@ export const SuspenseHelper: React.FC<Props> = ({ fallback, children }) => {
     if (!isMounted) {
       setMounted(true);
     }
-  });
+  }, []);
 
   return (
-    <Suspense fallback={fallback}>{!isMounted ? fallback : children}</Suspense>
+    <>
+      <Suspense fallback={fallback}>
+        {!isMounted ? fallback : children}
+      </Suspense>
+    </>
   );
 };
 

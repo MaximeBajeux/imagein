@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect } from "react";
+import React, { useRef, useEffect } from "react";
 
 const Circlechart = ({
   percentage,
@@ -11,7 +11,7 @@ const Circlechart = ({
   const percentRef = useRef<HTMLSpanElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const circle = circleRef.current;
     const percent = percentRef.current;
 

@@ -36,11 +36,9 @@ const Layout = ({
 
   return (
     <main {...props} className={`layout ${className ? className : ""}`}>
-      {!isMobile && (
-        <SuspenseHelper fallback={null}>
-          <LazyCursor />
-        </SuspenseHelper>
-      )}
+      <SuspenseHelper fallback={null}>
+        {!isMobile && <LazyCursor />}
+      </SuspenseHelper>
       <Slice alias="header" />
       <div className="layout__content">{children}</div>
       <Slice alias="footer" />

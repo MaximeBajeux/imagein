@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import "./glowbutton.scss";
 import useColorState from "../../hooks/use-color-state";
 import useMousePosition from "../../hooks/use-mouse-position";
@@ -21,8 +21,8 @@ const GlowButton = ({
   const aRef = useRef<HTMLAnchorElement>(null);
   const linkRef = useRef<HTMLAnchorElement>(null);
 
-  useLayoutEffect(() => {
-    if (isMobile) return;
+  useEffect(() => {
+    // if (isMobile) return;
     const button = buttonRef.current || aRef.current || linkRef.current;
     const gradient = gradientElem.current;
 

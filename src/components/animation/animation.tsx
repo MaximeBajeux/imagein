@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import "@dotlottie/player-component";
 
 const Animation = ({
   path,
