@@ -15,6 +15,13 @@
 			"problemMatcher": [],
 			"label": "npm: serve",
 			"detail": "gatsby serve"
+		},
+		{
+			"type": "npm",
+			"script": "develop",
+			"problemMatcher": [],
+			"label": "npm: develop",
+			"detail": "gatsby develop"
 		}
 	]
 }

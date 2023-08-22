@@ -26,7 +26,9 @@ const Footer = () => {
               <Link to="/mentions-legales">Mentions légales</Link>
             </li>
             <li className="footer__list-item">
-              <Link to="/politique-de-cookies">Politique de cookies</Link>
+              <Link to="/politique-de-confidentialite">
+                Politique de confidentialité
+              </Link>
             </li>
           </ul>
         </Col>
