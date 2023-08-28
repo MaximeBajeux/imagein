@@ -8,6 +8,8 @@ import Col from "../components/col/col";
 import BreadCrumb from "../components/breadcrumb/breadcrumb";
 import { Link } from "gatsby";
 import Herobanner from "../components/herobanner/herobanner";
+import Stack from "../components/stack/stack";
+import Button from "../components/button/button";
 
 const BlogPost = ({
   data,
@@ -64,6 +66,29 @@ const BlogPost = ({
         </Col>
       </Row>
       <article className="blogpost">{children}</article>
+      <section className="blogpost__cta">
+        <Row>
+          <Col xs={12} className="center">
+            <div className="blogpost__cta__content big orange">
+              Cliquer sur ces boutons rend le monde meilleur !
+            </div>
+            <div>
+              (Cette phrase n'est pas contractuelle et n'engage que son auteur,
+              mais nous l'espérons tous).
+            </div>
+          </Col>
+          <Col xs={12}>
+            <Stack direction="horizontal" position="center" className="mb-3">
+              <Button as="Link" href="/contact" className="reverse">
+                Prendre rendez-vous
+              </Button>
+              <Button as="Link" href="/offres">
+                Découvrir nos services
+              </Button>
+            </Stack>
+          </Col>
+        </Row>
+      </section>
     </Layout>
   );
 };
