@@ -9,6 +9,7 @@ import Card from "../components/card/card";
 import Button from "../components/button/button";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import BreadCrumb from "../components/breadcrumb/breadcrumb";
 
 const Contact: React.FC<PageProps> = () => {
   const {
@@ -86,6 +87,20 @@ const Contact: React.FC<PageProps> = () => {
           avec amour ! 😍)
         </p>
       </Herobanner>
+      <BreadCrumb>
+        <BreadCrumb.Item href="/" title="Accueil" position={1} disabled={false}>
+          Accueil
+        </BreadCrumb.Item>
+        <BreadCrumb.Item
+          href="/contact"
+          title="Nous contacter"
+          position={2}
+          disabled={true}
+        >
+          Nous contacter
+        </BreadCrumb.Item>
+      </BreadCrumb>
+
       <Row className="mtb-2">
         <Col
           xs={12}

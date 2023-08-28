@@ -41,10 +41,22 @@ const BlogPage: React.FC<PageProps<Queries.BlogListQuery>> = ({
       <Row>
         <Col xs={12}>
           <BreadCrumb>
-            <BreadCrumb.Item>
+            <BreadCrumb.Item
+              href="/"
+              title="Accueil"
+              position={1}
+              disabled={false}
+            >
               <Link to="/">Accueil</Link>
             </BreadCrumb.Item>
-            <BreadCrumb.Item>Blog</BreadCrumb.Item>
+            <BreadCrumb.Item
+              href="/blog"
+              title="Blog"
+              position={2}
+              disabled={true}
+            >
+              Blog
+            </BreadCrumb.Item>
           </BreadCrumb>
         </Col>
       </Row>
@@ -95,4 +107,9 @@ export const query = graphql`
 
 export default BlogPage;
 
-export const Head: HeadFC = () => <SEO title="Blog" />;
+export const Head: HeadFC = () => (
+  <SEO
+    title="Blog"
+    description="Retrouvez nos derniers articles sur le web et le SEO"
+  />
+);

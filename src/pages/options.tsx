@@ -77,13 +77,30 @@ const OptionsPage: React.FC<PageProps> = ({ data }: PageProps) => {
       <Row>
         <Col xs={12}>
           <BreadCrumb>
-            <BreadCrumb.Item>
+            <BreadCrumb.Item
+              href="/"
+              title="Accueil"
+              position={1}
+              disabled={false}
+            >
               <Link to="/">Accueil</Link>
             </BreadCrumb.Item>
-            <BreadCrumb.Item>
+            <BreadCrumb.Item
+              href="/offres"
+              title="Nos offres"
+              position={2}
+              disabled={false}
+            >
               <Link to="/offres">Nos offres</Link>
             </BreadCrumb.Item>
-            <BreadCrumb.Item>Nos options</BreadCrumb.Item>
+            <BreadCrumb.Item
+              href="/offres/options"
+              title="Nos options"
+              position={3}
+              disabled={true}
+            >
+              Nos options
+            </BreadCrumb.Item>
           </BreadCrumb>
         </Col>
       </Row>
@@ -494,5 +511,12 @@ const OptionsPage: React.FC<PageProps> = ({ data }: PageProps) => {
     </Layout>
   );
 };
+
+export const Head = () => (
+  <SEO
+    title="Nos options"
+    description="Vous êtes une PME et vous souhaitez un site internet ? Alors vous êtes peut être éligible à notre offre à 250€/mois pendant 1 an !"
+  />
+);
 
 export default OptionsPage;

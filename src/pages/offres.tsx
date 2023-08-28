@@ -35,10 +35,22 @@ const OffresPage: React.FC<PageProps> = ({ data }: PageProps) => {
       <Row>
         <Col xs={12}>
           <BreadCrumb>
-            <BreadCrumb.Item>
+            <BreadCrumb.Item
+              href="/"
+              title="Accueil"
+              position={1}
+              disabled={false}
+            >
               <Link to="/">Accueil</Link>
             </BreadCrumb.Item>
-            <BreadCrumb.Item>Nos offres</BreadCrumb.Item>
+            <BreadCrumb.Item
+              href="/offres"
+              title="Nos offres"
+              position={2}
+              disabled={true}
+            >
+              Nos offres
+            </BreadCrumb.Item>
           </BreadCrumb>
         </Col>
       </Row>
@@ -260,4 +272,9 @@ const OffresPage: React.FC<PageProps> = ({ data }: PageProps) => {
 
 export default OffresPage;
 
-export const Head: HeadFC = () => <SEO title="Offres" />;
+export const Head: HeadFC = () => (
+  <SEO
+    title="Offres"
+    description="Que vous soyez une PME ou un grand groupe, nous avons une offre commerciale pour vous ! Devis gratuit et réponse en 24h !"
+  />
+);

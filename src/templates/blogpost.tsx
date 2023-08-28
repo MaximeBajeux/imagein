@@ -34,13 +34,30 @@ const BlogPost = ({
           <Row>
             <Col xs={12}>
               <BreadCrumb>
-                <BreadCrumb.Item>
+                <BreadCrumb.Item
+                  href="/"
+                  title="Accueil"
+                  position={1}
+                  disabled={false}
+                >
                   <Link to="/">Accueil</Link>
                 </BreadCrumb.Item>
-                <BreadCrumb.Item>
+                <BreadCrumb.Item
+                  href="/blog"
+                  title="Blog"
+                  position={2}
+                  disabled={false}
+                >
                   <Link to="/blog">Blog</Link>
                 </BreadCrumb.Item>
-                <BreadCrumb.Item>{frontmatter.title}</BreadCrumb.Item>
+                <BreadCrumb.Item
+                  href={`/blog/${frontmatter.slug}`}
+                  title={frontmatter.title}
+                  position={3}
+                  disabled={true}
+                >
+                  {frontmatter.title}
+                </BreadCrumb.Item>
               </BreadCrumb>
             </Col>
           </Row>

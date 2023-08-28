@@ -61,7 +61,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        excludes: ["/404"],
+        excludes: ["/404", "/politique-de-confidentialite", "/mentions-legales", "/le-lab"],
         createLinkInHead: true,
       },
     },

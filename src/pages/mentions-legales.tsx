@@ -18,10 +18,22 @@ const MentionsLegales = () => {
       <Row>
         <Col xs={12}>
           <BreadCrumb>
-            <BreadCrumb.Item>
+            <BreadCrumb.Item
+              href="/"
+              title="Accueil"
+              position={1}
+              disabled={false}
+            >
               <Link to="/">Accueil</Link>
             </BreadCrumb.Item>
-            <BreadCrumb.Item>Mentions légales</BreadCrumb.Item>
+            <BreadCrumb.Item
+              href="/mentions-legales"
+              title="Mentions légales"
+              position={2}
+              disabled={true}
+            >
+              Mentions légales
+            </BreadCrumb.Item>
           </BreadCrumb>
         </Col>
       </Row>

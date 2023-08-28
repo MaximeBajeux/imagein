@@ -58,10 +58,22 @@ const RealisationsPage: React.FC<PageProps<Queries.LabListQuery>> = ({
       <Row>
         <Col xs={12}>
           <BreadCrumb>
-            <BreadCrumb.Item>
+            <BreadCrumb.Item
+              href="/"
+              title="Accueil"
+              position={1}
+              disabled={false}
+            >
               <Link to="/">Accueil</Link>
             </BreadCrumb.Item>
-            <BreadCrumb.Item>Le lab</BreadCrumb.Item>
+            <BreadCrumb.Item
+              href="/le-lab"
+              title="Le lab"
+              position={2}
+              disabled={true}
+            >
+              Le lab
+            </BreadCrumb.Item>
           </BreadCrumb>
         </Col>
       </Row>
@@ -112,4 +124,11 @@ export const query = graphql`
 
 export default RealisationsPage;
 
-export const Head: HeadFC = () => <SEO title="Le lab" />;
+export const Head: HeadFC = () => (
+  <SEO
+    title="Le lab"
+    description="Ici vous entrez dans notre zone d'expérimentation"
+    noFollow
+    noIndex
+  />
+);

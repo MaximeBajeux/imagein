@@ -12,6 +12,7 @@ import Col from "../components/col/col";
 import Button from "../components/button/button";
 import { StaticImage } from "gatsby-plugin-image";
 import SuspenseHelper from "../components/suspensehelper/suspensehelper";
+import BreadCrumb from "../components/breadcrumb/breadcrumb";
 
 const Animation = lazy(() => import("../components/animation/animation"));
 const Circlechart = lazy(() => import("../components/circlechart/circlechart"));
@@ -66,6 +67,11 @@ const IndexPage = (props: IndexProps) => {
           </GlowButton>
         </Stack>
       </HeroBanner>
+      <BreadCrumb style={{ visibility: "hidden" }}>
+        <BreadCrumb.Item href="/" title="Accueil" position={1} disabled={false}>
+          Accueil
+        </BreadCrumb.Item>
+      </BreadCrumb>
       <section className="partners">
         <Row>
           <Col xs={12}>

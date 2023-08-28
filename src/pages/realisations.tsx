@@ -48,10 +48,22 @@ const RealisationsPage: React.FC<PageProps<Queries.RealisationListQuery>> = ({
       <Row>
         <Col xs={12}>
           <BreadCrumb>
-            <BreadCrumb.Item>
+            <BreadCrumb.Item
+              href="/"
+              title="Accueil"
+              position={1}
+              disabled={false}
+            >
               <Link to="/">Accueil</Link>
             </BreadCrumb.Item>
-            <BreadCrumb.Item>Nos réalisations</BreadCrumb.Item>
+            <BreadCrumb.Item
+              href="/realisations"
+              title="Nos réalisations"
+              position={2}
+              disabled={true}
+            >
+              Nos réalisations
+            </BreadCrumb.Item>
           </BreadCrumb>
         </Col>
       </Row>
@@ -102,4 +114,9 @@ export const query = graphql`
 
 export default RealisationsPage;
 
-export const Head: HeadFC = () => <SEO title="Nos réalisations" />;
+export const Head: HeadFC = () => (
+  <SEO
+    title="Nos réalisations"
+    description="Suivez nos aventures les plus originales et épiques"
+  />
+);

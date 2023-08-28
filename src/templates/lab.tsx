@@ -34,13 +34,30 @@ const Lab = ({
           <Row>
             <Col xs={12}>
               <BreadCrumb>
-                <BreadCrumb.Item>
+                <BreadCrumb.Item
+                  href="/"
+                  title="Accueil"
+                  position={1}
+                  disabled={false}
+                >
                   <Link to="/">Accueil</Link>
                 </BreadCrumb.Item>
-                <BreadCrumb.Item>
+                <BreadCrumb.Item
+                  href="/le-lab"
+                  title="Le lab"
+                  position={2}
+                  disabled={false}
+                >
                   <Link to="/le-lab">Le lab</Link>
                 </BreadCrumb.Item>
-                <BreadCrumb.Item>{frontmatter.title}</BreadCrumb.Item>
+                <BreadCrumb.Item
+                  href={`/le-lab/${frontmatter.slug}`}
+                  title={frontmatter.title}
+                  position={3}
+                  disabled={true}
+                >
+                  {frontmatter.title}
+                </BreadCrumb.Item>
               </BreadCrumb>
             </Col>
           </Row>
@@ -99,6 +116,8 @@ export const Head = (props) => {
       pathname={`/le-lab/${slug}`}
       image={imageData?.images?.fallback?.src}
       article={true}
+      noIndex
+      noFollow
     />
   );
 };

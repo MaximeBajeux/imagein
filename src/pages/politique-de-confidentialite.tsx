@@ -18,10 +18,22 @@ const PolitiqueDeConfidentialitePage = () => {
       <Row>
         <Col xs={12}>
           <BreadCrumb>
-            <BreadCrumb.Item>
-              <Link to="/">Accueil</Link>
+            <BreadCrumb.Item
+              href="/"
+              title="Accueil"
+              position={1}
+              disabled={false}
+            >
+              Accueil
             </BreadCrumb.Item>
-            <BreadCrumb.Item>Politique de confidentialité</BreadCrumb.Item>
+            <BreadCrumb.Item
+              href="/politique-de-confidentialite"
+              title="Politique de confidentialité"
+              position={2}
+              disabled={true}
+            >
+              Politique de confidentialité
+            </BreadCrumb.Item>
           </BreadCrumb>
         </Col>
       </Row>
