@@ -170,7 +170,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
   createRedirect({
     fromPath: "/options/",
-    toPath: "/votre-site-a-250-par-mois-pendant-1-an/",
+    toPath: "/votre-site-a-250-euros-par-mois-pendant-1-an/",
   });
 };
 
