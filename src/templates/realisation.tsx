@@ -75,6 +75,7 @@ export const query = graphql`
         title
         date(formatString: "DD MM YYYY")
         description
+        slug
         image {
           childImageSharp {
             gatsbyImageData(

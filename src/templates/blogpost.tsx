@@ -98,6 +98,7 @@ export const query = graphql`
     mdx(id: { eq: $id }) {
       frontmatter {
         title
+        slug
         date(formatString: "DD MM YYYY")
         description
         image {
