@@ -242,7 +242,7 @@ li {
   }
 
   img {
-    max-width: 380px;
+    max-width: 100%;
     max-height: 600px!important ;
     margin: 2rem auto;
   }
@@ -267,7 +267,6 @@ li {
       line-height: 1.7;
     }
     img {
-      max-width: 600px;
       margin: 2rem auto;
     }
   }
