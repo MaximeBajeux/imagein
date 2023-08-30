@@ -83,7 +83,7 @@ export const query = graphql`
           image {
             childImageSharp {
               gatsbyImageData(
-                width: 300
+                width: 400
                 placeholder: BLURRED
                 formats: [AUTO, WEBP, AVIF]
               )
@@ -94,7 +94,7 @@ export const query = graphql`
         imageRemote {
           childImageSharp {
             gatsbyImageData(
-              width: 300
+              width: 400
               placeholder: BLURRED
               formats: [AUTO, WEBP, AVIF]
             )
