@@ -83,7 +83,7 @@ const OptionsPage: React.FC<PageProps> = ({ data }: PageProps) => {
               position={1}
               disabled={false}
             >
-              <Link to="/">Accueil</Link>
+              Accueil
             </BreadCrumb.Item>
             <BreadCrumb.Item
               href="/offres"
@@ -91,7 +91,7 @@ const OptionsPage: React.FC<PageProps> = ({ data }: PageProps) => {
               position={2}
               disabled={false}
             >
-              <Link to="/offres">Nos offres</Link>
+              Nos offres
             </BreadCrumb.Item>
             <BreadCrumb.Item
               href="/offres/votre-site-a-250-euros-par-mois-pendant-1-an"
@@ -365,22 +365,21 @@ const OptionsPage: React.FC<PageProps> = ({ data }: PageProps) => {
                 vous proposerons un contrat de maintenance et de support
                 technique pour une durée d'un an renouvelable pour seulement
                 50€/mois. Ce contrat comprend :
-                <ul className="withPuce">
-                  <li>Le renouvellement de votre nom de domaine.</li>
-                  <li>
-                    La gestion de votre certificat SSL (https) pour sécuriser
-                    vos données et votre site internet.
-                  </li>
-                  <li>
-                    L'hébergement de votre site internet sur notre solution
-                    cloud.
-                  </li>
-                  <li>
-                    La maintenance et le support technique pour votre site
-                    internet.
-                  </li>
-                </ul>
               </p>
+              <ul className="withPuce">
+                <li>Le renouvellement de votre nom de domaine.</li>
+                <li>
+                  La gestion de votre certificat SSL (https) pour sécuriser vos
+                  données et votre site internet.
+                </li>
+                <li>
+                  L'hébergement de votre site internet sur notre solution cloud.
+                </li>
+                <li>
+                  La maintenance et le support technique pour votre site
+                  internet.
+                </li>
+              </ul>
             </Col>
           </Row>
         </section>
@@ -514,7 +513,9 @@ const OptionsPage: React.FC<PageProps> = ({ data }: PageProps) => {
 
 export const query = graphql`
   query Options {
-    file(id: { eq: "5299b03d-6622-58b3-864b-a05a8fdd3a9e" }) {
+    file(
+      relativePath: { eq: "votre-site-a-250-euros-par-mois-pendant-1-an.jpg" }
+    ) {
       childImageSharp {
         gatsbyImageData(
           width: 1200
