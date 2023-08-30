@@ -69,13 +69,13 @@ const BlogPost = ({
       <section className="blogpost__cta">
         <Row>
           <Col xs={12} className="center">
-            <div className="blogpost__cta__content big orange">
+            <div className="blogpost__cta__content big orange center">
               Cliquer sur ces boutons rend le monde meilleur !
             </div>
-            <div>
+            <small className="center">
               (Cette phrase n'est pas contractuelle et n'engage que son auteur,
               mais nous l'espérons tous).
-            </div>
+            </small>
           </Col>
           <Col xs={12}>
             <Stack direction="horizontal" position="center" className="mb-3">
