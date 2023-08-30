@@ -114,7 +114,7 @@ export const Head = (props) => {
     <SEO
       title={title}
       description={description}
-      pathname={`/le-lab/${slug}`}
+      pathname={`/le-lab/${slug}/`}
       image={imageData?.images?.fallback?.src}
       article={true}
       noIndex
