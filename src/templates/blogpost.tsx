@@ -125,8 +125,6 @@ export const query = graphql`
   }
 `;
 
-export default BlogPost;
-
 export const Head = (props) => {
   const {
     data: { mdx },
@@ -145,3 +143,5 @@ export const Head = (props) => {
     />
   );
 };
+
+export default BlogPost;

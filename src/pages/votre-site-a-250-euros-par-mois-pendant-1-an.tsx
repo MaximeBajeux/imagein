@@ -526,16 +526,8 @@ export const query = graphql`
   }
 `;
 
-export const Head = (props) => {
-  const {
-    data: {
-      file: {
-        childImageSharp: { gatsbyImageData },
-      },
-    },
-  } = props;
-
-  const image = getImage(gatsbyImageData);
+export const Head: React.FC<PageProps> = ({ data }: PageProps) => {
+  const image = getImage(data?.file?.childImageSharp?.gatsbyImageData);
 
   return (
     <SEO
