@@ -532,8 +532,8 @@ export const Head: React.FC<PageProps> = ({ data }: PageProps) => {
 
   return (
     <SEO
-      title="Nos options"
-      description="Vous êtes une PME et vous souhaitez un site internet ? Alors vous êtes peut être éligible à notre offre à 250€/mois pendant 1 an !"
+      title="Votre site à 250€/mois pendant 1 an"
+      description="Vous êtes une PME et vous souhaitez un site internet de qualité à un prix abordable ? Nous avons la solution pour vous !"
       pathname="/votre-site-a-250-euros-par-mois-pendant-1-an/"
       image={image?.images?.fallback?.src}
     />
