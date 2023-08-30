@@ -99,7 +99,7 @@ const OptionsPage: React.FC<PageProps> = ({ data }: PageProps) => {
               position={3}
               disabled={true}
             >
-              Votre site à 250€/mois pendant 1 an
+              Votre site à 250€/mois
             </BreadCrumb.Item>
           </BreadCrumb>
         </Col>
@@ -526,12 +526,14 @@ export const query = graphql`
   }
 `;
 
-export const Head = (data) => {
+export const Head = (props) => {
   const {
-    file: {
-      childImageSharp: { gatsbyImageData },
+    data: {
+      file: {
+        childImageSharp: { gatsbyImageData },
+      },
     },
-  } = data;
+  } = props;
 
   const image = getImage(gatsbyImageData);
 
