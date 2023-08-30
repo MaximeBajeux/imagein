@@ -3,7 +3,7 @@ import React from "react";
 import { useRef, useState } from "react";
 import Layout from "../components/layout/layout";
 import SEO from "../components/seo/seo";
-import { HeadFC, PageProps } from "gatsby";
+import { PageProps, graphql } from "gatsby";
 
 import Row from "../components/row/row";
 import Col from "../components/col/col";
@@ -13,7 +13,7 @@ import Stack from "../components/stack/stack";
 import BreadCrumb from "../components/breadcrumb/breadcrumb";
 import Carousel from "../components/carousel/carousel";
 import { Link } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
+import { StaticImage, getImage } from "gatsby-plugin-image";
 import Tab from "../components/tab/tab";
 
 const OptionsPage: React.FC<PageProps> = ({ data }: PageProps) => {
@@ -512,13 +512,37 @@ const OptionsPage: React.FC<PageProps> = ({ data }: PageProps) => {
   );
 };
 
-export const Head = () => (
-  <SEO
-    title="Nos options"
-    description="Vous êtes une PME et vous souhaitez un site internet ? Alors vous êtes peut être éligible à notre offre à 250€/mois pendant 1 an !"
-    pathname="/votre-site-a-250-euros-par-mois-pendant-1-an/"
-    image="/images/votre-site-a-250-euros-par-mois-pendant-1-an.jpg"
-  />
-);
+export const query = graphql`
+  query Options {
+    file(id: { eq: "5299b03d-6622-58b3-864b-a05a8fdd3a9e" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 1200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP]
+        )
+      }
+    }
+  }
+`;
+
+export const Head = (data) => {
+  const {
+    file: {
+      childImageSharp: { gatsbyImageData },
+    },
+  } = data;
+
+  const image = getImage(gatsbyImageData);
+
+  return (
+    <SEO
+      title="Nos options"
+      description="Vous êtes une PME et vous souhaitez un site internet ? Alors vous êtes peut être éligible à notre offre à 250€/mois pendant 1 an !"
+      pathname="/votre-site-a-250-euros-par-mois-pendant-1-an/"
+      image={image?.images?.fallback?.src}
+    />
+  );
+};
 
 export default OptionsPage;

@@ -151,7 +151,7 @@ const OffresPage: React.FC<PageProps> = ({ data }: PageProps) => {
               <Stack gap={1} direction="horizontal" className="mt-2">
                 <Button
                   as="Link"
-                  to="/votre-site-a-250-par-mois-pendant-1-an/"
+                  to="/votre-site-a-250-euros-par-mois-pendant-1-an/"
                   className="reverse"
                 >
                   en savoir plus

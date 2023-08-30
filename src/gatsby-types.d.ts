@@ -3260,6 +3260,11 @@ type LottieFilesQueryVariables = Exact<{ [key: string]: never; }>;
 
 type LottieFilesQuery = { readonly allFile: { readonly nodes: ReadonlyArray<{ readonly name: string, readonly publicURL: string | null }> } };
 
+type OptionsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type OptionsQuery = { readonly file: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null };
+
 type RealisationQueryVariables = Exact<{
   id: InputMaybe<Scalars['String']>;
 }>;
