@@ -149,7 +149,11 @@ const OffresPage: React.FC<PageProps> = ({ data }: PageProps) => {
               Tout ça à partir de <span className="orange ubber-big">250€</span>{" "}
               par mois pendant un an !
               <Stack gap={1} direction="horizontal" className="mt-2">
-                <Button as="Link" to="/options" className="reverse">
+                <Button
+                  as="Link"
+                  to="/votre-site-a-250-par-mois-pendant-1-an/"
+                  className="reverse"
+                >
                   en savoir plus
                 </Button>
                 <Button as="Link" to="/contact" className="white">

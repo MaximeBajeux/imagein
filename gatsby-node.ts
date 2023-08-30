@@ -65,7 +65,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   actions,
   reporter,
 }) => {
-  const { createPage, createSlice } = actions;
+  const { createPage, createSlice, createRedirect } = actions;
 
   const blogPostTemplate = resolve(`src/templates/blogpost.tsx`);
   const realisationTemplate = resolve(`src/templates/realisation.tsx`);
@@ -166,6 +166,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
   createSlice({
     id: "footer",
     component: footerSlice,
+  });
+
+  createRedirect({
+    fromPath: "/options/",
+    toPath: "/votre-site-a-250-par-mois-pendant-1-an/",
   });
 };
 

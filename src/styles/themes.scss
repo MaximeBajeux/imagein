@@ -311,6 +311,11 @@ li {
       height: auto !important;
     }
   }
+
+  a {
+    color: var(--secondary-color);
+    text-decoration: underline;
+  }
 }
 
 ul.withPuce {
