@@ -44,7 +44,7 @@ const IndexPage = (props: IndexProps) => {
         ]}
       >
         <h1 className="herobanner__title">
-          Agence spécialisée dans l'ultra performance
+          Agence spécialisée dans La création de sites performants
         </h1>
         <h2 className="herobanner__subtitle">
           Vous souhaitez mettre toutes les chances de votre côté pour convertir
@@ -135,10 +135,10 @@ const IndexPage = (props: IndexProps) => {
               <Col xs={12} className="service__text">
                 <p>
                   🐢 La plupart des sites internet sont lents et mal optimisés
-                  pour le SEO. Cela impacte l'expérience de vos utilisateurs,
-                  notamment sur mobile. Cette lenteur, en plus d'être un gouffre
-                  énergétique coûteux, vous fait directement perdre des clients
-                  insatisfaits.
+                  pour le <strong>SEO</strong>. Cela impacte l'expérience de vos
+                  utilisateurs, notamment sur mobile. Cette lenteur, en plus
+                  d'être un gouffre énergétique coûteux, vous fait directement
+                  perdre des clients insatisfaits.
                 </p>
                 <p>
                   🐇 C'est pourquoi nous vous accompagnons dans la création d'un
@@ -147,16 +147,16 @@ const IndexPage = (props: IndexProps) => {
                 </p>
                 <p>
                   💸 Ce genre de site est généralement réservé aux grandes
-                  entreprises qui ont les moyens de gérer une équipe de
-                  développeurs en interne ou de passer par une agence qui leur
-                  dédiera tout leur temps !
+                  entreprises qui ont les moyens de gérer une équipe de{" "}
+                  <strong>développeurs</strong> en interne ou de passer par une
+                  agence qui leur dédiera tout leur temps !
                 </p>
                 <p>
                   🐣 Mais nous avons décidé de les rendre accessibles à tous !
                   En usant de la boîte à outils que nous avons développée, nous
                   sommes capables de vous proposer des sites à des prix
                   abordables et de mettre toute notre force de travail dans la
-                  création de son identité visuelle !
+                  création de son <strong>identité visuelle</strong> !
                 </p>
                 <Stack direction="horizontal" className="dark">
                   <Button as="Link" to="offres/">
@@ -187,7 +187,7 @@ const IndexPage = (props: IndexProps) => {
                 <p>
                   Nos sites sont optimisés pour obtenir un score de minimal de
                   90/100 sur Google PageSpeed Insights, afin d'offrir la
-                  meilleure expérience utilisateur possible.
+                  meilleure <strong>expérience utilisateur</strong> possible.
                 </p>
               </Col>
 
@@ -229,7 +229,8 @@ const IndexPage = (props: IndexProps) => {
             <h2>🎓 Notre méthode</h2>
             <p>
               ⚡ Afin de créer des sites rapides comme l'éclair, nous utilisons
-              des technologies de rendu statique comme GatsbyJS ou NextJS.
+              des technologies de rendu statique comme <strong>GatsbyJS</strong>{" "}
+              ou <strong>NextJS</strong>.
             </p>
             <p>
               🌍 Ces technologies permettent de générer des sites statiques,
@@ -241,7 +242,7 @@ const IndexPage = (props: IndexProps) => {
             <p>
               📈 De plus, ces technologies permettent de générer des sites
               optimisés pour le SEO, car elles génèrent des sites avec un code
-              propre et optimisé pour le référencement.
+              propre et optimisé pour le <strong>référencement</strong>.
             </p>
             <p>
               ⚙️ Enfin, GatsbyJS comme NextJS vous permettent de gérer votre

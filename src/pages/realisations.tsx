@@ -54,7 +54,7 @@ const RealisationsPage: React.FC<PageProps<Queries.RealisationListQuery>> = ({
               position={1}
               disabled={false}
             >
-              <Link to="/">Accueil</Link>
+              Accueil
             </BreadCrumb.Item>
             <BreadCrumb.Item
               href="/realisations"
