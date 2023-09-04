@@ -6,7 +6,6 @@ import SEO from "../components/seo/seo";
 import Row from "../components/row/row";
 import Col from "../components/col/col";
 import BreadCrumb from "../components/breadcrumb/breadcrumb";
-import { Link } from "gatsby";
 import Herobanner from "../components/herobanner/herobanner";
 
 const Realisation = ({
@@ -26,7 +25,13 @@ const Realisation = ({
           {frontmatter.title}
         </h1>
         <time style={{ width: "100%" }} dateTime={frontmatter.date}>
-          publié le {frontmatter.date}
+          publié le{" "}
+          {new Date(frontmatter.date).toLocaleDateString("fr-FR", {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          })}
         </time>
       </Herobanner>
       <Row className="fullwidth shadow-1">
@@ -73,7 +78,7 @@ export const query = graphql`
     mdx(id: { eq: $id }) {
       frontmatter {
         title
-        date(formatString: "DD MM YYYY")
+        date(formatString: "YYYY-MM-DD hh:mm:ss")
         description
         slug
         image {
