@@ -17,7 +17,7 @@ const SEO = ({
   title?: string;
   description?: string;
   image?: string;
-  pathname?: string;
+  pathname: string;
   article?: boolean;
   noIndex?: boolean;
   noFollow?: boolean;
@@ -38,7 +38,7 @@ const SEO = ({
     title: title || defaultTitle,
     description: description || defaultDescription,
     image: `${siteUrl}${image || defaultImage}`,
-    url: `${siteUrl}${pathname || "/"}`,
+    url: `${siteUrl}${pathname}`,
   };
 
   return (
@@ -47,6 +47,7 @@ const SEO = ({
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
 
+      {seo.url && <link rel="canonical" href={seo.url} />}
       {seo.url && <meta property="og:url" content={seo.url} />}
 
       {(article ? true : null) && <meta property="og:type" content="article" />}

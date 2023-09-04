@@ -111,5 +111,6 @@ export const Head: HeadFC = () => (
   <SEO
     title="Nos articles"
     description="Retrouvez nos derniers articles sur le web et le SEO"
+    pathname="/blog/"
   />
 );

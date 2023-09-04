@@ -278,7 +278,8 @@ export default OffresPage;
 
 export const Head: HeadFC = () => (
   <SEO
-    title="Offres"
+    title="Nos offres commerciales"
     description="Que vous soyez une PME ou un grand groupe, nous avons une offre commerciale pour vous ! Devis gratuit et réponse en 24h !"
+    pathname="/offres/"
   />
 );

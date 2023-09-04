@@ -128,6 +128,7 @@ export const Head: HeadFC = () => (
   <SEO
     title="Le lab"
     description="Ici vous entrez dans notre zone d'expérimentation"
+    pathname="/le-lab/"
     noFollow
     noIndex
   />

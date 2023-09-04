@@ -236,6 +236,7 @@ const Head = () => {
     <SEO
       title="Comment nous contacter ?"
       description="Vous avez un projet ? Une question ? Posez la nous et nous vous répondrons dès que possible ! Devis gratuit !"
+      pathname="/contact/"
     />
   );
 };

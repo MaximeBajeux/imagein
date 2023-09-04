@@ -323,6 +323,7 @@ export const Head = () => (
   <SEO
     title="Image In"
     description="Agence spécialisée dans La création de sites performants. Nous vous créons un site ultra rapide et optimisé pour le SEO !"
+    pathname="/"
   />
 );
 
