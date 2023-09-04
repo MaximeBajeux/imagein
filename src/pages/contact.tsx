@@ -232,5 +232,10 @@ const Contact: React.FC<PageProps> = () => {
 export default Contact;
 
 const Head = () => {
-  return <SEO title="Nous contacter" />;
+  return (
+    <SEO
+      title="Comment nous contacter ?"
+      description="Vous avez un projet ? Une question ? Posez la nous et nous vous répondrons dès que possible ! Devis gratuit !"
+    />
+  );
 };

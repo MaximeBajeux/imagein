@@ -28,7 +28,14 @@ const BlogPost = ({
           {frontmatter.title}
         </h1>
         <time style={{ width: "100%" }} dateTime={frontmatter.date}>
-          publié le {frontmatter.date}
+          {/* We want to format date to french format ex: lundi 8 mars 2023 */}
+          publié le{" "}
+          {new Date(frontmatter.date).toLocaleDateString("fr-FR", {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          })}
         </time>
       </Herobanner>
       <Row className="fullwidth shadow-1">
@@ -99,7 +106,7 @@ export const query = graphql`
       frontmatter {
         title
         slug
-        date(formatString: "DD MM YYYY")
+        date(formatString: "YYYY-MM-DD hh:mm:ss")
         description
         image {
           childImageSharp {

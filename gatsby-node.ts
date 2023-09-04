@@ -172,6 +172,57 @@ export const createPages: GatsbyNode["createPages"] = async ({
     fromPath: "/options/",
     toPath: "/votre-site-a-250-euros-par-mois-pendant-1-an/",
   });
+
+  createRedirect({
+    fromPath: "/index.php/5-conseils-pour-developper-votre-communaute-sur-les-reseaux-sociaux",
+    toPath: "/blog/5-conseils-pour-developper-votre-communaute-sur-les-reseaux-sociaux/",
+  });
+
+  createRedirect({
+    fromPath: "/index.php/pirate-de-yandex-les-regles-du-seo-devoilees",
+    toPath: "/blog/pirate-de-yandex-les-regles-du-seo-devoilees/",
+  });
+
+  createRedirect({
+    fromPath: "/index.php/index.php/netlify-acquiert-gatsby",
+    toPath: "/blog/netlify-acquiert-gatsby/",
+  });
+
+  createRedirect({
+    fromPath: "/index.php/confier-sa-communication-a-une-entreprise-combien-ca-coute",
+    toPath: "/blog/confier-sa-communication-a-une-entreprise-combien-ca-coute/",
+  });
+
+  createRedirect({
+    fromPath: "/index.php/comment-optimiser-votre-site-pour-le-mobile-et-augmenter-votre-taux-de-conversion",
+    toPath: "/blog/comment-optimiser-votre-site-pour-le-mobile-et-augmenter-votre-taux-de-conversion/",
+  });
+
+  createRedirect({
+    fromPath: "/index.php/accueil/blog",
+    toPath: "/blog/",
+  });
+
+  createRedirect({
+    fromPath: "/index.php/nos-tarifs",
+    toPath: "/nos-offres/",
+  });
+
+  createRedirect({
+    fromPath: "/index.php/5-conseils-pour-developper-votre-communaute-sur-les-reseaux-sociaux",
+    toPath: "/blog/5-conseils-pour-developper-votre-communaute-sur-les-reseaux-sociaux/",
+  });
+
+  createRedirect({
+    fromPath: "/index.php/home/blog",
+    toPath: "/blog/",
+  });
+
+  createRedirect({
+    fromPath: "/index.php/en-savoir-plus",
+    toPath: "/contact/",
+  });
+
 };
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {

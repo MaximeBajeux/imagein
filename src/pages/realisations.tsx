@@ -117,6 +117,6 @@ export default RealisationsPage;
 export const Head: HeadFC = () => (
   <SEO
     title="Nos réalisations"
-    description="Suivez nos aventures les plus originales et épiques"
+    description="Suivez nos projets et découvrez ici nos réalisations les plus originales !"
   />
 );

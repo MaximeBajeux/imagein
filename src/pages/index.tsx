@@ -322,7 +322,7 @@ const IndexPage = (props: IndexProps) => {
 export const Head = () => (
   <SEO
     title="Image In"
-    description="Agence spécialisée dans l'ultra performance. Nous vous créons un site ultra rapide et optimisé pour le SEO !"
+    description="Agence spécialisée dans La création de sites performants. Nous vous créons un site ultra rapide et optimisé pour le SEO !"
   />
 );
 
