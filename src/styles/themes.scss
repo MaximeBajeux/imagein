@@ -259,6 +259,14 @@ li {
     line-height: 1.4;
   }
 
+  .gatsby-resp-image-wrapper {
+    max-height: 600px;
+  }
+
+  .gatsby-resp-image-image {
+    object-fit: contain;
+  }
+
   @media (min-width: $breakpoint-md) {
     p,
     li,
