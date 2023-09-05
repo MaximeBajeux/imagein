@@ -1,10 +1,22 @@
 import React from "react";
 import "./footer.scss";
-import { Link } from "gatsby";
+import { Link, graphql, PageProps } from "gatsby";
 import Col from "../col/col";
 import Row from "../row/row";
 
-const Footer = () => {
+const Footer: React.FC<PageProps<Queries.SEOArticleListQuery>> = ({
+  data,
+}: PageProps<Queries.SEOArticleListQuery>) => {
+  const articles = data.allMdx.nodes.map((node: any) => {
+    return (
+      <li key={node.id} className="footer__list-item">
+        <Link to={`/blog/${node.frontmatter.slug}`}>
+          {node.frontmatter.title}
+        </Link>
+      </li>
+    );
+  });
+
   return (
     <footer className="footer banner dark shadow mt-2">
       <Row>
@@ -22,6 +34,7 @@ const Footer = () => {
         <Col xs={12} md={4}>
           <div className="h4 mtb-1">Nos liens utiles</div>
           <ul className="footer__list">
+            {articles}
             <li className="footer__list-item">
               <Link to="/mentions-legales">Mentions légales</Link>
             </li>
@@ -52,5 +65,26 @@ const Footer = () => {
     </footer>
   );
 };
+
+export const query = graphql`
+  query SEOArticleListQuery {
+    allMdx(
+      filter: {
+        frontmatter: { type: { regex: "/seo/" } }
+        internal: { contentFilePath: { regex: "/posts/" } }
+      }
+      sort: { frontmatter: { date: DESC } }
+    ) {
+      nodes {
+        id
+        frontmatter {
+          title
+          slug
+          type
+        }
+      }
+    }
+  }
+`;
 
 export default Footer;

@@ -22,6 +22,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       image: File @fileByRelativePath
       imageURL: String
       imageAlt: String
+      type: String
     }
   `);
   };

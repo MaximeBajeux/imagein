@@ -6,7 +6,6 @@ import SEO from "../components/seo/seo";
 import Row from "../components/row/row";
 import Col from "../components/col/col";
 import BreadCrumb from "../components/breadcrumb/breadcrumb";
-import { Link } from "gatsby";
 import Herobanner from "../components/herobanner/herobanner";
 import Stack from "../components/stack/stack";
 import Button from "../components/button/button";

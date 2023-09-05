@@ -70,7 +70,10 @@ const BlogPage: React.FC<PageProps<Queries.BlogListQuery>> = ({
 export const query = graphql`
   query BlogList {
     allMdx(
-      filter: { internal: { contentFilePath: { regex: "/posts/" } } }
+      filter: {
+        frontmatter: { type: { regex: "/article/" } }
+        internal: { contentFilePath: { regex: "/posts/" } }
+      }
       sort: { frontmatter: { date: DESC } }
     ) {
       nodes {
