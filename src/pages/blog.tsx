@@ -112,7 +112,7 @@ export default BlogPage;
 
 export const Head: HeadFC = () => (
   <SEO
-    title="Image IN - Nos articles"
+    title="Image IN - Nos derniers articles"
     description="Retrouvez nos derniers articles sur le web et le SEO"
     pathname="/blog/"
   />

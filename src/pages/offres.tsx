@@ -13,7 +13,6 @@ import Banner from "../components/banner/banner";
 import Button from "../components/button/button";
 import Stack from "../components/stack/stack";
 import BreadCrumb from "../components/breadcrumb/breadcrumb";
-import { Link } from "gatsby";
 
 const OffresPage: React.FC<PageProps> = ({ data }: PageProps) => {
   return (
@@ -278,7 +277,7 @@ export default OffresPage;
 
 export const Head: HeadFC = () => (
   <SEO
-    title="Nos offres commerciales"
+    title="Image IN - Nos offres commerciales"
     description="Que vous soyez une PME ou un grand groupe, nous avons une offre commerciale pour vous ! Devis gratuit et réponse en 24h !"
     pathname="/offres/"
   />

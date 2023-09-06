@@ -116,7 +116,7 @@ export default RealisationsPage;
 
 export const Head: HeadFC = () => (
   <SEO
-    title="Image IN - Nos réalisations"
+    title="Image IN - Nos réalisations mémorables"
     description="Suivez nos projets et découvrez ici nos réalisations les plus originales !"
     pathname="/realisations/"
   />

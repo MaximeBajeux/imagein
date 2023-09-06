@@ -123,7 +123,7 @@ const PolitiqueDeConfidentialitePage = () => {
 
 export const Head = () => (
   <SEO
-    title="Politique de confidentialité"
+    title="Image IN - Politique de confidentialité"
     description="Politique de confidentialité d'Image IN"
     pathname="/politique-de-confidentialite/"
   />

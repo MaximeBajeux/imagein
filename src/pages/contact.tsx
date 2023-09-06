@@ -234,7 +234,7 @@ export default Contact;
 export const Head = () => {
   return (
     <SEO
-      title="Comment nous contacter ?"
+      title="Image IN - Comment nous contacter ?"
       description="Vous avez un projet ? Une question ? Posez la nous et nous vous répondrons dès que possible ! Devis gratuit !"
       pathname="/contact/"
     />
