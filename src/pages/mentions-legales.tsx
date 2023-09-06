@@ -310,7 +310,7 @@ export default MentionsLegales;
 
 export const Head = () => (
   <SEO
-    title="Mentions légales"
+    title="Image IN - Mentions légales"
     pathname="/mentions-legales/"
     description="Mentions légales d'Image IN"
   />

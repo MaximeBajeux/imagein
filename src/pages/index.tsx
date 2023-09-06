@@ -321,7 +321,7 @@ const IndexPage = (props: IndexProps) => {
 
 export const Head = () => (
   <SEO
-    title="Image In"
+    title="Image In - Agence web orientée performance"
     description="Agence spécialisée dans La création de sites performants. Nous vous créons un site ultra rapide et optimisé pour le SEO !"
     pathname="/"
   />

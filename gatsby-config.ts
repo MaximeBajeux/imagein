@@ -37,7 +37,7 @@ const config: GatsbyConfig = {
             resolve: "gatsby-remark-copy-linked-files",
             options: {
               destinationDir: "./src/images/",
-              extensions: [".png", ".jpg", ".jpeg", ".webp"],
+              extensions: [".png", ".jpg", ".jpeg", ".webp", ".gif"],
             },
           },
         ],
