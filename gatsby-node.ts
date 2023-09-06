@@ -224,6 +224,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
     toPath: "/contact/",
   });
 
+  createRedirect({
+    fromPath: "/realisations/uddcas/",
+    toPath: "/realisations/udccas/",
+  });
+
 };
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
