@@ -126,10 +126,8 @@ export default RealisationsPage;
 
 export const Head: HeadFC = () => (
   <SEO
-    title="Le lab"
+    title="Le lab d'Image IN !"
     description="Ici vous entrez dans notre zone d'expérimentation"
     pathname="/le-lab/"
-    noFollow
-    noIndex
   />
 );
