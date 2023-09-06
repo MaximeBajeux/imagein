@@ -94,7 +94,7 @@ const OptionsPage: React.FC<PageProps> = ({ data }: PageProps) => {
               Nos offres
             </BreadCrumb.Item>
             <BreadCrumb.Item
-              href="/offres/votre-site-a-250-euros-par-mois-pendant-1-an"
+              href="/offres/votre-site-a-250-euros-par-mois-pendant-1-an/"
               title="Nos options"
               position={3}
               disabled={true}

@@ -3,7 +3,6 @@ import Layout from "../components/layout/layout";
 import SEO from "../components/seo/seo";
 import Herobanner from "../components/herobanner/herobanner";
 import BreadCrumb from "../components/breadcrumb/breadcrumb";
-import { Link } from "gatsby";
 import Row from "../components/row/row";
 import Col from "../components/col/col";
 
@@ -123,7 +122,11 @@ const PolitiqueDeConfidentialitePage = () => {
 };
 
 export const Head = () => (
-  <SEO title="Politique de confidentialité" noIndex noFollow />
+  <SEO
+    title="Politique de confidentialité"
+    description="Politique de confidentialité d'Image IN"
+    pathname="/politique-de-confidentialite/"
+  />
 );
 
 export default PolitiqueDeConfidentialitePage;

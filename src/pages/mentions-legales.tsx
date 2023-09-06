@@ -308,4 +308,10 @@ const MentionsLegales = () => {
 
 export default MentionsLegales;
 
-export const Head = () => <SEO title="Mentions légales" noIndex noFollow />;
+export const Head = () => (
+  <SEO
+    title="Mentions légales"
+    pathname="/mentions-legales/"
+    description="Mentions légales d'Image IN"
+  />
+);

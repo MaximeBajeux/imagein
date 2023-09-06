@@ -231,7 +231,7 @@ const Contact: React.FC<PageProps> = () => {
 
 export default Contact;
 
-const Head = () => {
+export const Head = () => {
   return (
     <SEO
       title="Comment nous contacter ?"
