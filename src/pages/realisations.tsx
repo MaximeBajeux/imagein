@@ -68,6 +68,14 @@ const RealisationsPage: React.FC<PageProps<Queries.RealisationListQuery>> = ({
         </Col>
       </Row>
       <section className="layout__list">
+        <p className="mtb-2">
+          Chez Image IN, nous ne faisons pas que des sites internet à la chaîne
+          selon notre standard. Il nous arrive de travailler sur des projets
+          plus originaux, plus complexes, ou plus spécifiques. Pas que des
+          projets de développement d'ailleurs, mais aussi de la création
+          graphique, de la rédaction, de la traduction, etc, et c'est ici que
+          nous vous en parlons !
+        </p>
         <Row className=" stretch">{cards}</Row>
       </section>
     </Layout>

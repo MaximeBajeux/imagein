@@ -119,15 +119,27 @@ const Contact: React.FC<PageProps> = () => {
               café bien chaud ? N'hésitez pas à nous contacter !
             </p>
             <p className="mb-2">
-              🍪 Nous on aime le café, les cookies, les projets cools et les
-              messages envoyés par écrit !
+              🍪 Nous on aime le café, les cookies et vous faire gagner en
+              visibilité sur le net !
             </p>
             <p className="mb-2">
-              📞 On aime un peu moins les appels téléphoniques parce qu'on est
-              souvent concentrés sur nos projets et ça nous coupe dans notre
-              élan, mais on vous répondra quand même !
+              📝 Essayez de nous donner le plus de détails possible sur votre
+              projet, ça nous aidera à vous répondre plus vite ! De manière
+              synthétique, ce qu'on besoin de savoir pour vous faire un devis
+              c'est:
             </p>
-            <p>🤖 Sauf si vous êtes un robot...</p>
+
+            <ul className="mb-2">
+              <li>
+                📝 Quel est votre besoin ? (Site vitrine, e-commerce, blog, ...)
+              </li>
+              <li>
+                🔗 Est-ce qu'il y a un existant ? Si oui, envoyez nous le lien !
+              </li>
+              <li>📅 Quel est votre délai ? (Si vous en avez un)</li>
+              <li>💰 Quel est votre budget ? (Si vous en avez un)</li>
+            </ul>
+            <p className="mb-2">Au plaisir de vous lire ! 🤗</p>
           </Col>
           <Col xs={12} md={5} className="mtb-2">
             <Card>

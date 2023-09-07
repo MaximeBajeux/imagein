@@ -31,6 +31,10 @@ const config: GatsbyConfig = {
             options: {
               maxWidth: 890,
               withWebp: true,
+              withAvif: true,
+              loading: "lazy",
+              decoding: "async",
+              tracedSVG: true,
             },
           },
           {
