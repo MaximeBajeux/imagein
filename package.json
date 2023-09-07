@@ -34,6 +34,7 @@
     "gatsby-plugin-sitemap": "^6.11.0",
     "gatsby-plugin-webfonts": "^2.3.2",
     "gatsby-remark-copy-linked-files": "^6.11.0",
+    "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-gifs": "^1.2.0",
     "gatsby-remark-images": "^7.11.0",
     "gatsby-source-filesystem": "^5.10.0",
