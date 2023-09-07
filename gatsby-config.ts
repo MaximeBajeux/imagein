@@ -50,7 +50,6 @@ const config: GatsbyConfig = {
             withAvif: true,
             loading: "lazy",
             decoding: "async",
-            tracedSVG: true,
           },
         },
       ],
@@ -73,7 +72,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        excludes: ["/404", "/politique-de-confidentialite", "/mentions-legales", "/le-lab"],
+        exclude: [`/404`],
         createLinkInHead: true,
       },
     },
