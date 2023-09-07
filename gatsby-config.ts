@@ -34,7 +34,6 @@ const config: GatsbyConfig = {
               withAvif: true,
               loading: "lazy",
               decoding: "async",
-              tracedSVG: true,
             },
           },
         ],
@@ -42,7 +41,18 @@ const config: GatsbyConfig = {
     }, {
       resolve: "gatsby-transformer-remark",
       options: {
-        plugins: ["gatsby-remark-gifs"],
+        plugins: ["gatsby-remark-gifs", {
+          resolve: "gatsby-remark-images",
+          options: {
+            maxWidth: 890,
+            withWebp: true,
+            withAvif: true,
+            loading: "lazy",
+            decoding: "async",
+            tracedSVG: true,
+          },
+        },
+      ],
       },
     },
     "gatsby-plugin-sharp",
