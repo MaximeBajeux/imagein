@@ -11,7 +11,7 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: `image-in.net`,
     siteUrl: `https://image-in.net`,
-    description: `Image IN: Votre agence web spécialisée dans l'ultra performance !`,
+    description: `Image IN: Votre agence web spécialisée en création de sites internet performants`,
     author: `Maxime Bajeux`,
     defaultImage: "/images/image-in.png",
   },
@@ -36,7 +36,18 @@ const config: GatsbyConfig = {
               loading: "lazy",
               decoding: "async",
             },
-          },
+          }, {resolve: "gatsby-remark-external-links",
+          options: {
+            target: "_self",
+            rel: "nofollow"
+          },},
+          {
+            resolve: "gatsby-remark-copy-linked-files",
+            options: {
+              destinationDir: "static",
+              excludeFileExtensions: ["png", "jpg", "jpeg", "bmp", "tiff"],
+            },
+          }
         ],
       },
     }, {
