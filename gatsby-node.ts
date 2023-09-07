@@ -16,6 +16,8 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
 
     type Frontmatter {
       title: String!
+      label: String!
+      h1: String!
       slug: String!
       date: Date! @dateformat
       description: String!

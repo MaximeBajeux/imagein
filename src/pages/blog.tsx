@@ -23,7 +23,7 @@ const BlogPage: React.FC<PageProps<Queries.BlogListQuery>> = ({
         <Link to={`/blog/${node.frontmatter?.slug}`} style={{ height: "100%" }}>
           <Card style={{ height: "100%" }}>
             <Card.Image data={imageData} alt={node.frontmatter?.imageAlt} />
-            <Card.Title as="h2">{node.frontmatter?.title}</Card.Title>
+            <Card.Title as="h2">{node.frontmatter?.label}</Card.Title>
             <Card.Content>{node.frontmatter?.description}</Card.Content>
           </Card>
         </Link>
@@ -80,6 +80,7 @@ export const query = graphql`
         id
         frontmatter {
           title
+          label
           slug
           date
           description

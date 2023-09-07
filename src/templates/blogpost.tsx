@@ -24,7 +24,7 @@ const BlogPost = ({
     <Layout>
       <Herobanner>
         <h1 className="herobanner__title" style={{ marginTop: "6rem" }}>
-          {frontmatter.title}
+          {frontmatter.h1}
         </h1>
         <time style={{ width: "100%" }} dateTime={frontmatter.date}>
           {/* We want to format date to french format ex: lundi 8 mars 2023 */}
@@ -104,6 +104,7 @@ export const query = graphql`
     mdx(id: { eq: $id }) {
       frontmatter {
         title
+        h1
         slug
         date(formatString: "YYYY-MM-DD hh:mm:ss")
         description

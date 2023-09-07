@@ -11,7 +11,7 @@ const Footer: React.FC<PageProps<Queries.SEOArticleListQuery>> = ({
     return (
       <li key={node.id} className="footer__list-item">
         <Link to={`/blog/${node.frontmatter.slug}`}>
-          {node.frontmatter.title}
+          {node.frontmatter.label}
         </Link>
       </li>
     );
@@ -79,6 +79,7 @@ export const query = graphql`
         id
         frontmatter {
           title
+          label
           slug
           type
         }
