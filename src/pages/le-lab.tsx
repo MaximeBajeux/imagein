@@ -26,7 +26,7 @@ const RealisationsPage: React.FC<PageProps<Queries.LabListQuery>> = ({
         >
           <Card style={{ height: "100%" }}>
             <Card.Image data={imageData} alt={node.frontmatter?.imageAlt} />
-            <Card.Title as="h2">{node.frontmatter?.title}</Card.Title>
+            <Card.Title as="h2">{node.frontmatter?.label}</Card.Title>
             <Card.Content>{node.frontmatter?.description}</Card.Content>
           </Card>
         </Link>
@@ -94,6 +94,8 @@ export const query = graphql`
         id
         frontmatter {
           title
+          label
+          h1
           slug
           date
           description

@@ -104,6 +104,7 @@ export const query = graphql`
     mdx(id: { eq: $id }) {
       frontmatter {
         title
+        label
         h1
         slug
         date(formatString: "YYYY-MM-DD hh:mm:ss")

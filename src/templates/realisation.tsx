@@ -22,7 +22,7 @@ const Realisation = ({
     <Layout>
       <Herobanner>
         <h1 className="herobanner__title" style={{ marginTop: "6rem" }}>
-          {frontmatter.title}
+          {frontmatter.h1}
         </h1>
         <time style={{ width: "100%" }} dateTime={frontmatter.date}>
           publié le{" "}
@@ -61,7 +61,7 @@ const Realisation = ({
                   position={3}
                   disabled={true}
                 >
-                  {frontmatter.title}
+                  {frontmatter.label}
                 </BreadCrumb.Item>
               </BreadCrumb>
             </Col>
@@ -78,6 +78,8 @@ export const query = graphql`
     mdx(id: { eq: $id }) {
       frontmatter {
         title
+        h1
+        label
         date(formatString: "YYYY-MM-DD hh:mm:ss")
         description
         slug
