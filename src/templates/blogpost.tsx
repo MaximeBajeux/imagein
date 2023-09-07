@@ -60,7 +60,7 @@ const BlogPost = ({
                 </BreadCrumb.Item>
                 <BreadCrumb.Item
                   href={`/blog/${frontmatter.slug}`}
-                  title={frontmatter.title}
+                  title={frontmatter.label}
                   position={3}
                   disabled={true}
                 >
