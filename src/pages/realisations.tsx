@@ -8,6 +8,8 @@ import Col from "../components/col/col";
 import Card from "../components/card/card";
 import Herobanner from "../components/herobanner/herobanner";
 import BreadCrumb from "../components/breadcrumb/breadcrumb";
+import Button from "../components/button/button";
+import Stack from "../components/stack/stack";
 
 const RealisationsPage: React.FC<PageProps<Queries.RealisationListQuery>> = ({
   data,
@@ -68,15 +70,37 @@ const RealisationsPage: React.FC<PageProps<Queries.RealisationListQuery>> = ({
         </Col>
       </Row>
       <section className="layout__list">
-        <p className="mtb-2">
-          Chez Image IN, nous ne faisons pas que des sites internet à la chaîne
-          selon notre standard. Il nous arrive de travailler sur des projets
-          plus originaux, plus complexes, ou plus spécifiques. Pas que des
-          projets de développement d'ailleurs, mais aussi de la création
-          graphique, de la rédaction, de la traduction, etc, et c'est ici que
-          nous vous en parlons !
-        </p>
+        <Row className=" stretch">
+          <Col xs={12}>
+            <p className="mtb-2">
+              Chez Image IN, nous ne faisons pas que des sites internet à la
+              chaîne selon notre standard. Il nous arrive de travailler sur des
+              projets plus originaux, plus complexes, ou plus spécifiques. Pas
+              que des projets de développement d'ailleurs, mais aussi de la
+              création graphique, de la rédaction, de la traduction, etc, et
+              c'est ici que nous vous en parlons !
+            </p>
+          </Col>
+        </Row>
         <Row className=" stretch">{cards}</Row>
+        <Row className=" stretch">
+          <Col xs={12}>
+            <p className="mtb-2">
+              Si vous aussi vous avew un projet original à nous proposer,
+              n'hésitez pas à nous contacter !
+            </p>
+          </Col>
+          <Col xs={12}>
+            <Stack direction="horizontal" position="center" className="mb-3">
+              <Button as="Link" to="/contact" className="reverse">
+                Prendre rendez-vous
+              </Button>
+              <Button as="Link" to="/offres">
+                Découvrir nos services
+              </Button>
+            </Stack>
+          </Col>
+        </Row>
       </section>
     </Layout>
   );

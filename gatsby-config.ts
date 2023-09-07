@@ -37,17 +37,14 @@ const config: GatsbyConfig = {
               tracedSVG: true,
             },
           },
-          {
-            resolve: "gatsby-remark-copy-linked-files",
-            options: {
-              destinationDir: "./src/images/",
-              extensions: [".png", ".jpg", ".jpeg", ".webp", ".gif"],
-            },
-          },
         ],
       },
+    }, {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: ["gatsby-remark-gifs"],
+      },
     },
-    "gatsby-transformer-remark",
     "gatsby-plugin-sharp",
     {
       resolve: "gatsby-plugin-manifest",
