@@ -86,7 +86,7 @@ const RealisationsPage: React.FC<PageProps<Queries.RealisationListQuery>> = ({
         <Row className=" stretch">
           <Col xs={12}>
             <p className="mtb-2 center">
-              Si vous aussi vous avew un projet original à nous proposer,
+              Si vous aussi vous avez un projet original à nous proposer,
               n'hésitez pas à nous contacter !
             </p>
           </Col>
