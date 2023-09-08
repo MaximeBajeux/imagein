@@ -50,7 +50,7 @@ const BlogPage: React.FC<PageProps<Queries.BlogListQuery>> = ({
               Accueil
             </BreadCrumb.Item>
             <BreadCrumb.Item
-              href="/blog"
+              href="/blog/"
               title="Blog"
               position={2}
               disabled={true}

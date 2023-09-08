@@ -48,7 +48,7 @@ const Realisation = ({
                   Accueil
                 </BreadCrumb.Item>
                 <BreadCrumb.Item
-                  href="/realisations"
+                  href="/realisations/"
                   title="Nos réalisations"
                   position={2}
                   disabled={false}
@@ -56,7 +56,7 @@ const Realisation = ({
                   Nos réalisations
                 </BreadCrumb.Item>
                 <BreadCrumb.Item
-                  href={`/realisations/${frontmatter.slug}`}
+                  href={`/realisations/${frontmatter.slug}/`}
                   title={frontmatter.title}
                   position={3}
                   disabled={true}

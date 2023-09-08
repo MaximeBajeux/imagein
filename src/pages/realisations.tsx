@@ -59,7 +59,7 @@ const RealisationsPage: React.FC<PageProps<Queries.RealisationListQuery>> = ({
               Accueil
             </BreadCrumb.Item>
             <BreadCrumb.Item
-              href="/realisations"
+              href="/realisations/"
               title="Nos réalisations"
               position={2}
               disabled={true}
@@ -92,10 +92,10 @@ const RealisationsPage: React.FC<PageProps<Queries.RealisationListQuery>> = ({
           </Col>
           <Col xs={12}>
             <Stack direction="horizontal" position="center" className="mb-3">
-              <Button as="Link" to="/contact" className="reverse">
+              <Button as="Link" to="/contact/" className="reverse">
                 Prendre rendez-vous
               </Button>
-              <Button as="Link" to="/offres">
+              <Button as="Link" to="/offres/">
                 Découvrir nos services
               </Button>
             </Stack>

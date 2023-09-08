@@ -49,7 +49,7 @@ const Lab = ({
                   <Link to="/">Accueil</Link>
                 </BreadCrumb.Item>
                 <BreadCrumb.Item
-                  href="/le-lab"
+                  href="/le-lab/"
                   title="Le lab"
                   position={2}
                   disabled={false}
@@ -57,7 +57,7 @@ const Lab = ({
                   <Link to="/le-lab">Le lab</Link>
                 </BreadCrumb.Item>
                 <BreadCrumb.Item
-                  href={`/le-lab/${frontmatter.slug}`}
+                  href={`/le-lab/${frontmatter.slug}/`}
                   title={frontmatter.title}
                   position={3}
                   disabled={true}

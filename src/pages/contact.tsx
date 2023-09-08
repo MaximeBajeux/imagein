@@ -99,7 +99,7 @@ const Contact: React.FC<PageProps> = () => {
               Accueil
             </BreadCrumb.Item>
             <BreadCrumb.Item
-              href="/contact"
+              href="/contact/"
               title="Nous contacter"
               position={2}
               disabled={true}

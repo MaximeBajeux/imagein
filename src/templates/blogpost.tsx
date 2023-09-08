@@ -51,7 +51,7 @@ const BlogPost = ({
                   Accueil
                 </BreadCrumb.Item>
                 <BreadCrumb.Item
-                  href="/blog"
+                  href="/blog/"
                   title="Blog"
                   position={2}
                   disabled={false}
@@ -59,7 +59,7 @@ const BlogPost = ({
                   Blog
                 </BreadCrumb.Item>
                 <BreadCrumb.Item
-                  href={`/blog/${frontmatter.slug}`}
+                  href={`/blog/${frontmatter.slug}/`}
                   title={frontmatter.title}
                   position={3}
                   disabled={true}
@@ -85,10 +85,10 @@ const BlogPost = ({
           </Col>
           <Col xs={12}>
             <Stack direction="horizontal" position="center" className="mb-3">
-              <Button as="Link" to="/contact" className="reverse">
+              <Button as="Link" to="/contact/" className="reverse">
                 Prendre rendez-vous
               </Button>
-              <Button as="Link" to="/offres">
+              <Button as="Link" to="/offres/">
                 Découvrir nos services
               </Button>
             </Stack>

@@ -43,7 +43,7 @@ const OffresPage: React.FC<PageProps> = ({ data }: PageProps) => {
               Accueil
             </BreadCrumb.Item>
             <BreadCrumb.Item
-              href="/offres"
+              href="/offres/"
               title="Nos offres"
               position={2}
               disabled={true}

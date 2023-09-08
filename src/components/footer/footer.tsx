@@ -10,7 +10,7 @@ const Footer: React.FC<PageProps<Queries.SEOArticleListQuery>> = ({
   const articles = data.allMdx.nodes.map((node: any) => {
     return (
       <li key={node.id} className="footer__list-item">
-        <Link to={`/blog/${node.frontmatter.slug}`}>
+        <Link to={`/blog/${node.frontmatter.slug}/`}>
           {node.frontmatter.label}
         </Link>
       </li>

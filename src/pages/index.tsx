@@ -59,10 +59,10 @@ const IndexPage = (props: IndexProps) => {
           gap={5}
           style={{ marginTop: "3rem" }}
         >
-          <GlowButton as="Link" to="contact/">
+          <GlowButton as="Link" to="/contact/">
             Je veux un site
           </GlowButton>
-          <GlowButton as="Link" to="offres/">
+          <GlowButton as="Link" to="/offres/">
             En savoir plus
           </GlowButton>
         </Stack>
@@ -159,7 +159,7 @@ const IndexPage = (props: IndexProps) => {
                   création de son <strong>identité visuelle</strong> !
                 </p>
                 <Stack direction="horizontal" className="dark">
-                  <Button as="Link" to="offres/">
+                  <Button as="Link" to="/offres/">
                     Découvrir nos offres
                   </Button>
                 </Stack>
@@ -251,7 +251,7 @@ const IndexPage = (props: IndexProps) => {
               sur votre contenu, sans avoir à toucher au code.
             </p>
             <Stack direction="horizontal" className="dark">
-              <Button as="Link" to="contact/">
+              <Button as="Link" to="/contact/">
                 Je veux ça !
               </Button>
             </Stack>
@@ -300,7 +300,7 @@ const IndexPage = (props: IndexProps) => {
               vous fournir un contenu de qualité et optimisé pour le SEO.
             </p>
             <Stack direction="horizontal" className="dark">
-              <Button as="Link" to="contact/">
+              <Button as="Link" to="/contact/">
                 Je suis convaincu !
               </Button>
             </Stack>

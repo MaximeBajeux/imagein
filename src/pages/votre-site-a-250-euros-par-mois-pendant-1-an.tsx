@@ -12,7 +12,6 @@ import Button from "../components/button/button";
 import Stack from "../components/stack/stack";
 import BreadCrumb from "../components/breadcrumb/breadcrumb";
 import Carousel from "../components/carousel/carousel";
-import { Link } from "gatsby";
 import { StaticImage, getImage } from "gatsby-plugin-image";
 import Tab from "../components/tab/tab";
 
@@ -86,7 +85,7 @@ const OptionsPage: React.FC<PageProps> = ({ data }: PageProps) => {
               Accueil
             </BreadCrumb.Item>
             <BreadCrumb.Item
-              href="/offres"
+              href="/offres/"
               title="Nos offres"
               position={2}
               disabled={false}
@@ -252,7 +251,7 @@ const OptionsPage: React.FC<PageProps> = ({ data }: PageProps) => {
                 adapté à vos besoins !
               </p>
               <Stack direction="horizontal" className="center">
-                <Button as="Link" className="reverse" to="/contact">
+                <Button as="Link" className="reverse" to="/contact/">
                   Nous contacter
                 </Button>
               </Stack>
@@ -507,6 +506,25 @@ const OptionsPage: React.FC<PageProps> = ({ data }: PageProps) => {
           </Row>
         </section>
       </Carousel>
+      <section className="layout__list">
+        <Row>
+          <Col xs={12}>
+            <p>
+              Vous souhaitez en savoir plus sur notre offre à 250€/mois pendant
+              1 an ?
+            </p>
+            <p>
+              Vous souhaitez nous confier votre projet pour obtenir un site
+              internet de qualité à un prix abordable ?
+            </p>
+            <Stack direction="horizontal" className="center">
+              <Button as="Link" className="reverse" to="/contact/">
+                Contactez-nous
+              </Button>
+            </Stack>
+          </Col>
+        </Row>
+      </section>
     </Layout>
   );
 };

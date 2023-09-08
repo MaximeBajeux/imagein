@@ -67,7 +67,7 @@ const RealisationsPage: React.FC<PageProps<Queries.LabListQuery>> = ({
               <Link to="/">Accueil</Link>
             </BreadCrumb.Item>
             <BreadCrumb.Item
-              href="/le-lab"
+              href="/le-lab/"
               title="Le lab"
               position={2}
               disabled={true}
