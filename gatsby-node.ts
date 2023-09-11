@@ -194,7 +194,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
   createRedirect({
     fromPath: "/index.php/netlify-acquiert-gatsby",
-    toPath: "/blog/netlify-acquiert-gatsby/",
+    toPath: "/blog/netlify-acquiert-gatsby-inc/",
   });
 
   createRedirect({
@@ -209,7 +209,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
   createRedirect({
     fromPath: "index.php/blog-webapp-react-go-en-solo",
-    toPath: "/blog/blog-webapp-react-go-en-solo/",
+    toPath: "/blog/webapp-react-go-solo/",
   });
 
   createRedirect({
