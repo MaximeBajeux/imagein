@@ -2,6 +2,7 @@ import type { GatsbyNode } from "gatsby";
 import { resolve } from "path";
 import { createRemoteFileNode } from "gatsby-source-filesystem";
 import FilterWarningsPlugin from "webpack-filter-warnings-plugin";
+import { create } from "domain";
 
 // Create schema custom fields
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
@@ -177,17 +178,22 @@ export const createPages: GatsbyNode["createPages"] = async ({
   });
 
   createRedirect({
+    fromPath: "/nos-offres/",
+    toPath: "/offres/",
+  });
+
+  createRedirect({
     fromPath: "/index.php/5-conseils-pour-developper-votre-communaute-sur-les-reseaux-sociaux",
     toPath: "/blog/5-conseils-pour-developper-votre-communaute-sur-les-reseaux-sociaux/",
   });
 
   createRedirect({
     fromPath: "/index.php/pirate-de-yandex-les-regles-du-seo-devoilees",
-    toPath: "/blog/pirate-de-yandex-les-regles-du-seo-devoilees/",
+    toPath: "/blog/piratage-de-yandex-les-regles-du-seo-devoilees/",
   });
 
   createRedirect({
-    fromPath: "/index.php/index.php/netlify-acquiert-gatsby",
+    fromPath: "/index.php/netlify-acquiert-gatsby",
     toPath: "/blog/netlify-acquiert-gatsby/",
   });
 
@@ -202,13 +208,18 @@ export const createPages: GatsbyNode["createPages"] = async ({
   });
 
   createRedirect({
+    fromPath: "index.php/blog-webapp-react-go-en-solo",
+    toPath: "/blog/blog-webapp-react-go-en-solo/",
+  });
+
+  createRedirect({
     fromPath: "/index.php/accueil/blog",
     toPath: "/blog/",
   });
 
   createRedirect({
     fromPath: "/index.php/nos-tarifs",
-    toPath: "/nos-offres/",
+    toPath: "/offres/",
   });
 
   createRedirect({
@@ -217,7 +228,22 @@ export const createPages: GatsbyNode["createPages"] = async ({
   });
 
   createRedirect({
+    fromPath: "/~partytown/",
+    toPath: "/",
+  });
+
+  createRedirect({
     fromPath: "/index.php/home/blog",
+    toPath: "/blog/",
+  });
+
+  createRedirect({
+    fromPath: "/index.php/blog",
+    toPath: "/blog/",
+  });
+
+  createRedirect({
+    fromPath: "/index.php/search/%7Bsearch_term_string%7D/feed/rss2/",
     toPath: "/blog/",
   });
 
@@ -229,6 +255,26 @@ export const createPages: GatsbyNode["createPages"] = async ({
   createRedirect({
     fromPath: "/realisations/uddcas/",
     toPath: "/realisations/udccas/",
+  });
+
+  createRedirect({
+    fromPath: "/index.php/author/imagein_admin",
+    toPath: "/",
+  });
+
+  createRedirect({
+    fromPath: "/index.php/prendre-rendez-vous",
+    toPath: "/contact/",
+  });
+
+  createRedirect({
+    fromPath: "index.php/developpement-informatique",
+    toPath: "/",
+  });
+
+  createRedirect({
+    fromPath: "/index.php/mentions-legales",
+    toPath: "/mentions-legales/",
   });
 
 };
