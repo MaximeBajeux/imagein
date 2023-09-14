@@ -282,6 +282,15 @@ export const createPages: GatsbyNode["createPages"] = async ({
     toPath: "/mentions-legales/",
   });
 
+  createRedirect({
+    fromPath: "/index.php/communication",
+    toPath: "/",
+  });
+
+  createRedirect({
+    fromPath: "/index.php/gatsbyjs-ameliorer-la-velocite-de-son-site",
+    toPath: "/blog/comment-gatsbyjs-peut-il-aider-a-ameliorer-la-velocite-de-votre-site/",
+  });
 
 };
 
