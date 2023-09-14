@@ -273,9 +273,15 @@ export const createPages: GatsbyNode["createPages"] = async ({
   });
 
   createRedirect({
+    fromPath: "/index.php/design",
+    toPath: "/",
+  });
+
+  createRedirect({
     fromPath: "/index.php/mentions-legales",
     toPath: "/mentions-legales/",
   });
+
 
 };
 
