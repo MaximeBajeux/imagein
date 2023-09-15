@@ -46,8 +46,8 @@ const BreadCrumbItem = ({
           {children}
         </span>
       ) : (
-        <Link to={href} title={title} itemProp="item">
-          <span itemProp="name">{children}</span>
+        <Link to={href} title={title} itemProp="name">
+          {children}
         </Link>
       )}
       <meta itemProp="position" content={position.toString()} />
