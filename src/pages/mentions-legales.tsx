@@ -5,7 +5,6 @@ import Col from "../components/col/col";
 import Row from "../components/row/row";
 import Herobanner from "../components/herobanner/herobanner";
 import BreadCrumb from "../components/breadcrumb/breadcrumb";
-import { Link } from "gatsby";
 
 const MentionsLegales = () => {
   return (
@@ -24,7 +23,7 @@ const MentionsLegales = () => {
               position={1}
               disabled={false}
             >
-              <Link to="/">Accueil</Link>
+              Accueil
             </BreadCrumb.Item>
             <BreadCrumb.Item
               href="/mentions-legales"
