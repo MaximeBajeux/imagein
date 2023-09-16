@@ -711,9 +711,11 @@ type FloatQueryOperatorInput = {
 type Frontmatter = {
   readonly date: Scalars['Date'];
   readonly description: Scalars['String'];
+  readonly h1: Scalars['String'];
   readonly image: Maybe<File>;
   readonly imageAlt: Maybe<Scalars['String']>;
   readonly imageURL: Maybe<Scalars['String']>;
+  readonly label: Scalars['String'];
   readonly slug: Scalars['String'];
   readonly title: Scalars['String'];
   readonly type: Maybe<Scalars['String']>;
@@ -730,9 +732,11 @@ type Frontmatter_dateArgs = {
 type FrontmatterFieldSelector = {
   readonly date: InputMaybe<FieldSelectorEnum>;
   readonly description: InputMaybe<FieldSelectorEnum>;
+  readonly h1: InputMaybe<FieldSelectorEnum>;
   readonly image: InputMaybe<FileFieldSelector>;
   readonly imageAlt: InputMaybe<FieldSelectorEnum>;
   readonly imageURL: InputMaybe<FieldSelectorEnum>;
+  readonly label: InputMaybe<FieldSelectorEnum>;
   readonly slug: InputMaybe<FieldSelectorEnum>;
   readonly title: InputMaybe<FieldSelectorEnum>;
   readonly type: InputMaybe<FieldSelectorEnum>;
@@ -741,9 +745,11 @@ type FrontmatterFieldSelector = {
 type FrontmatterFilterInput = {
   readonly date: InputMaybe<DateQueryOperatorInput>;
   readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly h1: InputMaybe<StringQueryOperatorInput>;
   readonly image: InputMaybe<FileFilterInput>;
   readonly imageAlt: InputMaybe<StringQueryOperatorInput>;
   readonly imageURL: InputMaybe<StringQueryOperatorInput>;
+  readonly label: InputMaybe<StringQueryOperatorInput>;
   readonly slug: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
   readonly type: InputMaybe<StringQueryOperatorInput>;
@@ -752,9 +758,11 @@ type FrontmatterFilterInput = {
 type FrontmatterSortInput = {
   readonly date: InputMaybe<SortOrderEnum>;
   readonly description: InputMaybe<SortOrderEnum>;
+  readonly h1: InputMaybe<SortOrderEnum>;
   readonly image: InputMaybe<FileSortInput>;
   readonly imageAlt: InputMaybe<SortOrderEnum>;
   readonly imageURL: InputMaybe<SortOrderEnum>;
+  readonly label: InputMaybe<SortOrderEnum>;
   readonly slug: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
   readonly type: InputMaybe<SortOrderEnum>;
@@ -3238,14 +3246,14 @@ type WebPOptions = {
 type BlogListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type BlogListQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly frontmatter: { readonly title: string, readonly slug: string, readonly date: string, readonly description: string, readonly imageAlt: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null, readonly imageRemote: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> } };
+type BlogListQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly frontmatter: { readonly title: string, readonly label: string, readonly slug: string, readonly date: string, readonly description: string, readonly imageAlt: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null, readonly imageRemote: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> } };
 
 type BlogPostQueryVariables = Exact<{
   id: InputMaybe<Scalars['String']>;
 }>;
 
 
-type BlogPostQuery = { readonly mdx: { readonly frontmatter: { readonly title: string, readonly slug: string, readonly date: string, readonly description: string, readonly imageAlt: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null, readonly imageRemote: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null };
+type BlogPostQuery = { readonly mdx: { readonly frontmatter: { readonly title: string, readonly label: string, readonly h1: string, readonly slug: string, readonly date: string, readonly description: string, readonly imageAlt: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null, readonly imageRemote: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null };
 
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 
@@ -3278,12 +3286,12 @@ type LabQueryVariables = Exact<{
 }>;
 
 
-type LabQuery = { readonly mdx: { readonly frontmatter: { readonly title: string, readonly slug: string, readonly date: string, readonly description: string, readonly imageAlt: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null, readonly imageRemote: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null };
+type LabQuery = { readonly mdx: { readonly frontmatter: { readonly title: string, readonly label: string, readonly h1: string, readonly slug: string, readonly date: string, readonly description: string, readonly imageAlt: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null, readonly imageRemote: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null };
 
 type LabListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type LabListQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly frontmatter: { readonly title: string, readonly slug: string, readonly date: string, readonly description: string, readonly imageAlt: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null, readonly imageRemote: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> } };
+type LabListQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly frontmatter: { readonly title: string, readonly label: string, readonly h1: string, readonly slug: string, readonly date: string, readonly description: string, readonly imageAlt: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null, readonly imageRemote: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> } };
 
 type LottieFilesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3300,17 +3308,17 @@ type RealisationQueryVariables = Exact<{
 }>;
 
 
-type RealisationQuery = { readonly mdx: { readonly frontmatter: { readonly title: string, readonly date: string, readonly description: string, readonly slug: string, readonly imageAlt: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null, readonly imageRemote: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null };
+type RealisationQuery = { readonly mdx: { readonly frontmatter: { readonly title: string, readonly h1: string, readonly label: string, readonly date: string, readonly description: string, readonly slug: string, readonly imageAlt: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null, readonly imageRemote: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null };
 
 type RealisationListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type RealisationListQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly frontmatter: { readonly title: string, readonly slug: string, readonly date: string, readonly description: string, readonly imageAlt: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null, readonly imageRemote: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> } };
+type RealisationListQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly frontmatter: { readonly title: string, readonly label: string, readonly h1: string, readonly slug: string, readonly date: string, readonly description: string, readonly imageAlt: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null, readonly imageRemote: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> } };
 
 type SEOArticleListQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type SEOArticleListQueryQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly frontmatter: { readonly title: string, readonly slug: string, readonly type: string | null } | null }> } };
+type SEOArticleListQueryQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly frontmatter: { readonly title: string, readonly label: string, readonly slug: string, readonly type: string | null } | null }> } };
 
 type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
 

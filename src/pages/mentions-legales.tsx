@@ -5,6 +5,7 @@ import Col from "../components/col/col";
 import Row from "../components/row/row";
 import Herobanner from "../components/herobanner/herobanner";
 import BreadCrumb from "../components/breadcrumb/breadcrumb";
+import { Link } from "gatsby";
 
 const MentionsLegales = () => {
   return (
@@ -42,9 +43,8 @@ const MentionsLegales = () => {
         <p>
           En vertu de l’article 6 de la loi n° 2004-575 du 21 juin 2004 pour la
           confiance dans l’économie numérique, il est précisé aux utilisateurs
-          du site <a href="//image-in.net/">image-in.net</a> l’identité des
-          différents intervenants dans le cadre de sa réalisation et de son
-          suivi :
+          du site <Link to="/">image-in.net</Link> l’identité des différents
+          intervenants dans le cadre de sa réalisation et de son suivi :
         </p>
         <p>
           <strong>Propriétaire</strong> : Maxime Bajeux – EIRL Maxime Bajeux
@@ -75,12 +75,12 @@ const MentionsLegales = () => {
           proposés.
         </h3>
         <p>
-          L’utilisation du site <a href="//image-in.net/">image-in.net</a>{" "}
-          implique l’acceptation pleine et entière des conditions générales
-          d’utilisation ci-après décrites. Ces conditions d’utilisation sont
-          susceptibles d’être modifiées ou complétées à tout moment, les
-          utilisateurs du site <a href="//image-in.net/">image-in.net</a> sont
-          donc invités à les consulter de manière régulière.
+          L’utilisation du site <Link to="/">image-in.net</Link> implique
+          l’acceptation pleine et entière des conditions générales d’utilisation
+          ci-après décrites. Ces conditions d’utilisation sont susceptibles
+          d’être modifiées ou complétées à tout moment, les utilisateurs du site{" "}
+          <Link to="/">image-in.net</Link> sont donc invités à les consulter de
+          manière régulière.
         </p>
         <p>
           Ce site est normalement accessible à tout moment aux utilisateurs. Une
@@ -89,34 +89,32 @@ const MentionsLegales = () => {
           préalablement aux utilisateurs les dates et heures de l’intervention.
         </p>
         <p>
-          Le site <a href="//image-in.net/">image-in.net</a> est mis à jour
-          régulièrement par Maxime Bajeux. De la même façon, les mentions
-          légales peuvent être modifiées à tout moment : elles s’imposent
-          néanmoins à l’utilisateur qui est invité à s’y référer le plus souvent
-          possible afin d’en prendre connaissance.
+          Le site <Link to="/">image-in.net</Link> est mis à jour régulièrement
+          par Maxime Bajeux. De la même façon, les mentions légales peuvent être
+          modifiées à tout moment : elles s’imposent néanmoins à l’utilisateur
+          qui est invité à s’y référer le plus souvent possible afin d’en
+          prendre connaissance.
         </p>
         <h3>3. Description des services fournis.</h3>
         <p>
-          Le site <a href="//image-in.net/">image-in.net</a> a pour objet de
-          fournir une information concernant l’ensemble des activités de la
-          société.
+          Le site <Link to="/">image-in.net</Link> a pour objet de fournir une
+          information concernant l’ensemble des activités de la société.
         </p>
         <p>
           Maxime Bajeux s’efforce de fournir sur le site{" "}
-          <a href="//image-in.net/">image-in.net</a> des informations aussi
-          précises que possible. Toutefois, il ne pourra être tenue responsable
-          des omissions, des inexactitudes et des carences dans la mise à jour,
+          <Link to="/">image-in.net</Link> des informations aussi précises que
+          possible. Toutefois, il ne pourra être tenue responsable des
+          omissions, des inexactitudes et des carences dans la mise à jour,
           qu’elles soient de son fait ou du fait des tiers partenaires qui lui
           fournissent ces informations.
         </p>
         <p>
           Tous les informations indiquées sur le site{" "}
-          <a href="//image-in.net/">image-in.net</a> sont données à titre
-          indicatif, et sont susceptibles d’évoluer. Par ailleurs, les
-          renseignements figurant sur le site{" "}
-          <a href="//image-in.net/">image-in.net</a> ne sont pas exhaustifs. Ils
-          sont donnés sous réserve de modifications ayant été apportées depuis
-          leur mise en ligne.
+          <Link to="/">image-in.net</Link> sont données à titre indicatif, et
+          sont susceptibles d’évoluer. Par ailleurs, les renseignements figurant
+          sur le site <Link to="/">image-in.net</Link> ne sont pas exhaustifs.
+          Ils sont donnés sous réserve de modifications ayant été apportées
+          depuis leur mise en ligne.
         </p>
         <h3>4. Limitations contractuelles sur les données techniques.</h3>
         <p>Le site utilise la technologie JavaScript.</p>
@@ -157,7 +155,7 @@ const MentionsLegales = () => {
           Maxime Bajeux ne pourra également être tenue responsable des dommages
           indirects (tels par exemple qu’une perte de marché ou perte d’une
           chance) consécutifs à l’utilisation du site{" "}
-          <a href="//image-in.net/">image-in.net</a>.
+          <Link to="/">image-in.net</Link>.
         </p>
         <p>
           Des espaces interactifs (possibilité de poser des questions dans
@@ -180,21 +178,19 @@ const MentionsLegales = () => {
           octobre 1995.
         </p>
         <p>
-          A l’occasion de l’utilisation du site{" "}
-          <a href="//image-in.net/">image-in.net</a>, peuvent êtres recueillies
-          : l’URL des liens par l’intermédiaire desquels l’utilisateur a accédé
-          au site <a href="//image-in.net/">image-in.net</a>, le fournisseur
-          d’accès de l’utilisateur, l’adresse de protocole Internet (IP) de
-          l’utilisateur.
+          A l’occasion de l’utilisation du site <Link to="/">image-in.net</Link>
+          , peuvent êtres recueillies : l’URL des liens par l’intermédiaire
+          desquels l’utilisateur a accédé au site{" "}
+          <Link to="/">image-in.net</Link>, le fournisseur d’accès de
+          l’utilisateur, l’adresse de protocole Internet (IP) de l’utilisateur.
         </p>
         <p>
           En tout état de cause Maxime Bajeux ne collecte des informations
           personnelles relatives à l’utilisateur que pour le besoin de certains
-          services proposés par le site{" "}
-          <a href="//image-in.net/">image-in.net</a>. L’utilisateur fournit ces
-          informations en toute connaissance de cause, notamment lorsqu’il
-          procède par lui-même à leur saisie. Il est alors précisé à
-          l’utilisateur du site <a href="//image-in.net/">image-in.net</a>{" "}
+          services proposés par le site <Link to="/">image-in.net</Link>.
+          L’utilisateur fournit ces informations en toute connaissance de cause,
+          notamment lorsqu’il procède par lui-même à leur saisie. Il est alors
+          précisé à l’utilisateur du site <Link to="/">image-in.net</Link>{" "}
           l’obligation ou non de fournir ces informations.
         </p>
         <p>
@@ -208,13 +204,13 @@ const MentionsLegales = () => {
         </p>
         <p>
           Aucune information personnelle de l’utilisateur du site{" "}
-          <a href="//image-in.net/">image-in.net</a> n’est publiée à l’insu de
+          <Link to="/">image-in.net</Link> n’est publiée à l’insu de
           l’utilisateur, échangée, transférée, cédée ou vendue sur un support
           quelconque à des tiers. Seule l’hypothèse du rachat de Maxime Bajeux
           et de ses droits permettrait la transmission des dites informations à
           l’éventuel acquéreur qui serait à son tour tenu de la même obligation
           de conservation et de modification des données vis à vis de
-          l’utilisateur du site <a href="//image-in.net/">image-in.net</a>.
+          l’utilisateur du site <Link to="/">image-in.net</Link>.
         </p>
         <p>
           Les bases de données sont protégées par les dispositions de la loi du
@@ -223,21 +219,21 @@ const MentionsLegales = () => {
         </p>
         <h3>8. Liens hypertextes et cookies.</h3>
         <p>
-          Le site <a href="//image-in.net/">image-in.net</a> contient un certain
-          nombre de liens hypertextes vers d’autres sites, mis en place avec
+          Le site <Link to="/">image-in.net</Link> contient un certain nombre de
+          liens hypertextes vers d’autres sites, mis en place avec
           l’autorisation de Maxime Bajeux. Cependant, Maxime Bajeux n’a pas la
           possibilité de vérifier le contenu des sites ainsi visités, et
           n’assumera en conséquence aucune responsabilité de ce fait.
         </p>
         <p>
-          La navigation sur le site <a href="//image-in.net/">image-in.net</a>{" "}
-          est susceptible de provoquer l’installation de cookie(s) sur
-          l’ordinateur de l’utilisateur. Un cookie est un fichier de petite
-          taille, qui ne permet pas l’identification de l’utilisateur, mais qui
-          enregistre des informations relatives à la navigation d’un ordinateur
-          sur un site. Les données ainsi obtenues visent à faciliter la
-          navigation ultérieure sur le site, et ont également vocation à
-          permettre diverses mesures de fréquentation.
+          La navigation sur le site <Link to="/">image-in.net</Link> est
+          susceptible de provoquer l’installation de cookie(s) sur l’ordinateur
+          de l’utilisateur. Un cookie est un fichier de petite taille, qui ne
+          permet pas l’identification de l’utilisateur, mais qui enregistre des
+          informations relatives à la navigation d’un ordinateur sur un site.
+          Les données ainsi obtenues visent à faciliter la navigation ultérieure
+          sur le site, et ont également vocation à permettre diverses mesures de
+          fréquentation.
         </p>
         <p>
           Le refus d’installation d’un cookie peut entraîner l’impossibilité
@@ -276,9 +272,9 @@ const MentionsLegales = () => {
         <h3>9. Droit applicable et attribution de juridiction.</h3>
         <p>
           Tout litige en relation avec l’utilisation du site{" "}
-          <a href="//image-in.net/">image-in.net</a> est soumis au droit
-          français. Il est fait attribution exclusive de juridiction aux
-          tribunaux compétents de Paris.
+          <Link to="/">image-in.net</Link> est soumis au droit français. Il est
+          fait attribution exclusive de juridiction aux tribunaux compétents de
+          Paris.
         </p>
         <h3>10. Les principales lois concernées.</h3>
         <p>
