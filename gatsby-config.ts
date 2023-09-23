@@ -47,6 +47,12 @@ const config: GatsbyConfig = {
               destinationDir: "static",
               excludeFileExtensions: ["png", "jpg", "jpeg", "bmp", "tiff"],
             },
+          },
+          {
+            resolve: "gatsby-remark-autolink-headers",
+            options: {
+              removeAccents: true,
+            },
           }
         ],
       },

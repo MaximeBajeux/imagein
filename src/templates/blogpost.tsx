@@ -9,6 +9,7 @@ import BreadCrumb from "../components/breadcrumb/breadcrumb";
 import Herobanner from "../components/herobanner/herobanner";
 import Stack from "../components/stack/stack";
 import Button from "../components/button/button";
+import TableOfContents from "../components/tableofcontents/tableofcontents";
 
 const BlogPost = ({
   data,
@@ -18,7 +19,7 @@ const BlogPost = ({
   children: React.ReactNode;
 }) => {
   const { mdx } = data;
-  const { frontmatter } = mdx;
+  const { frontmatter, tableOfContents } = mdx;
 
   return (
     <Layout>
@@ -71,7 +72,10 @@ const BlogPost = ({
           </Row>
         </Col>
       </Row>
-      <article className="blogpost">{children}</article>
+      <article className="blogpost">
+        <TableOfContents data={tableOfContents} />
+        {children}
+      </article>
       <section className="blogpost__cta">
         <Row>
           <Col xs={12} className="center">
@@ -120,6 +124,7 @@ export const query = graphql`
         }
         imageAlt
       }
+      tableOfContents
       imageRemote {
         childImageSharp {
           gatsbyImageData(

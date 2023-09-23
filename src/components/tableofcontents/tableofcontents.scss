@@ -1,0 +1,89 @@
+@import "../../styles/vars.scss";
+
+.tableofcontents {
+  margin: 1rem 1rem 2rem 1rem;
+  padding: 0;
+  background-color: var(--secondary-color-light-1);
+  overflow: hidden;
+  
+  &__title {
+    display: flex;
+    position: relative; 
+    color: var(--background-color);
+    padding: 1rem;
+    @include shadow(1);
+    cursor: pointer;
+    z-index: 1;
+
+    &:hover, &:focus {
+      @include shadow(2);
+    }
+
+    &:after {
+      content: "";
+      mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path fill="currentColor" d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>') no-repeat 50% 50%;
+      mask-size: cover;
+      position: absolute;
+      right: 1rem;
+      align-items: center;
+      height: 2rem;
+      width: 2rem;
+      fill: white;
+      background-color: white;
+      transform: rotate(0deg);
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+
+  &.expanded &__title:after {
+    transform: rotate(180deg);
+  }
+
+  &__content {
+    position: relative;
+    padding: 0 1rem;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-2rem) translateZ(-1px);
+    transition: opacity 0.4s ease-in-out, max-height 0.5s ease-in-out, visibility 0.5s ease-in-out, transform 0.3s ease-in-out 0.2s;
+    z-index: 0;
+  }
+
+  &.expanded &__content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    max-height: 10000px; // Ajustez cette valeur en fonction de la taille maximale que votre table des matières pourrait atteindre
+    transition: opacity 0.4s ease-in-out, max-height 0.5s ease-in-out, visibility 0.5s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  ul {
+    margin-left: 1rem;
+  }
+
+  li {
+    color: var(--primary-color-dark-1);
+  }
+
+  a {
+    display: flex;
+    padding: 0.3rem 0;
+    color: var(--primary-color-dark-1);
+    font-weight: 500;
+    transition: all 0.1s ease-in-out;
+    text-decoration: none;
+
+    &:hover, &:focus {
+      color: var(--background-color)
+    }
+  }
+}
+
+@media all and (min-width: $breakpoint-md) {
+  .tableofcontents {
+    margin: 0 auto 2rem auto;
+    max-width: 45vw;
+  }
+}
