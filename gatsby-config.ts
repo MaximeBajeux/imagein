@@ -22,6 +22,7 @@ const config: GatsbyConfig = {
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
+    "gatsby-plugin-netlify",
     {
       resolve: "gatsby-plugin-mdx",
       options: {
