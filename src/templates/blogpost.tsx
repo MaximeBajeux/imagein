@@ -142,7 +142,7 @@ export const Head = (props) => {
   const {
     data: { mdx },
   } = props;
-  const { title, description, slug } = mdx.frontmatter;
+  const { title, description, slug, date } = mdx.frontmatter;
   const imageData =
     getImage(mdx.frontmatter.image?.childImageSharp?.gatsbyImageData) ||
     getImage(mdx.imageRemote?.childImageSharp?.gatsbyImageData);
@@ -153,7 +153,22 @@ export const Head = (props) => {
       pathname={`/blog/${slug}/`}
       image={imageData?.images?.fallback?.src}
       article={true}
-    />
+    >
+      <script type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "${title}",
+            "datePublished": "${date}",
+            "author": {
+              "@type": "Person",
+              "name": "Maxime Bajeux"
+            }
+          }
+        `}
+      </script>
+    </SEO>
   );
 };
 

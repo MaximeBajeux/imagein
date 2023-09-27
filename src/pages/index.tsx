@@ -13,11 +13,12 @@ import Button from "../components/button/button";
 import { StaticImage } from "gatsby-plugin-image";
 import SuspenseHelper from "../components/suspensehelper/suspensehelper";
 import BreadCrumb from "../components/breadcrumb/breadcrumb";
+import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 const Animation = lazy(() => import("../components/animation/animation"));
 const Circlechart = lazy(() => import("../components/circlechart/circlechart"));
 
-type IndexProps = PageProps<Queries.LottieFilesQuery>;
+type IndexProps = PageProps<Queries.IndexPageQuery>;
 
 const IndexPage = (props: IndexProps) => {
   const { data } = props;
@@ -319,16 +320,33 @@ const IndexPage = (props: IndexProps) => {
   );
 };
 
-export const Head = () => (
-  <SEO
-    title="Image In - Agence web orientée performance"
-    description="Agence spécialisée dans La création de sites performants. Nous vous créons un site ultra rapide et optimisé pour le SEO !"
-    pathname="/"
-  />
-);
+export const Head = () => {
+  const { siteUrl, featuredImage } = useSiteMetadata();
+  const logo =
+    siteUrl +
+    featuredImage?.childImageSharp?.gatsbyImageData?.images.fallback.src;
+  return (
+    <SEO
+      title="Image In - Agence web orientée performance"
+      description="Agence spécialisée dans La création de sites performants. Nous vous créons un site ultra rapide et optimisé pour le SEO !"
+      pathname="/"
+    >
+      <script type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "url": "${siteUrl}",
+            "logo": "${logo}",
+          }
+        `}
+      </script>
+    </SEO>
+  );
+};
 
 export const query = graphql`
-  query LottieFiles {
+  query IndexPage {
     allFile(filter: { sourceInstanceName: { eq: "lottie" } }) {
       nodes {
         name
