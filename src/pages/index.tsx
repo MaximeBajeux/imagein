@@ -337,7 +337,7 @@ export const Head = () => {
             "@context": "https://schema.org",
             "@type": "Organization",
             "url": "${siteUrl}",
-            "logo": "${logo}",
+            "logo": "${logo}"
           }
         `}
       </script>
