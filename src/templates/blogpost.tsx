@@ -80,12 +80,8 @@ const BlogPost = ({
         <Row>
           <Col xs={12} className="center">
             <div className="blogpost__cta__content big orange center">
-              Cliquer sur ces boutons rend le monde meilleur !
+              Un petit pas vers Image IN, un pas de géant pour votre business !
             </div>
-            <small className="center">
-              (Cette phrase n'est pas contractuelle et n'engage que son auteur,
-              mais nous l'espérons tous).
-            </small>
           </Col>
           <Col xs={12}>
             <Stack direction="horizontal" position="center" className="mb-3">
