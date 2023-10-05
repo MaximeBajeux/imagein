@@ -171,7 +171,8 @@ export const Head = (props) => {
             "dateModified": "${date}",
             "author": {
               "@type": "Person",
-              "name": "Maxime Bajeux"
+              "name": "Maxime Bajeux",
+              "url": "https://www.linkedin.com/in/maxime-bajeux/"
             },
             "publisher": {
               "@type": "Organization",
