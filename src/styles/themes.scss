@@ -298,10 +298,17 @@ li {
 
   ul,
   ol {
-    list-style: disc;
     margin-left: 2rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
   }
 
   .image-container span {
