@@ -10,6 +10,7 @@ import Herobanner from "../components/herobanner/herobanner";
 import Stack from "../components/stack/stack";
 import Button from "../components/button/button";
 import TableOfContents from "../components/tableofcontents/tableofcontents";
+import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 const BlogPost = ({
   data,
@@ -138,16 +139,21 @@ export const Head = (props) => {
   const {
     data: { mdx },
   } = props;
+  const { siteUrl } = useSiteMetadata();
   const { title, description, slug, date } = mdx.frontmatter;
   const imageData =
-    getImage(mdx.frontmatter.image?.childImageSharp?.gatsbyImageData) ||
-    getImage(mdx.imageRemote?.childImageSharp?.gatsbyImageData);
+    mdx.frontmatter.image?.childImageSharp?.gatsbyImageData ||
+    mdx.imageRemote?.childImageSharp?.gatsbyImageData;
+  const width = imageData?.width;
+  const height = imageData?.height;
+  const image = getImage(imageData);
+
   return (
     <SEO
       title={title}
       description={description}
       pathname={`/blog/${slug}/`}
-      image={imageData?.images?.fallback?.src}
+      image={image?.images?.fallback?.src}
       article={true}
     >
       <script type="application/ld+json">
@@ -155,11 +161,27 @@ export const Head = (props) => {
           {
             "@context": "https://schema.org",
             "@type": "Article",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "${siteUrl}/blog/${slug}/"
+            },
             "headline": "${title}",
+            "description": "${description}",
             "datePublished": "${date}",
+            "dateModified": "${date}",
             "author": {
               "@type": "Person",
               "name": "Maxime Bajeux"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Image IN"
+            },
+            "image": {
+              "@type": "ImageObject",
+              "url": "${siteUrl}${image?.images?.fallback?.src}",
+              "width": ${width},
+              "height": ${height}
             }
           }
         `}
