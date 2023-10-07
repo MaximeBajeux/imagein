@@ -54,6 +54,13 @@ const config: GatsbyConfig = {
             options: {
               removeAccents: true,
             },
+          },
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_blank",
+              rel: "nofollow"
+            }
           }
         ],
       },
