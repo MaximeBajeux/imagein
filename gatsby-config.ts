@@ -97,7 +97,6 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        exclude: [`/404`],
         createLinkInHead: true,
       },
     },
