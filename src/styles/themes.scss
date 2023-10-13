@@ -258,6 +258,13 @@ li {
     font-size: 1.1rem;
     line-height: 1.4;
   }
+  
+  small {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0.5rem 0;
+  }
 
   .gatsby-resp-image-wrapper {
     max-height: 600px;
