@@ -46,6 +46,10 @@ const SEO = ({
       <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
+      <meta
+        name="netlinkdeal-verification"
+        content="dc267248-4147-4c20-b69f-9e35cbc434fd"
+      />
 
       {seo.url && <link rel="canonical" href={seo.url} />}
       {seo.url && <meta property="og:url" content={seo.url} />}
