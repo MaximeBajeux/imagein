@@ -17,6 +17,7 @@
 
   color: white;
   background-color: var(--primary-color-dark-2);
+  text-decoration: none !important;
 
   &:hover {
     @include shadow(4);
