@@ -65,7 +65,7 @@ jQuery( document ).on( 'tinymce-editor-init', function( event, editor ) {
 });
 ```
 
-Sauf que ce code ne fonctionne absolument pas 🤡 PluginManager n'existe simplement pas dans l'instance tinymce que l'on reçoit à cet endroit. En remarquant cela et que la fonction addButton existait j'ai donc essayait de simplement faire comme si dessous, ça n'a pas marché non plus bien que je voyais mon bouton s'afficher dans la liste.
+Sauf que ce code ne fonctionne absolument pas 🤡 PluginManager n'existe simplement pas dans l'instance tinymce que l'on reçoit à cet endroit. En remarquant cela et que la fonction addButton existait j'ai donc essayé de simplement faire comme ci-dessous, ça n'a pas marché non plus bien que je voyais mon bouton s'afficher dans la liste.
 
 ```js
 jQuery( document ).on( 'tinymce-editor-init', function( event, editor ) {
