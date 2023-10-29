@@ -1,0 +1,153 @@
+---
+title: "ACF Wysiwyg: Comment ajouter un bouton à la toolbar de TinyMCE ?"
+label: "ACF Wysiwyg: Comment ajouter un bouton à la toolbar de TinyMCE ?"
+h1: "ACF Wysiwyg: Comment ajouter un bouton à la toolbar de TinyMCE ?"
+slug: "acf-wysiwyg-ajouter-custom-button-toolbar-tinymce"
+date: "2023-10-29"
+description: "La documentation officielle d'ACF ne documente pas comment ajouter un bouton personnalisé à la toolbar de TinyMCE, pourtant il existe un hook permettant de le faire. C'est ce que nous allons voir ici"
+imageURL: "https://smnarnold.com/assets/page-previews/acf.jpg"
+imageAlt: "Le logo d'ACF"
+type: "article"
+---
+
+Dans l'univers Wordpress actuel, ACF (Advanced Custom Field) a pris une place importante dans l'écosystème tant sa flexibilité le rend performant dans son utilisation. C'est pourquoi il a été le choix judicieux de l'ancien prestataire d'un de mes clients dans le développement de leur site internet. Wordpress est ici utilisé en mode headless avec un frontend NextJS, figure périlleuse mais très performante au rendu finale ! Néanmoins mon client avait une requête, pouvoir ajouter un CTA (Call To Action) dans une zone de texte enrichie. Facile ! Ou pas…
+
+**Disclaimer:** A moins d'être développeur vous-même, il y a peu de chance que vous trouviez le quelconque intérêt à cet article.
+
+![Le logo d'advanced custom field](https://smnarnold.com/assets/page-previews/acf.jpg)
+
+## En quoi consiste la demande exactement ?
+
+En soit, la demande aurait pu être traitée très rapidement, on explique à l'équipe comment modifier en mode texte les balises \<a\> pour leur ajouter un "class="cta" et il aurait alors suffit de gérer l'affichage côté NextJS.
+
+Mais vous le savez, les clients n'aiment pas les solutions "à base de code". Il faut des boutons à cliquer et c'est compréhensible. Du coup, comment faisons nous ? ACF utilise TinyMCE dans son Wysiwyg Field. L'un comme l'autre sont assez bien documentés, il est facile de trouver comment modifier la toolbar dans la doc d'ACF, et comment créer un nouveau bouton du côté de TinyMCE. On met tout ça dans un plugin maison et voilà ce que ça donne.
+
+```js
+<?php
+/*
+Plugin Name: ACF Custom Button
+Description: Adds a custom button to the ACF TinyMCE toolbar
+Version: 1.0
+Author: Maxime Bajeux
+*/
+
+// Register the custom button script
+function acf_custom_button_plugin() {
+    wp_enqueue_script('acf_custom_button_script', plugin_dir_url(__FILE__) . 'button.js');
+}
+add_action('acf/input/admin_enqueue_scripts', 'acf_custom_button_plugin');
+
+// Add the custom button to the ACF TinyMCE toolbar
+function my_acf_toolbars($toolbars) {
+	$toolbars['Full'] = array();
+    $toolbars['Full'][1] = array('bold', 'italic', 'custom_button');
+    return $toolbars;
+}
+add_filter('acf/fields/wysiwyg/toolbars', 'my_acf_toolbars');
+
+?>
+```
+
+```js
+jQuery( document ).on( 'tinymce-editor-init', function( event, editor ) {
+  tinymce.PluginManager.add('custom_button', function(editor, url) {
+    editor.addButton('custom_button', {
+      text: 'CTA',
+      icon: false,
+      onclick: function() {
+        var selected_text = editor.selection.getContent();
+        var href = prompt("Enter the href value:");
+        var html = '<a class="cta" href="' + href + '">' + selected_text + '</a>';
+          editor.execCommand('mceInsertContent', false, html);
+        }
+      });
+  });
+});
+```
+
+Sauf que ce code ne fonctionne absolument pas 🤡 PluginManager n'existe simplement pas dans l'instance tinymce que l'on reçoit à cet endroit. En remarquant cela et que la fonction addButton existait j'ai donc essayait de simplement faire comme si dessous, ça n'a pas marché non plus bien que je voyais mon bouton s'afficher dans la liste.
+
+```js
+jQuery( document ).on( 'tinymce-editor-init', function( event, editor ) {
+  editor.addButton('custom_button', {
+    text: 'CTA',
+    icon: false,
+    onclick: function() {
+      var selected_text = editor.selection.getContent();
+      var href = prompt("Enter the href value:");
+      var html = '<a class="cta" href="' + href + '">' + selected_text + '</a>';
+      editor.execCommand('mceInsertContent', false, html);
+    }
+  });
+});
+```
+
+## La boîte noire des plugins Wordpress
+
+A chaque fois que je travaille sur des problématiques un peu corner case dans l'écosystème Wordpress il se passe la même chose, la documentation est inexistante. J'ai dit plus tôt que TinyMCE et ACF étaient bien documentés, c'est vrai, mais pour l'écosystème Wordpress. Il existe toujours des zones extrêmement opaques où "la magie opère" et à moins de mettre les mains dans le code, il n'y a pas vraiment moyen de savoir comment sortir du sentier tracé par le plugin.
+
+En l'occurrence, si ACF prévoit de nous permettre de modifier la barre d'outil avec les boutons déjà existants du plugin ([https://www.advancedcustomfields.com/resources/customize-the-wysiwyg-toolbars/](https://www.advancedcustomfields.com/resources/customize-the-wysiwyg-toolbars/)), elle ne documente pas le moyen d'y ajouter un bouton créé par nos soins. Pourtant, Il a été prévu que nous puissions le faire, puisqu'ils ont prévu le hook permettant de le faire !
+
+## La solution !
+
+C'est après plusieurs heures de recherche que j'ai fini par découvrir le filter "wysiwyg_tinymce_settings" dans un forum d'ACF ([https://support.advancedcustomfields.com/forums/topic/acf-block-custom-tinymce-button-postmeta-database-duplication/](https://support.advancedcustomfields.com/forums/topic/acf-block-custom-tinymce-button-postmeta-database-duplication/)) qui m'a permis d'arriver au résultat que je souhaitais.
+
+Voici donc le plugin dans sa version fonctionnelle après des heures de larmes et de haine 😅
+
+```js
+<?php
+/*
+Plugin Name: ACF Custom Button
+Description: Adds a custom button to the ACF TinyMCE toolbar
+Version: 1.0
+Author: Maxime Bajeux
+*/
+
+function my_acf_input_admin_footer() {
+?>
+<script type="text/javascript">
+
+acf.add_filter('wysiwyg_tinymce_settings', function(mceInit, id, field) {
+    mceInit.verify_html = false;
+    mceInit.plugins = 'textcolor,colorpicker,lists,fullscreen,image,wordpress,wpeditimage,wplink,hr';
+    mceInit.toolbar1 = 'formatselect,bold,italic,underline,strikethrough,forecolor,blockquote,hr';
+    mceInit.toolbar2 = 'alignleft,aligncenter,alignright,alignjustify,bullist,numlist,link,unlink,undo,redo,removeformat,customButton';
+    mceInit.setup = function(ed){
+        ed.addButton( 'customButton', {
+            type: 'button',
+            text: 'CTA',
+            onclick: function() {
+                // Open a TinyMCE modal window
+                ed.windowManager.open({
+                    title: 'Insert CTA Link',
+                    body: [
+                        {type: 'textbox', name: 'url', label: 'URL'},
+                        {type: 'checkbox', name: 'newTab', label: 'Open in a new tab', checked: true},
+                    ],
+                    onsubmit: function(e) {
+                        var url = e.data.url;
+                        var newTab = e.data.newTab ? ' target="_blank"' : '';
+                        var selected_text = ed.selection.getContent();
+                        var html = '<a class="cta" href="' + url + '"' + newTab + '>' + selected_text + '</a>';
+                        ed.execCommand('mceInsertContent', false, html);
+                    }
+                });
+            }
+        });
+    }
+    return mceInit;
+});
+
+</script>
+<?php
+}
+
+add_action('acf/input/admin_footer', 'my_acf_input_admin_footer');
+?>
+```
+
+Je l'ai également ajouté à mon Github en public: [https://github.com/MaximeBajeux/acf-custom-wysiwyg/tree/main](https://github.com/MaximeBajeux/acf-custom-wysiwyg/tree/main)
+
+Ce n'est, comme le Readme le dit si bien, qu'un "Shitty POC". J'ai fait en sorte que ça fonctionne dans mon cas d'usage, pas que ce soit un plugin utilisable en plug and play par la communauté, mais puisque c'est un cas d'usage très peu documenté, il me semblait nécessaire de le mettre à disposition pour offrir une base de travail à ceux qui auraient le même besoin.
+
+Peut-être en ferais-je une version plus aboutit à l'avenir ou mieux documentée sur la manière dont ça fonctionne côté ACF. En attendant je vous laisse avec ce petit plugin permettant d'ajouter un bouton à la toolbar du Wysiwyg Field d'ACF.
