@@ -133,35 +133,36 @@ const IndexPage = (props: IndexProps) => {
               <Col xs={12}>
                 <h2>Notre vocation</h2>
               </Col>
-              <Col xs={12} className="service_text">
+              <Col xs={12} className="service__text">
                 <p>
-                  🐢💤 Dans l'écosystème du web, les PME sont les plus mal
-                  équipées. De nombreux sites de piètre qualité ont été vendus
+                  🐢💤 Dans le paysage d'internet, les PME sont les plus mal
+                  équipées. De nombreux sites de mauvaise qualité ont été vendus
                   sans aucun suivi. Ainsi, vous vous retrouvez avec des sites
                   qui ne vous rapportent rien.
                 </p>
                 <p>
                   🐇💨 Chez Image IN, nous pensons que les PME ont le droit
-                  d'avoir des sites performants et optimisés pour le SEO. C'est
-                  pourquoi nous avons décidé de vous proposer des sites rapides
-                  comme l'éclair, à des prix abordables.
+                  d'avoir des sites performants et optimisés pour le SEO.
                 </p>
                 <p>
-                  💵🔨 Nous avons développé pour vous des outils nous permettant
-                  de vous proposer des sites hauts de gamme qui rentrent dans
-                  votre budget et ce, avec un suivi de qualité.
+                  💵🔨 Nous avons développé des outils nous permettant de
+                  proposer des sites hauts de gamme qui rentrent dans votre
+                  budget avec un suivi de qualité.
                 </p>
                 <p>
                   👇 Ça commence à partir de 250€/mois pendant un an, après quoi
                   le site vous appartient ! Pour ce prix on inclut également le
-                  logo, la charte graphique, un shooting photo, la rédaction de
-                  vos textes et vos 3 premiers articles SEO !
+                  <strong>logo</strong>, la <strong>charte graphique</strong>,
+                  un <strong>shooting photo</strong>, la{" "}
+                  <strong>rédaction de vos textes</strong> et vos 3 premiers{" "}
+                  <strong>articles SEO</strong> !
                 </p>
               </Col>
               <Stack direction="horizontal" className="dark">
                 <Button
                   as="Link"
                   to="/votre-site-a-250-euros-par-mois-pendant-1-an/"
+                  className="reverse"
                 >
                   Découvrir le pack 250€/mois
                 </Button>
