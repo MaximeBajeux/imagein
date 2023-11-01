@@ -133,38 +133,42 @@ const IndexPage = (props: IndexProps) => {
               <Col xs={12}>
                 <h2>Notre vocation</h2>
               </Col>
-              <Col xs={12} className="service__text">
+              <Col xs={12} className="service_text">
                 <p>
-                  🐢 La plupart des sites internet sont lents et mal optimisés
-                  pour le <strong>SEO</strong>. Cela impacte l'expérience de vos
-                  utilisateurs, notamment sur mobile. Cette lenteur, en plus
-                  d'être un gouffre énergétique coûteux, vous fait directement
-                  perdre des clients insatisfaits.
+                  🐢💤 Dans l'écosystème du web, les PME sont les plus mal
+                  équipées. De nombreux sites de piètre qualité ont été vendus
+                  sans aucun suivi. Ainsi, vous vous retrouvez avec des sites
+                  qui ne vous rapportent rien.
                 </p>
                 <p>
-                  🐇 C'est pourquoi nous vous accompagnons dans la création d'un
-                  site internet qui se veut ultra performant, rapide et optimisé
-                  pour le SEO.
+                  🐇💨 Chez Image IN, nous pensons que les PME ont le droit
+                  d'avoir des sites performants et optimisés pour le SEO. C'est
+                  pourquoi nous avons décidé de vous proposer des sites rapides
+                  comme l'éclair, à des prix abordables.
                 </p>
                 <p>
-                  💸 Ce genre de site est généralement réservé aux grandes
-                  entreprises qui ont les moyens de gérer une équipe de{" "}
-                  <strong>développeurs</strong> en interne ou de passer par une
-                  agence qui leur dédiera tout leur temps !
+                  💵🔨 Nous avons développé pour vous des outils nous permettant
+                  de vous proposer des sites hauts de gamme qui rentrent dans
+                  votre budget et ce, avec un suivi de qualité.
                 </p>
                 <p>
-                  🐣 Mais nous avons décidé de les rendre accessibles à tous !
-                  En usant de la boîte à outils que nous avons développée, nous
-                  sommes capables de vous proposer des sites à des prix
-                  abordables et de mettre toute notre force de travail dans la
-                  création de son <strong>identité visuelle</strong> !
+                  👇 Ça commence à partir de 250€/mois pendant un an, après quoi
+                  le site vous appartient ! Pour ce prix on inclut également le
+                  logo, la charte graphique, un shooting photo, la rédaction de
+                  vos textes et vos 3 premiers articles SEO !
                 </p>
-                <Stack direction="horizontal" className="dark">
-                  <Button as="Link" to="/offres/">
-                    Découvrir nos offres
-                  </Button>
-                </Stack>
               </Col>
+              <Stack direction="horizontal" className="dark">
+                <Button
+                  as="Link"
+                  to="/votre-site-a-250-euros-par-mois-pendant-1-an/"
+                >
+                  Découvrir le pack 250€/mois
+                </Button>
+                <Button as="Link" to="/offres/">
+                  Voir tous les services
+                </Button>
+              </Stack>
             </Row>
           </Col>
           <Col xs={12} md={6}>
@@ -236,9 +240,9 @@ const IndexPage = (props: IndexProps) => {
             <p>
               🌍 Ces technologies permettent de générer des sites statiques,
               c'est à dire des sites qui ne nécessitent pas de serveur pour
-              fonctionner. Cela permet d'obtenir des sites ultra rapides, car
-              ils sont hébergés sur un CDN (Content Delivery Network) qui permet
-              de les distribuer à travers le monde entier.
+              fonctionner. Cela permet d'obtenir des sites ultra rapides et
+              hébergés sur un CDN (Content Delivery Network) qui permet de les
+              distribuer à travers le monde entier.
             </p>
             <p>
               📈 De plus, ces technologies permettent de générer des sites
@@ -275,11 +279,12 @@ const IndexPage = (props: IndexProps) => {
             className="stretch"
             style={{ justifyContent: "center" }}
           >
-            <h2>🍒 Notre secret sauce</h2>
+            <h2>🍒 Notre valeur ajoutée</h2>
             <p>
-              🤔 Un site web performant est un atout majeur pour votre
+              🤔 Un site internet performant est un atout majeur pour votre
               entreprise, mais il n'est pas une fin en soi. Il doit être
-              accompagné d'une stratégie de communication efficace.
+              accompagné impérativement d'une stratégie de communication
+              efficace afin d'être visible.
             </p>
             <p>
               📈 C'est pourquoi nous vous accompagnons dans la création d'une
@@ -289,16 +294,14 @@ const IndexPage = (props: IndexProps) => {
             <p>
               📸 Chez Image IN, nous ne vous abandonnons pas avec un site clé en
               main vide de contenu. Notre équipe travaille avec des
-              professionnels de la photographie et de la vidéo afin de vous
-              fournir un contenu de qualité pour votre site internet.
+              professionnels de la vidéo et de l'image afin de vous fournir un
+              contenu de qualité.
             </p>
             <p>
-              🎨 De la même manière, nous travaillons main dans la main avec des
-              graphistes afin de vous fournir un design unique et à votre image.
-            </p>
-            <p>
-              ✍️ Enfin, nous travaillons aussi avec des rédacteurs web afin de
-              vous fournir un contenu de qualité et optimisé pour le SEO.
+              ✍️ Aussi, nous travaillons aussi avec des rédacteurs web et des
+              professionnels du SEO afin de vous fournir un contenu optimisé
+              pour le référencement qui vous permettra d'atteindre les premières
+              places sur Google.
             </p>
             <Stack direction="horizontal" className="dark">
               <Button as="Link" to="/contact/">
