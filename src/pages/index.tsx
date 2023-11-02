@@ -147,15 +147,18 @@ const IndexPage = (props: IndexProps) => {
                 <p>
                   💵🔨 Nous avons développé des outils nous permettant de
                   proposer des sites hauts de gamme qui rentrent dans votre
-                  budget avec un suivi de qualité.
+                  budget.
                 </p>
                 <p>
-                  👇 Ça commence à partir de 250€/mois pendant un an, après quoi
-                  le site vous appartient ! Pour ce prix on inclut également le
-                  <strong>logo</strong>, la <strong>charte graphique</strong>,
-                  un <strong>shooting photo</strong>, la{" "}
-                  <strong>rédaction de vos textes</strong> et vos 3 premiers{" "}
-                  <strong>articles SEO</strong> !
+                  👇 Ça commence à partir de 250€/mois pendant un an ! Après
+                  quoi le site vous appartient ! Mais ce n'est pas tout...
+                  <br />
+                  Pour ce prix, nous incluons également le <strong>logo</strong>
+                  , la <strong>charte graphique</strong>, un{" "}
+                  <strong>shooting photo</strong> (produit ou corporate, vous
+                  choisissez), la <strong>rédaction des textes du site</strong>,
+                  vos 3 premiers <strong>articles SEO</strong> et 12 mois de
+                  conseil et maintenance !
                 </p>
               </Col>
               <Stack direction="horizontal" className="dark">
@@ -164,10 +167,10 @@ const IndexPage = (props: IndexProps) => {
                   to="/votre-site-a-250-euros-par-mois-pendant-1-an/"
                   className="reverse"
                 >
-                  Découvrir le pack 250€/mois
+                  Découvrir le pack
                 </Button>
                 <Button as="Link" to="/offres/">
-                  Voir tous les services
+                  Les autres services
                 </Button>
               </Stack>
             </Row>
