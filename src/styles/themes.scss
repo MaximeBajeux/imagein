@@ -357,6 +357,15 @@ ul.withPuce {
   text-align: center;
 }
 
+.underline {
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0 0.5rem;
+
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid var(--secondary-color);
+}
+
 .big {
   font-size: 1.8rem;
   font-weight: 700;

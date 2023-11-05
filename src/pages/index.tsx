@@ -45,14 +45,17 @@ const IndexPage = (props: IndexProps) => {
         ]}
       >
         <h1 className="herobanner__title">
-          Agence spécialisée dans La création de sites performants
+          Création de sites internet
+          <span className="underline"> vraiment </span> utiles pour votre
+          entreprise
         </h1>
         <h2 className="herobanner__subtitle">
-          Vous souhaitez mettre toutes les chances de votre côté pour convertir
-          un maximum de prospects ?
+          Vous souhaitez mettre toutes les chances de votre côté pour développer
+          votre activité en ligne ?
         </h2>
         <h3 className="herobanner__subtitle">
-          Nous vous créons un site ultra rapide et optimisé pour le SEO !
+          Nous vous créons un site conçu pour être visible et convertir vos
+          visiteurs en clients.
         </h3>
         <Stack
           direction="horizontal"
@@ -60,10 +63,10 @@ const IndexPage = (props: IndexProps) => {
           gap={5}
           style={{ marginTop: "3rem" }}
         >
-          <GlowButton as="Link" to="/contact/">
+          <GlowButton as="Link" to="/offres/">
             Je veux un site
           </GlowButton>
-          <GlowButton as="Link" to="/offres/">
+          <GlowButton as="Link" to="#service">
             En savoir plus
           </GlowButton>
         </Stack>
@@ -126,7 +129,7 @@ const IndexPage = (props: IndexProps) => {
           </Col>
         </Row>
       </section>
-      <section className="service">
+      <section className="service" id="service">
         <Row>
           <Col xs={12} md={6}>
             <Row>
@@ -135,14 +138,10 @@ const IndexPage = (props: IndexProps) => {
               </Col>
               <Col xs={12} className="service__text">
                 <p>
-                  🐢💤 Dans le paysage d'internet, les PME sont les plus mal
-                  équipées. De nombreux sites de mauvaise qualité ont été vendus
-                  sans aucun suivi. Ainsi, vous vous retrouvez avec des sites
-                  qui ne vous rapportent rien.
-                </p>
-                <p>
                   🐇💨 Chez Image IN, nous pensons que les PME ont le droit
-                  d'avoir des sites performants et optimisés pour le SEO.
+                  d'avoir des sites réellement utiles à leur activité. Des sites
+                  performants et vivants, qui leur permettent d'être visibles et
+                  de se développer.
                 </p>
                 <p>
                   💵🔨 Nous avons développé des outils nous permettant de
@@ -150,15 +149,35 @@ const IndexPage = (props: IndexProps) => {
                   budget.
                 </p>
                 <p>
-                  👇 Ça commence à partir de 250€/mois pendant un an ! Après
-                  quoi le site vous appartient ! Mais ce n'est pas tout...
+                  👇 Ça commence à partir de{" "}
+                  <strong>250€/mois pendant un an</strong> 👌
+                </p>
+                <p>
+                  Après quoi le site vous appartient ! Mais ce n'est pas tout...
                   <br />
-                  Pour ce prix, nous incluons également le <strong>logo</strong>
-                  , la <strong>charte graphique</strong>, un{" "}
-                  <strong>shooting photo</strong> (produit ou corporate, vous
-                  choisissez), la <strong>rédaction des textes du site</strong>,
-                  vos 3 premiers <strong>articles SEO</strong> et 12 mois de
-                  conseil et maintenance !
+                  Pour ce prix, nous incluons également:
+                  <ul className="withPuce">
+                    <li>
+                      La création de votre <strong>logo</strong>
+                    </li>
+                    <li>
+                      la création de la <strong>charte graphique</strong>
+                    </li>
+                    <li>
+                      Un <strong>shooting photo</strong> (produit ou corporate,
+                      vous choisissez)
+                    </li>
+                    <li>
+                      La <strong>rédaction</strong> des textes du site
+                    </li>
+                    <li>
+                      Vos 3 premiers <strong>articles SEO</strong>
+                    </li>
+                    <li>
+                      12 mois de <strong>conseil</strong> et{" "}
+                      <strong>maintenance</strong>
+                    </li>
+                  </ul>
                 </p>
               </Col>
               <Stack direction="horizontal" className="dark">
@@ -194,9 +213,10 @@ const IndexPage = (props: IndexProps) => {
               </Col>
               <Col xs={12} className="mb-2">
                 <p>
-                  Nos sites sont optimisés pour obtenir un score de minimal de
-                  90/100 sur Google PageSpeed Insights, afin d'offrir la
-                  meilleure <strong>expérience utilisateur</strong> possible.
+                  Nos sites sont créés pour <strong>performer</strong>, afin de
+                  maximiser à la fois l'expérience en ligne de vos visiteurs et
+                  votre <strong>visibilité</strong> sur les moteurs de
+                  recherche.
                 </p>
               </Col>
 
@@ -237,27 +257,25 @@ const IndexPage = (props: IndexProps) => {
           >
             <h2>🎓 Notre méthode</h2>
             <p>
-              ⚡ Afin de créer des sites rapides comme l'éclair, nous utilisons
-              des technologies de rendu statique comme <strong>GatsbyJS</strong>{" "}
-              ou <strong>NextJS</strong>.
+              ⚡ Nos sites sont créés avec des technologies modernes nous
+              permettant de vous fournir des sites rapides et évolutifs rendus
+              statiquement.
             </p>
             <p>
-              🌍 Ces technologies permettent de générer des sites statiques,
-              c'est à dire des sites qui ne nécessitent pas de serveur pour
-              fonctionner. Cela permet d'obtenir des sites ultra rapides et
-              hébergés sur un CDN (Content Delivery Network) qui permet de les
-              distribuer à travers le monde entier.
+              📱 Ils sont également conçus pour être parfaitement adaptés aux
+              mobiles et accessibles aux personnes en situation de handicap.
+              Ainsi votre site est accessible à tous.
             </p>
             <p>
-              📈 De plus, ces technologies permettent de générer des sites
-              optimisés pour le SEO, car elles génèrent des sites avec un code
-              propre et optimisé pour le <strong>référencement</strong>.
+              🌍 Un site rendu statiquement, c'est un site qui est à la fois
+              plus économe en énergie et plus facile à comprendre pour les
+              moteurs de recherche. Ainsi vous améliorez votre référencement
+              naturel tout en faisant un geste pour la planète.
             </p>
             <p>
-              ⚙️ Enfin, GatsbyJS comme NextJS vous permettent de gérer votre
-              contenu de manière simple et intuitive, grâce à des CMS comme
-              Contentful, Strapi ou encore Wordpress. Ainsi vous gardez la main
-              sur votre contenu, sans avoir à toucher au code.
+              ⚙️ Enfin, nous utilisons des outils de gestion de contenu simples
+              à prendre en main, vous permettant de modifier votre site
+              facilement.
             </p>
             <Stack direction="horizontal" className="dark">
               <Button as="Link" to="/contact/">
@@ -286,26 +304,24 @@ const IndexPage = (props: IndexProps) => {
             <h2>🍒 Notre valeur ajoutée</h2>
             <p>
               🤔 Un site internet performant est un atout majeur pour votre
-              entreprise, mais il n'est pas une fin en soi. Il doit être
-              accompagné impérativement d'une stratégie de communication
-              efficace afin d'être visible.
+              entreprise. <strong>Mais seul, il ne sert à rien !</strong>
+              <br />
+              Il doit être accompagné impérativement d'une stratégie de
+              communication efficace !
             </p>
             <p>
               📈 C'est pourquoi nous vous accompagnons dans la création d'une
-              stratégie en béton armé, afin de vous permettre d'atteindre vos
+              stratégie en béton armé afin de vous permettre d'atteindre vos
               objectifs de croissance !
             </p>
             <p>
               📸 Chez Image IN, nous ne vous abandonnons pas avec un site clé en
-              main vide de contenu. Notre équipe travaille avec des
-              professionnels de la vidéo et de l'image afin de vous fournir un
-              contenu de qualité.
+              main vide de contenu.
             </p>
             <p>
-              ✍️ Aussi, nous travaillons aussi avec des rédacteurs web et des
-              professionnels du SEO afin de vous fournir un contenu optimisé
-              pour le référencement qui vous permettra d'atteindre les premières
-              places sur Google.
+              ✍️ Rédaction de textes, shootings photo, reportages vidéo, nous
+              vous accompagnons dans la création de contenu de qualité pour
+              votre site internet.
             </p>
             <Stack direction="horizontal" className="dark">
               <Button as="Link" to="/contact/">
@@ -335,7 +351,7 @@ export const Head = () => {
   return (
     <SEO
       title="Image In - Agence web orientée performance"
-      description="Agence spécialisée dans La création de sites performants. Nous vous créons un site ultra rapide et optimisé pour le SEO !"
+      description="Création de sites internet vraiment utiles pour votre entreprise."
       pathname="/"
     >
       <script type="application/ld+json">
