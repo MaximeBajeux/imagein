@@ -43,6 +43,9 @@ const Footer: React.FC<PageProps<Queries.SEOArticleListQuery>> = ({
                 Politique de confidentialité
               </Link>
             </li>
+            <li className="footer__list-item">
+              <Link to="/sitemap">Plan du site</Link>
+            </li>
           </ul>
         </Col>
         <Col xs={12} md={4}>

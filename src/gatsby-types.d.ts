@@ -3320,6 +3320,11 @@ type SEOArticleListQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type SEOArticleListQueryQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly frontmatter: { readonly title: string, readonly label: string, readonly slug: string, readonly type: string | null } | null }> } };
 
+type SitemapQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SitemapQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<{ readonly path: string }> } };
+
 type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
