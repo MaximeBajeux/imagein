@@ -1,5 +1,4 @@
 import React from "react";
-
 import Layout from "../components/layout/layout";
 import SEO from "../components/seo/seo";
 import { HeadFC, PageProps, graphql, Link } from "gatsby";
@@ -11,6 +10,7 @@ import BreadCrumb from "../components/breadcrumb/breadcrumb";
 import Pagination from "../components/pagination/pagination";
 import Categories from "../components/categories/categories";
 import { ARTICLES_PER_PAGE } from "../constants";
+import { slugify } from "../tools/strings";
 
 const BlogPage: React.FC<PageProps<Queries.BlogListQuery>> = ({
   pageContext,
@@ -62,10 +62,20 @@ const BlogPage: React.FC<PageProps<Queries.BlogListQuery>> = ({
               href="/blog/"
               title="Blog"
               position={2}
-              disabled={true}
+              disabled={category === ""}
             >
               Blog
             </BreadCrumb.Item>
+            {category !== "" && (
+              <BreadCrumb.Item
+                href={`/blog/categorie/${slugify(category)}/`}
+                title={category}
+                position={3}
+                disabled={true}
+              >
+                {category}
+              </BreadCrumb.Item>
+            )}
           </BreadCrumb>
         </Col>
       </Row>
@@ -148,7 +158,7 @@ export const Head: HeadFC = ({ pageContext, data }) => {
       title="Image IN - Nos derniers articles"
       description="Retrouvez nos derniers articles sur le web et le SEO"
       pathname={`/blog/${
-        currentCategory ? `categorie/${currentCategory}/` : ""
+        currentCategory ? `categorie/${slugify(currentCategory)}/` : ""
       }`}
     />
   );

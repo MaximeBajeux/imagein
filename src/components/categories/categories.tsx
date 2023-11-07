@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import "./categories.scss";
 import { useStaticQuery, graphql } from "gatsby";
+import { slugify } from "../../tools/strings";
 
 const Categories = ({ section }: { section: string }) => {
   const data = useStaticQuery(graphql`
@@ -39,15 +40,6 @@ const Categories = ({ section }: { section: string }) => {
 
   // remove duplicates
   const uniqueCategories = [...new Set(categories)];
-
-  const slugify = (text: string) => {
-    return text
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/(^-|-$)+/g, "");
-  };
 
   return (
     <div className="categories">
