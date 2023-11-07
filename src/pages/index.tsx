@@ -156,29 +156,29 @@ const IndexPage = (props: IndexProps) => {
                   Après quoi le site vous appartient ! Mais ce n'est pas tout...
                   <br />
                   Pour ce prix, nous incluons également:
-                  <ul className="withPuce">
-                    <li>
-                      La création de votre <strong>logo</strong>
-                    </li>
-                    <li>
-                      la création de la <strong>charte graphique</strong>
-                    </li>
-                    <li>
-                      Un <strong>shooting photo</strong> (produit ou corporate,
-                      vous choisissez)
-                    </li>
-                    <li>
-                      La <strong>rédaction</strong> des textes du site
-                    </li>
-                    <li>
-                      Vos 3 premiers <strong>articles SEO</strong>
-                    </li>
-                    <li>
-                      12 mois de <strong>conseil</strong> et{" "}
-                      <strong>maintenance</strong>
-                    </li>
-                  </ul>
                 </p>
+                <ul className="withPuce">
+                  <li>
+                    La création de votre <strong>logo</strong>
+                  </li>
+                  <li>
+                    la création de la <strong>charte graphique</strong>
+                  </li>
+                  <li>
+                    Un <strong>shooting photo</strong> (produit ou corporate,
+                    vous choisissez)
+                  </li>
+                  <li>
+                    La <strong>rédaction</strong> des textes du site
+                  </li>
+                  <li>
+                    Vos 3 premiers <strong>articles SEO</strong>
+                  </li>
+                  <li>
+                    12 mois de <strong>conseil</strong> et{" "}
+                    <strong>maintenance</strong>
+                  </li>
+                </ul>
               </Col>
               <Stack direction="horizontal" className="dark">
                 <Button
