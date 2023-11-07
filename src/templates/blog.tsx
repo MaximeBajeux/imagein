@@ -8,10 +8,19 @@ import Col from "../components/col/col";
 import Card from "../components/card/card";
 import Herobanner from "../components/herobanner/herobanner";
 import BreadCrumb from "../components/breadcrumb/breadcrumb";
+import Pagination from "../components/pagination/pagination";
+import Categories from "../components/categories/categories";
+import { ARTICLES_PER_PAGE } from "../constants";
 
 const BlogPage: React.FC<PageProps<Queries.BlogListQuery>> = ({
+  pageContext,
   data,
 }: PageProps<Queries.BlogListQuery>) => {
+  const totalCount = data.allMdx.totalCount;
+
+  const category = pageContext.category;
+  const currentPage = pageContext.currentPage;
+
   const cards = data.allMdx.nodes.map((node: any) => {
     const { frontmatter, imageRemote } = node;
     const imageData =
@@ -61,20 +70,38 @@ const BlogPage: React.FC<PageProps<Queries.BlogListQuery>> = ({
         </Col>
       </Row>
       <section className="layout__list">
-        <Row className=" stretch">{cards}</Row>
+        <Row className="stretch">
+          <Col xs={12}>
+            <Categories section="blog" />
+          </Col>
+          {cards}
+          <Col xs={12}>
+            <Pagination
+              totalPages={totalCount / ARTICLES_PER_PAGE + 1}
+              currentPage={currentPage}
+              section="blog"
+              category={category}
+            />
+          </Col>
+        </Row>
       </section>
     </Layout>
   );
 };
 
 export const query = graphql`
-  query BlogList {
+  query BlogList($skip: Int!, $limit: Int!, $category: [String]) {
     allMdx(
       filter: {
-        frontmatter: { type: { regex: "/article/" } }
+        frontmatter: {
+          type: { regex: "/article/" }
+          categories: { in: $category }
+        }
         internal: { contentFilePath: { regex: "/posts/" } }
       }
       sort: { frontmatter: { date: DESC } }
+      skip: $skip
+      limit: $limit
     ) {
       nodes {
         id
@@ -84,6 +111,7 @@ export const query = graphql`
           slug
           date
           description
+          categories
           image {
             childImageSharp {
               gatsbyImageData(
@@ -105,6 +133,7 @@ export const query = graphql`
           }
         }
       }
+      totalCount
     }
   }
 `;

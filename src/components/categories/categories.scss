@@ -1,0 +1,21 @@
+@import "../../styles/vars.scss";
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+
+  .category {
+    display: inline-flex;
+    color: var(--secondary-color);
+    width: auto;
+    padding: 0.5rem;
+    font-size: 1.4rem;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}

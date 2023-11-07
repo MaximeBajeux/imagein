@@ -2,7 +2,7 @@ import type { GatsbyNode } from "gatsby";
 import { resolve } from "path";
 import { createRemoteFileNode } from "gatsby-source-filesystem";
 import FilterWarningsPlugin from "webpack-filter-warnings-plugin";
-import { create } from "domain";
+import { ARTICLES_PER_PAGE } from "./src/constants";
 
 // Create schema custom fields
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
@@ -26,6 +26,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       imageURL: String
       imageAlt: String
       type: String
+      categories: [String]
     }
   `);
   };
@@ -72,6 +73,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   const { createPage, createSlice, createRedirect } = actions;
 
   const blogPostTemplate = resolve(`src/templates/blogpost.tsx`);
+  const blogTemplate = resolve(`src/templates/blog.tsx`);
   const realisationTemplate = resolve(`src/templates/realisation.tsx`);
   const labTemplate = resolve(`src/templates/lab.tsx`);
   const result = await graphql<{
@@ -80,6 +82,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         id: string;
         frontmatter: {
           slug: string;
+          categories: string[];
         };
         internal: {
           contentFilePath: string;
@@ -93,6 +96,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           id
           frontmatter {
             slug
+            categories
           }
           internal {
             contentFilePath
@@ -115,6 +119,75 @@ export const createPages: GatsbyNode["createPages"] = async ({
     reporter.panic(`Error while running GraphQL query.`);
     return;
   }
+
+  // find all unique categories into post.frontmatter.categories and create a map with it as key and an array of posts as value
+
+  const categoriesMap = new Map<string, any[]>();
+
+  posts.forEach((post) => {
+    if (!post.frontmatter.categories) return;
+    post.frontmatter.categories.forEach((category) => {
+      if (!categoriesMap.has(category)) {
+        categoriesMap.set(category, []);
+      }
+
+      categoriesMap.get(category)?.push(post);
+    });
+  });
+
+  // for each category, create a page with the list of posts that have this category in their frontmatter.categories. Create also a generic blog page with all posts. We paginate the blog page with 12 posts per page.
+
+  categoriesMap.forEach((posts, category) => {
+    // create each page of the paginated blog page
+    const numPages = Math.ceil(posts.length / ARTICLES_PER_PAGE);
+
+    // slugify the category name (ex: "Web Design" => "web-design" or "Actualités" => "actualites")
+    const slugifiedCategory = category
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)+/g, "");
+
+    console.log(category);
+
+    Array.from({ length: numPages }).forEach((_, i) => {
+      createPage({
+        path:
+          i === 0
+            ? `/blog/categorie/${slugifiedCategory}`
+            : `/blog/categorie/${slugifiedCategory}/${i + 1}`,
+        component: blogTemplate,
+        context: {
+          limit: ARTICLES_PER_PAGE,
+          skip: i * ARTICLES_PER_PAGE,
+          category: [category],
+          numPages,
+          currentPage: i + 1
+        },
+      });
+    }
+    );
+  });
+
+  // Create the generic blog page with all posts. We paginate the blog page with 12 posts per page.
+  const numPages = Math.ceil(posts.length / ARTICLES_PER_PAGE);
+
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path:
+        i === 0
+          ? `/blog`
+          : `/blog/${i + 1}`,
+      component: blogTemplate,
+      context: {
+        limit: ARTICLES_PER_PAGE,
+        skip: i * ARTICLES_PER_PAGE,
+        numPages,
+        currentPage: i + 1,
+      },
+    });
+  });
 
   posts.forEach((post) => {
     createPage({

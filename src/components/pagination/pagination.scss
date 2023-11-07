@@ -1,0 +1,48 @@
+@import "../../styles/vars.scss";
+
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  &__item {
+    @include shadow(1);
+    display: flex;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: bold;
+    font-family: "Bebas Neue", cursive;
+    border-top: 1px solid #ccc;
+
+    a {
+      display: flex;
+      padding: 0.4rem 1.2rem;
+    }
+
+    &:not(:last-child) {
+      border-right: none;
+    }
+
+    &:last-child {
+      border-top-right-radius: 0.25rem;
+      border-bottom-right-radius: 0.25rem;
+    }
+
+    &:first-child {
+      border-top-left-radius: 0.25rem;
+      border-bottom-left-radius: 0.25rem;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: var(--secondary-color-light-1);
+      color: white;
+    }
+
+    &.current {
+      border-top: 1px solid #ccc;
+      background-color: var(--secondary-color-light-1);
+      color: white;
+      z-index: 1;
+    }
+  }
+}
