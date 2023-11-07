@@ -149,7 +149,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)+/g, "");
 
-    console.log(category);
 
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({

@@ -18,7 +18,7 @@ const BlogPage: React.FC<PageProps<Queries.BlogListQuery>> = ({
 }: PageProps<Queries.BlogListQuery>) => {
   const totalCount = data.allMdx.totalCount;
 
-  const category = pageContext.category;
+  const category = pageContext.category ? pageContext.category[0] : "";
   const currentPage = pageContext.currentPage;
 
   const cards = data.allMdx.nodes.map((node: any) => {
@@ -140,10 +140,16 @@ export const query = graphql`
 
 export default BlogPage;
 
-export const Head: HeadFC = () => (
-  <SEO
-    title="Image IN - Nos derniers articles"
-    description="Retrouvez nos derniers articles sur le web et le SEO"
-    pathname="/blog/"
-  />
-);
+export const Head: HeadFC = ({ pageContext, data }) => {
+  const currentCategory = pageContext.category ? pageContext.category[0] : "";
+
+  return (
+    <SEO
+      title="Image IN - Nos derniers articles"
+      description="Retrouvez nos derniers articles sur le web et le SEO"
+      pathname={`/blog/${
+        currentCategory ? `categorie/${currentCategory}/` : ""
+      }`}
+    />
+  );
+};

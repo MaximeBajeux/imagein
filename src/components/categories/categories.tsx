@@ -19,8 +19,6 @@ const Categories = ({ section }: { section: string }) => {
     }
   `);
 
-  console.log(data);
-
   // filter mdx by section, /posts/ for blog, /realisations/ for realisations
 
   const filteredMdx = data.allMdx.nodes.filter((node: any) => {
@@ -52,7 +50,7 @@ const Categories = ({ section }: { section: string }) => {
   };
 
   return (
-    <div xs={12} className="categories">
+    <div className="categories">
       <Link
         to={`/${section}`}
         className="category"
@@ -65,6 +63,7 @@ const Categories = ({ section }: { section: string }) => {
           to={`/${section}/categorie/${slugify(category)}`}
           className="category"
           aria-label={`${category}`}
+          key={category}
         >
           #{category.toUpperCase()}
         </Link>
