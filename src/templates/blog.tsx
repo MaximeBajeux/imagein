@@ -152,6 +152,7 @@ export default BlogPage;
 
 export const Head: HeadFC = ({ pageContext, data }) => {
   const currentCategory = pageContext.category ? pageContext.category[0] : "";
+  const currentPage = pageContext.currentPage;
 
   return (
     <SEO
@@ -159,7 +160,8 @@ export const Head: HeadFC = ({ pageContext, data }) => {
       description="Retrouvez nos derniers articles sur le web et le SEO"
       pathname={`/blog/${
         currentCategory ? `categorie/${slugify(currentCategory)}/` : ""
-      }`}
+      }${currentPage > 1 ? `${currentPage}/` : ""}
+      `}
     />
   );
 };
