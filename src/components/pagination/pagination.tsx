@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import "./pagination.scss";
+import { slugify } from "../../tools/strings";
 
 const Pagination = ({ totalPages, currentPage, section, category }) => {
   // Calcul pour déterminer les numéros de page à afficher
@@ -10,10 +11,14 @@ const Pagination = ({ totalPages, currentPage, section, category }) => {
 
   // Générer les URLs de page
   const linkToPage = (pageNumber) => {
+    const categorySlug = category ? slugify(category) : "";
+
     if (pageNumber === 1) {
-      return `/${section}/${category || ""}`.replace(/\/$/, ""); // Enlever le slash final si category est vide
+      return `/${section}/${category ? `categorie/${categorySlug}` : ""}`;
     } else {
-      return `/${section}/${category ? `${category}/` : ""}${pageNumber}`;
+      return `/${section}/${
+        category ? `categorie/${categorySlug}` : ""
+      }/${pageNumber}`;
     }
   };
 
