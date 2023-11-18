@@ -14,11 +14,11 @@ const Pagination = ({ totalPages, currentPage, section, category }) => {
     const categorySlug = category ? slugify(category) : "";
 
     if (pageNumber === 1) {
-      return `/${section}/${category ? `categorie/${categorySlug}` : ""}`;
+      return `/${section}/${category ? `categorie/${categorySlug}/` : ""}`;
     } else {
       return `/${section}/${
-        category ? `categorie/${categorySlug}` : ""
-      }/${pageNumber}`;
+        category ? `categorie/${categorySlug}/` : ""
+      }${pageNumber}/`;
     }
   };
 

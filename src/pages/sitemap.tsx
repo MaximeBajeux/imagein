@@ -7,6 +7,7 @@ import BreadCrumb from "../components/breadcrumb/breadcrumb";
 import Row from "../components/row/row";
 import Col from "../components/col/col";
 import { Link } from "gatsby";
+import SEO from "../components/seo/seo";
 
 const SiteMapPage: React.FC<PageProps> = ({ data }) => {
   const pages = data.allSitePage.nodes;
@@ -42,15 +43,17 @@ const SiteMapPage: React.FC<PageProps> = ({ data }) => {
       <section className="blogpost">
         <h2>Toutes les pages du site </h2>
         <p>
-          {pages.map((page) => (
-            <Link
-              to={page.path}
-              key={page.path}
-              style={{ display: "block", width: "100%" }}
-            >
-              {page.path}
-            </Link>
-          ))}
+          {pages
+            .filter((page) => !page.path.includes("404"))
+            .map((page) => (
+              <Link
+                to={page.path}
+                key={page.path}
+                style={{ display: "block", width: "100%" }}
+              >
+                {page.path}
+              </Link>
+            ))}
         </p>
       </section>
     </Layout>
@@ -68,3 +71,11 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = () => (
+  <SEO
+    title="Image IN - Plan du site"
+    description="Plan du site de l'agence Image IN"
+    pathname={`/sitemap/`}
+  />
+);
