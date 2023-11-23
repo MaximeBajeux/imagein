@@ -369,6 +369,26 @@ export const createPages: GatsbyNode["createPages"] = async ({
     toPath: "/blog/comment-gatsbyjs-peut-il-aider-a-ameliorer-la-velocite-de-votre-site/",
   });
 
+  createRedirect({
+    fromPath: "/blog/SEO/",
+    toPath: "/blog/categorie/seo/",
+  });
+
+  createRedirect({
+    fromPath: "/blog/Communication/",
+    toPath: "/blog/categorie/communication/",
+  });
+
+  createRedirect({
+    fromPath: "/blog/Programmation/",
+    toPath: "/blog/categorie/programmation/",
+  });
+
+  createRedirect({
+    fromPath: "/blog/Actualités/",
+    toPath: "/blog/categorie/actualites/",
+  });
+
 };
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
