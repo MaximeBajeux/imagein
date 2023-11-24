@@ -125,8 +125,8 @@ const OffresPage: React.FC<PageProps> = ({ data }: PageProps) => {
               </Grid.Square>
               <Grid.VerticalRect className="kpi__item shadow-1">
                 <div className="kpi__text">
-                  <span className="big-orange">10 photos</span> professionnelles
-                  de votre entreprise ou de vos produits
+                  <span className="big-orange">10 photos</span> pros de votre
+                  entreprise ou de vos produits
                 </div>
               </Grid.VerticalRect>
               <Grid.Line className="kpi__item shadow-1">
