@@ -20,6 +20,7 @@ const Button = ({
         return (
           <a
             className={`button basic-button ${className ? className : ""}`}
+            href={to as string}
             {...props}
           >
             <span>{children}</span>

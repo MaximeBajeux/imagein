@@ -8,10 +8,12 @@ import { isMobile } from "react-device-detect";
 const GlowButton = ({
   as = "button",
   to,
+  target,
   children,
 }: {
   as: "button" | "a" | "Link";
   to: string;
+  target?: string;
   children: React.ReactNode;
 }) => {
   const { currentColor } = useColorState();
@@ -55,7 +57,12 @@ const GlowButton = ({
     switch (as) {
       case "a":
         return (
-          <a className="glow-button button" ref={aRef} href={to}>
+          <a
+            className="glow-button button"
+            ref={aRef}
+            href={to}
+            target={target}
+          >
             <span>{children}</span>
             <div className="gradient" ref={gradientElem}></div>
           </a>
