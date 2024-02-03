@@ -1,0 +1,66 @@
+---
+title: "Coder en angularJS en 2024: ça donne quoi ?"
+label: "Coder en angularJS en 2024: ça donne quoi ?"
+h1: "Coder en angularJS en 2024: ça donne quoi ?"
+slug: "coder-en-angularjs-en-2024-ca-donne-quoi"
+description: "A l'occasion d'un entretien, j'ai du réviser mes classiques et me replonger dans AngularJS. Voici ce que j'en pense en 2024."
+date: "2024-02-03"
+image: "../images/blog/angularjs-2024.webp"
+imageAlt: "Un archéologue redécouvrant angularjs en 2024."
+categories: ["Actualités", "Programmation"]
+type: "article"
+---
+
+Récemment est sortie la version 17 d’[Angular](https://angular.io/). Plutôt saluée par la critique, cette version a su réinventer le framework afin de concurrencer de nouveaux les leaders actuels. Mais pour un entretien que j’ai passé récemment, j’ai du réviser non pas Angular, mais [AngularJS](https://angularjs.org/) ! 😨
+
+![Un archéologue redécouvrant angularjs en 2024.](../images/blog/angularjs-2024.webp)
+
+## C’est quoi AngularJS ?
+
+AngularJS est un framework créé en 2010 (oui ça date) par Google afin de régler le problème de jquery. Je vous laisse aller sur wikipédia pour la définition détaillée, ce qui nous intéresse ici, c’est deux choses:
+
+AngularJS n’est pas Angular. Angular est disons le petit frère qui a bénéficié de l’apprentissage de ses parents avec son ainé. AngularJS est comme son nom l’indique en javascript, Angular en typescript. AngularJS est un modèle MVC là où Angular est component based.
+
+Seconde chose et pas des moindres, AngularJS est mort depuis janvier 2022 ! Alors pourquoi en 2024 jouer les nécromanciens ?
+
+## La dette technique liée à AngularJS
+
+Comme je le disais juste avant, AngularJS est un MVC. Si aujourd’hui les différents frameworks front sont facilement interchangeables entre eux et peuvent même cohabiter entre eux comme par exemple avec AstroJS (mangez du Astro, c’est bon), passer d’un MVC à un modèle component based n’est pas forcément évident.
+
+Lorsque je travaillais pour Portainer, nous avions commencé à intégrer des composants React dans AngularJS directement, mais ça revient à remplacer les feuilles d’un arbre sans toucher au tronc.
+
+Le problème en France (et probablement ailleurs) c’est que lorsqu’une alternative sérieuse à JQuery est arrivée, il s’est passé globalement ceci: “Mais du coup ça veut dire qu’on peut passer toute la logique métier côté front avec ça ? C’est génial ! Faisons donc des frontend monolithiques de 100k lignes de code !” Je ne caricature même pas.
+
+Et donc maintenant que le framework est mort, enterré, décomposé et en poussière, de nombreuses entreprises commencent à songer à migrer vers des technologies plus modernes. Pourquoi pas avant ? Posez la question à ceux qui font encore du Cobol.
+
+## Et donc AngularJS, ça ressemble à quoi en 2024 ?
+
+C’était là toute la question de cet article ! Et après avoir passé une semaine à réviser mes classiques, voilà ma réponse: Meh. 😶
+
+Ahah ! à vrai dire, je trouve qu’il y a encore du bon là dedans, c’est pas infâme à utiliser, c’est juste que je trouve ça extrêmement limité par rapport à ce qu’on peut faire aujourd’hui, mais commençons par les bons points.
+
+### C’était pas mal à l’époque
+
+On sent que le projet à l’origine a été bien pensé. Le modèle MVC était la norme en SSR et c’est donc en toute logique que ce modèle a été choisi pour AngularJS.
+
+Un service récupère de la donnée et des controllers utilisent cette donnée pour manipuler des templates, Ok. Dans les faits, est-ce que c’est efficace ?
+
+Et bien plutôt, oui. La structure est assez claire, le pattern bien défini. Si on ne fait pas n’importe quoi en foutant plein de cochonneries dans le root scope, on peut assez facilement développer un projet globalement stable.
+
+Aussi, c’est du simple javascript, donc c’est très portable. Il suffit de charger le script dans le index.html et let’s go, vous pouvez faire de l’angularjs.
+
+### Mais aujourd’hui, ça sent la naphtaline.
+
+C’est sympa l’ES6, non ? Cette belle syntaxe qui rend le javascript beaucoup plus moderne et appréhendable, on adore. Avec AngularJS, vous oubliez.
+
+Tout du moins, dans sa version vanilla. Aujourd’hui n’importe quel framework front a compris l’importance du setup et fournira une CLI performante pour démarrer un nouveau projet, avec une sélection personnalisée des outils que vous souhaitez utiliser. Avec AngularJS, vous vous débrouillez.
+
+Nous sommes à l’époque des seeds. Des repos préconfigurés avec ce que l’on espère y trouver. Un bundler, un transpiler, éventuellement un framework css et une ébauche d’architecture. Il n’y a plus qu’à espérer tomber sur la bonne seed.
+
+Et donc le pattern MVC ? Aujourd’hui nous avons globalement fait le deuil du “separation of concerns” et pensons composants. Avec les .jsx, les .astro, les .vue, nous gérons à la fois le style, le template et le controller à un même endroit. C’est un autre paradigme, mais on ne peut que constater l’intérêt de la chose aujourd’hui.
+
+Ce qu’on remarque avec angularjs, c’est qu’à moins de sortir les gros moyens pour pouvoir faire de l’es6 et une architecture hybride entre composants / et MVC, il est assez difficile de maintenir de GROS projets.
+
+## Un regard en arrière intéressant
+
+Est-ce que j’ai envie de faire du AngularJS en 2024 ? Seulement si c’est pour mieux le tuer ! 😂 AngularJS, c’est fini, il faut tourner la page. Aujourd’hui on a objectivement beaucoup mieux, mais c’est intéressant de voir le progrès qui a été fait côté front afin d’offrir des interfaces toujours plus dynamiques sans pour autant que la codebase en souffre.
