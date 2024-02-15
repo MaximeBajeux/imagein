@@ -1,0 +1,72 @@
+---
+title: "Découvrir Tailwind en 2024: ce qu'on en pense chez Image IN"
+h1: "Découvrir Tailwind en 2024: ce qu'on en pense ?"
+label: "Découvrir Tailwind en 2024: ce qu'on en pense ?"
+slug: "decouvrir-tailwind-en-2024"
+date: "2024-02-15"
+description: "Tailwind est un framework CSS qui a fait couler beaucoup d'encre. Clivant mais énormément utilisé, qu'en pensons-nous chez Image IN ? Est-ce que nous vous le conseillerions ? Quelles sont les alternatives sur le marché en 2024 ? On vous dit tout !"
+image: "../images/blog/tailwind-2024.png"
+imageAlt: "Une image d'un ordinateur portable sur une table en bois avec un écran montrant le logo tailwind"
+type: "article"
+categories: ["Programmation"]
+---
+
+import { TwitterEmbed } from "../components/twitterembed/twitterembed";
+
+D’abord discret en entreprise lors de ses premières années, Tailwind est désormais un incontournable que l’on retrouve sur de nombreuses offres d’embauche et de projets en grand groupe. Loin de recevoir une critique dithyrambique, il est souvent assez clivant parmi la communauté des développeurs.
+
+J’ai mis longtemps avant de m’y intéresser: l’année dernière pour être exact, mais pour le SEO de l’article on va considérer que je l’ai découvert en 2024 😁 
+
+Qu’est-ce qu’on en pense chez ImageIN ? Est-ce qu’on vous le conseillerait ? Quelles sont les alternatives sur le marché en 2024 ? On vous dit tout !
+
+![Une image d'un ordinateur portable sur une table en bois avec un écran montrant le logo tailwind](../images/blog/tailwind-2024.png)
+
+## Déjà Tailwind, qu’est-ce que c’est ?
+
+Tailwind est un framework CSS. Voilà. Allez salut !
+
+![Un GIF de Will Pherrel](https://media3.giphy.com/media/xUySTVNHpdACknfKuc/giphy.gif?cid=7941fdc6ubtmt9kqvnt7kjgyeprzv98erwlexhsfpm9nvcbi&ep=v1_gifs_search&rid=giphy.gif&ct=g)
+
+Pour être plus précis, Tailwind est un framework “utility-first”. Ce n’est pas moi qui l’invente, c’est leur propre définition. Afin de comprendre ce concept, il est pertinent de le voir via l’histoire du CSS.
+
+Je ne vais pas réinventer la roue et citer un copain qui a fait un fantastique thread retraçant tout ça:
+
+<TwitterEmbed tweetId={"1536276776183156738"} />
+
+Il n’y va pas de main morte quant à son opinion sur Tailwind 😅 Est-ce que nous sommes d’accord ? Analysons…
+
+## Ce qu’on pense de Tailwind chez Image IN
+
+Je dis on mais en tant qu’unique développeur d’Image IN, je pense que je peux me permettre de parler à la première personne…
+
+J’ai une relation d’amour / haine avec tailwind. Je pense pourvoir formaliser ainsi: “Tailwind c’est bien au début, mais ça se casse vite la gueule”.
+
+### Brillant pour la création de POC
+
+Pour faire un POC, tester une solution super rapidement, c’est incroyable. D’autant plus que les IA de génération de texte comprennent plutôt bien tailwind, en quelques dizaines de minutes vous pouvez styliser une page et la mettre en prod, ce sera responsive et cross-browser.
+
+### La documentation est excellente
+
+Et la documentation est bien foutue, heureusement d’ailleurs parce que sinon la learning curve serait dégueulasse, mais comme elle permet de chercher notamment par propriété css, on retrouve vite les équivalents et la prise en main se fait très vite.
+
+### Mais Tailwind, c’est laid
+
+Je dirais même dégueulasse. Ce n’est pas un défaut, c’est conçu pour être ainsi, c’est juste ma perception des choses qui le rend ainsi, pas désolé. Heureusement, on a [quelques extensions VSCode pour améliorer les choses](https://dev.to/kalimahapps/4-vscode-extensions-i-use-for-tailwind-2him). Mais le fait qu’il existe des extensions pour améliorer le problème de lisibilité est en soit une preuve de l’existence de ce problème.
+
+En fait, la seule solution pour s’en sortir avec tailwind, ce que Stéphane dit aussi dans un de ses threads, c’est d’avoir une approche atomique. Créer des micro-composants qui interagissent entre eux. Ainsi on peut dynamique jouer sur les classes tailwind via les props react sans que ça deviennent un énorme chantier.
+
+### Notre usage de tailwind
+
+Et c’est suite à ce constat que nous avons défini notre style d’utilisation du framework pour répondre à notre besoin. Créer des micro-composants, avec une hiérarchie, facilement customisable et thématisable sans casser le design système. Est-ce qu’on est en train de créer un bootstrap interne tailwind based ? 🤔 Peut-être qu’il y a un peu de ça mais si on s’arrêtait là ce serait stupide de ne pas utiliser un framework directement component-based.
+
+Notre volonté finale est de pouvoir créer des sites Astro à la volée via un formulaire web. L’avantage de tailwind c’est que ça se manipule bien, ce ne sont que des chaînes de caractères, le parsing est bien plus aisé que celui du CSS natif. Ainsi nous pouvons facilement générer du code à partir d’une configuration dans un JSON, grâce à nos briques de bases préconçues. 
+
+## Quand utiliser Tailwind en 2024 ?
+
+Ok, l’heure du bilan. On a pu voir que tailwind trouvait son sens dans la création de POC et dans une approche template / micro-composants. Mais et le reste ?
+
+Si vous êtes des habitués des gros composants avec des templates de plus de 100 lignes, pitié, utilisez autre chose. Votre code va devenir illisible vitesse grand V et vous serez incapable de le maintenir.
+
+Si vous travaillez sur un site mettant l’accent sur le design, faites du CSS natif.
+
+Si vous travaillez sur un gros site ou un site mettant l’accent sur le contenu, utilisez une lib UI. Laquelle ? On en utilise peu ici, mais si on devait en conseiller une seule, ce serait https://tamagui.dev/
